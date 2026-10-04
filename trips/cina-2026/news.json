@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-03T05:50:00+02:00",
+ "updated": "2026-10-04T05:55:00+02:00",
  "items": [
   {
    "city": "Shanghai",
@@ -19,26 +19,6 @@
    "place": "Qizhong Tennis Center, Minhang",
    "src": "Shanghai Tourism",
    "url": "https://www.shanghaitourism.org/shanghai-festivals-events-calendar/"
-  },
-  {
-   "date": "2026-10-03",
-   "city": "Shanghai",
-   "cat": "Sport",
-   "title": "Aquabike World Championship - Gran Premio di Shanghai",
-   "text": "Gara mondiale di moto d'acqua, in programma il 2 e 3 ottobre. Orari non indicati dalla fonte: verifica prima di andare.",
-   "place": "Distretto di Baoshan",
-   "src": "Shanghai Tourism Festival (english.shanghai.gov.cn)",
-   "url": "https://english.shanghai.gov.cn/en-MajorConsumerEvents/20260907/b612f30cd33147ac92f6d061da9370ee.html"
-  },
-  {
-   "date": "2026-10-03",
-   "city": "Shanghai",
-   "cat": "Sport",
-   "title": "Valorant Champions 2026 (finali eSport)",
-   "text": "Il torneo internazionale di eSport si svolge dal 24 settembre all'11 ottobre nel distretto di Jing'an. Verifica biglietti e calendario del giorno.",
-   "place": "Distretto di Jing'an",
-   "src": "Shanghai Tourism Festival (english.shanghai.gov.cn)",
-   "url": "https://english.shanghai.gov.cn/en-MajorConsumerEvents/20260907/b612f30cd33147ac92f6d061da9370ee.html"
   },
   {
    "date": "2026-10-04",
@@ -76,6 +56,36 @@
    "cat": "Sport",
    "title": "Valorant Champions 2026 (finali eSport)",
    "text": "Il torneo prosegue fino all'11 ottobre nel distretto di Jing'an. Verifica biglietti e calendario del giorno.",
+   "place": "Distretto di Jing'an",
+   "src": "Shanghai Tourism Festival (english.shanghai.gov.cn)",
+   "url": "https://english.shanghai.gov.cn/en-MajorConsumerEvents/20260907/b612f30cd33147ac92f6d061da9370ee.html"
+  },
+  {
+   "date": "2026-10-05",
+   "city": "Shanghai",
+   "cat": "Festival",
+   "title": "Carnevale a tema tedesco",
+   "text": "Dal 5 al 24 ottobre, stinco di maiale, salsicce, birre tedesche e musica di una banda bavarese. Orari non indicati dalla fonte.",
+   "place": "Holiday Inn Shanghai Pudong",
+   "src": "Shanghai Tourism Festival (english.shanghai.gov.cn)",
+   "url": "https://english.shanghai.gov.cn/en-MajorConsumerEvents/20260907/b612f30cd33147ac92f6d061da9370ee.html"
+  },
+  {
+   "date": "2026-10-06",
+   "city": "Shanghai",
+   "cat": "Festival",
+   "title": "Carnevale a tema tedesco",
+   "text": "Dal 5 al 24 ottobre, stinco di maiale, salsicce, birre tedesche e musica di una banda bavarese. Orari non indicati dalla fonte.",
+   "place": "Holiday Inn Shanghai Pudong",
+   "src": "Shanghai Tourism Festival (english.shanghai.gov.cn)",
+   "url": "https://english.shanghai.gov.cn/en-MajorConsumerEvents/20260907/b612f30cd33147ac92f6d061da9370ee.html"
+  },
+  {
+   "date": "2026-10-06",
+   "city": "Shanghai",
+   "cat": "Sport",
+   "title": "Valorant Champions 2026 (finali eSport)",
+   "text": "Il torneo si svolge a Jing'an fino all'11 ottobre. Verifica biglietti e calendario del giorno.",
    "place": "Distretto di Jing'an",
    "src": "Shanghai Tourism Festival (english.shanghai.gov.cn)",
    "url": "https://english.shanghai.gov.cn/en-MajorConsumerEvents/20260907/b612f30cd33147ac92f6d061da9370ee.html"
