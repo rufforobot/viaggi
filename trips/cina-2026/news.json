@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-04T05:55:00+02:00",
+ "updated": "2026-10-05T06:10:00+02:00",
  "items": [
   {
    "city": "Shanghai",
@@ -21,26 +21,6 @@
    "url": "https://www.shanghaitourism.org/shanghai-festivals-events-calendar/"
   },
   {
-   "date": "2026-10-04",
-   "city": "Shanghai",
-   "cat": "Sport",
-   "title": "F1H2O World Championship - Gran Premio di Shanghai",
-   "text": "Motonautica F1H2O, gare il 4 e 5 ottobre. Orari non indicati dalla fonte.",
-   "place": "Distretto di Baoshan",
-   "src": "Shanghai Tourism Festival (english.shanghai.gov.cn)",
-   "url": "https://english.shanghai.gov.cn/en-MajorConsumerEvents/20260907/b612f30cd33147ac92f6d061da9370ee.html"
-  },
-  {
-   "date": "2026-10-04",
-   "city": "Shanghai",
-   "cat": "Sport",
-   "title": "Valorant Champions 2026 (finali eSport)",
-   "text": "Il torneo prosegue fino all'11 ottobre nel distretto di Jing'an. Verifica biglietti e calendario del giorno.",
-   "place": "Distretto di Jing'an",
-   "src": "Shanghai Tourism Festival (english.shanghai.gov.cn)",
-   "url": "https://english.shanghai.gov.cn/en-MajorConsumerEvents/20260907/b612f30cd33147ac92f6d061da9370ee.html"
-  },
-  {
    "date": "2026-10-05",
    "city": "Shanghai",
    "cat": "Sport",
@@ -53,16 +33,6 @@
   {
    "date": "2026-10-05",
    "city": "Shanghai",
-   "cat": "Sport",
-   "title": "Valorant Champions 2026 (finali eSport)",
-   "text": "Il torneo prosegue fino all'11 ottobre nel distretto di Jing'an. Verifica biglietti e calendario del giorno.",
-   "place": "Distretto di Jing'an",
-   "src": "Shanghai Tourism Festival (english.shanghai.gov.cn)",
-   "url": "https://english.shanghai.gov.cn/en-MajorConsumerEvents/20260907/b612f30cd33147ac92f6d061da9370ee.html"
-  },
-  {
-   "date": "2026-10-05",
-   "city": "Shanghai",
    "cat": "Festival",
    "title": "Carnevale a tema tedesco",
    "text": "Dal 5 al 24 ottobre, stinco di maiale, salsicce, birre tedesche e musica di una banda bavarese. Orari non indicati dalla fonte.",
@@ -81,14 +51,14 @@
    "url": "https://english.shanghai.gov.cn/en-MajorConsumerEvents/20260907/b612f30cd33147ac92f6d061da9370ee.html"
   },
   {
-   "date": "2026-10-06",
+   "date": "2026-10-07",
    "city": "Shanghai",
    "cat": "Sport",
-   "title": "Valorant Champions 2026 (finali eSport)",
-   "text": "Il torneo si svolge a Jing'an fino all'11 ottobre. Verifica biglietti e calendario del giorno.",
-   "place": "Distretto di Jing'an",
-   "src": "Shanghai Tourism Festival (english.shanghai.gov.cn)",
-   "url": "https://english.shanghai.gov.cn/en-MajorConsumerEvents/20260907/b612f30cd33147ac92f6d061da9370ee.html"
+   "title": "Valorant Champions 2026, inizio dei playoff",
+   "text": "Dal 7 al 18 ottobre i playoff a eliminazione doppia con otto squadre; semifinali e finale al Mercedes-Benz Arena. Il 5 e 6 ottobre non ci sono partite. Verifica biglietti e orari.",
+   "place": "Jing'an Sports Center, Jing'an",
+   "src": "The Spike",
+   "url": "https://www.thespike.gg/valorant/news/valorant-champions-2026-shanghai-everything-you-need-to-know/8885"
   }
  ]
 }
