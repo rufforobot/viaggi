@@ -2390,31 +2390,31 @@ function speak(text, lang, btn, rate) {
   sentences.forEach(s => { if (cur && (cur + s).length > 220) { parts.push(cur); cur = s; } else cur += s; });
   if (cur) parts.push(cur);
   if (btn) { btn.textContent = 'Ferma'; speech.btn = btn; }
-  const voice = pickVoice(lang.slice(0, 2).toLowerCase());
-  const run = useVoice => {
+  /* nessuna voce forzata: si usa quella predefinita del dispositivo per la lingua (le voci "premium" non scaricate restano mute) */
+  const run = () => {
     if (speech.token !== token) return;
     speech.utts = parts.map((p, i) => {
       const u = new SpeechSynthesisUtterance(p.trim());
-      u.lang = lang; u.rate = rate; if (useVoice && voice) u.voice = voice;
+      u.lang = lang; u.rate = rate;
       if (i === 0) u.onstart = () => { speech.started = token; };
       if (i === parts.length - 1) u.onend = () => { if (speech.token === token) stopSpeech(); };
       u.onerror = ev => {
         if (speech.token !== token || (ev && (ev.error === 'canceled' || ev.error === 'interrupted'))) return;
-        if (speech.started !== token && useVoice && voice) { speechSynthesis.cancel(); run(false); return; }
-        if (i === parts.length - 1) stopSpeech();
+        toast('Voce non riuscita' + (ev && ev.error ? ' (' + ev.error + ')' : ''));
+        stopSpeech();
       };
       return u;
     });
     try { speechSynthesis.resume(); } catch (e) {}
     speech.utts.forEach(u => speechSynthesis.speak(u));
-    /* se dopo 3 s non e' partito nulla, riprova con la voce di default */
     setTimeout(() => {
       if (speech.token !== token || speech.started === token) return;
-      if (useVoice && voice) { speechSynthesis.cancel(); setTimeout(() => run(false), 80); }
-      else { toast('Nessuna voce disponibile sul dispositivo'); stopSpeech(); }
-    }, 3000);
+      toast(speechSynthesis.getVoices().length ? 'La voce non parte: controlla volume e modalità silenziosa' : 'Nessuna voce di sintesi sul dispositivo');
+      stopSpeech();
+    }, 4000);
   };
-  setTimeout(() => run(true), 80); /* cancel() + speak() immediato viene ignorato su alcuni browser */
+  /* dentro il gesto dell'utente; ritardo solo se c'era una lettura da annullare */
+  if (speechSynthesis.speaking || speechSynthesis.pending) { speechSynthesis.cancel(); setTimeout(run, 120); } else run();
 }
 
 function todayGuideCity() {
