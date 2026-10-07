@@ -890,11 +890,26 @@ button.wp { cursor: pointer; }
 .ss-e{color:var(--muted);font-weight:600;font-size:.7em}
 .legc{display:flex;width:100%;min-width:0;max-width:100%;box-sizing:border-box;border-radius:22px;align-items:center;gap:12px;border:0;background:var(--fill);padding:10px 14px 10px 10px;margin:0 0 10px;color:var(--text);font:inherit;text-align:left}
 .legc:active{transform:scale(.98)}
-.lg-t{min-width:46px;text-align:right;font-size:14px;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
+.lg-t{min-width:58px;text-align:right;font-size:14px;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
 .lg-i{flex:1;min-width:0}.lg-i b{display:block;font-size:14px;font-weight:700}.lg-i small{display:block;font-size:12px;color:var(--muted);margin-top:1px;}
 .today-row.leg{padding:8px 0}.today-row.leg .tr-time{color:var(--muted)}.today-row.leg .tr-main b{font-size:.9rem;font-weight:700}
 .today-row.leg.next .tr-time{color:var(--accent-ink)}
 .sg-full{margin-top:10px}
+
+/* tempi: dalle–alle allineati, scheda compatta */
+.sc-t{display:flex;flex-direction:column;align-items:flex-end;line-height:1.1}
+.sc-e{font-size:12px;font-weight:600;color:var(--muted);margin-top:4px;font-variant-numeric:tabular-nums;letter-spacing:.1px}
+.tr-time{font-variant-numeric:tabular-nums}
+.tr-e{font-size:12px;margin-top:3px}
+.ss-t{font-size:22px;line-height:1.1;margin:6px 0 2px}
+.ss-e{font-size:.62em;margin-left:2px}
+.ss-s{font-size:14px;margin:0 0 10px}
+.sg{padding:14px 16px;margin:0 0 10px;border-radius:22px}
+.sg-full{font-size:14px;line-height:1.5;margin-top:8px}.sg-full p{margin:0 0 8px}.sg-full p:last-child{margin:0}
+.sg-listen{min-height:34px;font-size:13px}
+.stop-det .dsec{padding:10px 12px;margin-bottom:8px}
+.stop-det .dsec b{font-size:11px}
+.ss-zh{font-size:28px}.ss-py{font-size:13px;margin-bottom:2px}
 </style>
 </head>
 <body>
@@ -1462,7 +1477,7 @@ function renderToday() {
     } else {
       const i = it.i, st = d.stops[i];
       r.className = 'today-row' + (k === nextK ? ' next' : '');
-      r.innerHTML = `<span class="tr-time">${esc(st[0])}${it.end != null ? `<small class="tr-e${it.tight ? ' tight' : ''}">→ ${minHM(it.end)}</small>` : ''}</span><span class="tr-main"><b>${esc(L(st[1]))}${guidesForStop(d, i).length ? '<em class="sc-g">Guida</em>' : ''}</b><small>${esc(L(st[2]))}</small></span>`;
+      r.innerHTML = `<span class="tr-time">${esc(st[0])}${it.end != null ? `<small class="tr-e${it.tight ? ' tight' : ''}">${minHM(it.end)}</small>` : ''}</span><span class="tr-main"><b>${esc(L(st[1]))}${guidesForStop(d, i).length ? '<em class="sc-g">Guida</em>' : ''}</b><small>${esc(L(st[2]))}</small></span>`;
       r.onclick = () => openSheetNode(L(st[1]), () => stopSheet(d, i));
     }
     list.appendChild(r);
@@ -2298,6 +2313,12 @@ const TRANSFER_RE = /^(volo|treno|verso|arrivo|check-?out|rientro)\b|^(hotel|aer
 const NOLEG_RE = /^(pranzo|cena|colazione|riposo|mattin|sera\b|tempo libero|opzionale)/i;
 const hmMin = t => { const m = String(t).match(/^(\d{1,2})[:.](\d{2})/); return m ? (+m[1]) * 60 + (+m[2]) : null; };
 const minHM = n => { n = ((Math.round(n) % 1440) + 1440) % 1440; return String(Math.floor(n / 60)).padStart(2, '0') + ':' + String(n % 60).padStart(2, '0'); };
+const numMin = t => { const m = String(L(t) || '').match(/(\d+)\s*min/); return m ? +m[1] : null; };
+function legFromField(mv) {
+  const m = String(L(mv) || '').match(/^\s*([^·]+?)\s*·\s*(\d+)\s*min/i); if (!m) return null;
+  const k = m[1].toLowerCase(), mode = /metro/.test(k) ? 'metro' : /piedi/.test(k) ? 'piedi' : /bici/.test(k) ? 'bici' : /bus|navetta/.test(k) ? 'bus' : 'taxi';
+  return { mode, dur: +m[2], approx: false, label: { metro: 'Metro', taxi: 'Taxi', piedi: 'A piedi', bici: 'Bici', bus: 'Bus' }[mode] };
+}
 function legInfo(how) {
   const t = String(L(how) || ''), low = t.toLowerCase();
   const pos = { metro: low.search(/\bmetro\b|metropolitana/), taxi: low.search(/didi|taxi/), piedi: low.search(/a piedi/), bici: low.search(/\bbici/) };
@@ -2316,23 +2337,26 @@ function dayPlan(day) {
     const prev = i > 0 ? day.stops[i - 1] : null;
     const prevOk = !prev || !TRANSFER_RE.test(L(prev[1]));
     const alt = prev && start != null && hmMin(prev[0]) === start; /* alternativa alla tappa precedente: stesso orario */
-    if (!alt && st && st.how && start != null && !TRANSFER_RE.test(t) && !NOLEG_RE.test(t) && prevOk) {
-      const li = legInfo(st.how);
+    const exp = st && st.mv ? legFromField(st.mv) : null;
+    if (!alt && st && (exp || st.how) && start != null && !TRANSFER_RE.test(t) && (exp || !NOLEG_RE.test(t)) && prevOk && (!exp || exp.dur >= 5)) {
+      const li = exp || legInfo(st.how);
       /* se la tappa precedente dice quanto ci vuole per arrivare qui, vale più della stima */
-      if (prev && day.det && day.det[i - 1] && day.det[i - 1].how) {
+      if (!exp && prev && day.det && day.det[i - 1] && day.det[i - 1].how) {
         const key = t.split(/[:(,]/)[0].trim().toLowerCase(), sent = String(L(day.det[i - 1].how)).split(/(?<=[.!?])\s+/).find(x => key.length > 4 && x.toLowerCase().includes(key) && /\d+\s*(?:[–-]\s*\d+\s*)?min/.test(x));
         if (sent) { const m = sent.match(/(\d+)\s*(?:[–-]\s*(\d+)\s*)?min/); li.dur = +(m[2] || m[1]); li.approx = false; }
       }
       const leg = Object.assign({ type: 'leg', to: i, depart: start - li.dur, arrive: start, from: prev ? L(prev[1]).replace(/\s*\(.*?\)/g, '').split(':')[0] : '' }, li);
       legAt[i] = leg; items.push(leg);
     }
-    items.push({ type: 'stop', i, start, end: null });
+    items.push({ type: 'stop', i, start, end: null, dur: st && st.dur ? numMin(st.dur) : null });
   });
   const stops = items.filter(x => x.type === 'stop');
   stops.forEach((it, k) => {
-    const nx = stops.slice(k + 1).find(y => y.start == null || y.start > it.start); if (!nx || it.start == null || nx.start == null) return;
-    const lg = legAt[nx.i]; it.end = lg ? lg.depart : nx.start;
-    it.tight = it.end - it.start < 10;
+    if (it.start == null) return;
+    const nx = stops.slice(k + 1).find(y => y.start == null || y.start > it.start), lg = nx && legAt[nx.i];
+    const limit = nx && nx.start != null ? (lg ? lg.depart : nx.start) : null;
+    if (it.dur) { it.end = it.start + it.dur; it.tight = limit != null && it.end > limit; }
+    else if (limit != null) { it.end = limit; it.tight = it.end - it.start < 10; }
   });
   const out = { items, legAt, stopAt: Object.fromEntries(stops.map(x => [x.i, x])) };
   PLAN_CACHE.set(day, out); return out;
@@ -2351,7 +2375,7 @@ const openLeg = (day, leg) => openSheetNode('Verso ' + L(day.stops[leg.to][1]).r
 function stopSheet(day, i) {
   const s = day.stops[i], st = day.det ? day.det[i] : null, p = st ? placeInfo(day, i) : { zh: '', addr: '' };
   const hasPlace = !!(p.zh || p.addr), box = document.createElement('div');
-  box.innerHTML = `${p.zh ? `<div class="ss-zh">${esc(p.zh)}</div>${p.py ? `<div class="ss-py">${esc(p.py)}</div>` : ''}` : ''}<div class="ss-t">${esc(s[0])}${(dayPlan(day).stopAt[i] || {}).end != null ? `<span class="ss-e"> → ${minHM(dayPlan(day).stopAt[i].end)}</span>` : ''}</div>${s[2] ? `<div class="ss-s">${esc(L(s[2]))}</div>` : ''}<div class="stop-acts"></div>${st ? '<div class="stop-det"></div>' : ''}`;
+  box.innerHTML = `${p.zh ? `<div class="ss-zh">${esc(p.zh)}</div>${p.py ? `<div class="ss-py">${esc(p.py)}</div>` : ''}` : ''}<div class="ss-t">${esc(s[0])}${(dayPlan(day).stopAt[i] || {}).end != null ? `<span class="ss-e"> – ${minHM(dayPlan(day).stopAt[i].end)}</span>` : ''}</div>${s[2] ? `<div class="ss-s">${esc(L(s[2]))}</div>` : ''}<div class="stop-acts"></div>${st ? '<div class="stop-det"></div>' : ''}`;
   { const gl = guidesForStop(day, i), anchor = box.querySelector('.stop-acts');
     gl.forEach(x => {
       const g = document.createElement('div'); g.className = 'sg';
@@ -2392,7 +2416,7 @@ function renderDay(day, target) {
     if (it.type === 'leg') { const lr = document.createElement('button'); lr.type = 'button'; lr.className = 'legc'; lr.innerHTML = `<span class="lg-t">${minHM(it.depart)}</span><span class="lg-i"><b>${esc(it.label)} · ${it.approx ? '~' : ''}${it.dur} min</b><small>${it.from ? 'da ' + esc(it.from) + ' a ' : 'verso '}${esc(L(day.stops[it.to][1]).replace(/\s*\(.*?\)/g, '').split(':')[0])}</small></span><i class="sc-c">›</i>`; lr.onclick = () => openLeg(day, it); timeline.appendChild(lr); return; }
     const i = it.i, s = day.stops[i];
     const row = document.createElement('button'); row.type = 'button'; row.className = 'stopc';
-    row.innerHTML = `<div class="sc-t">${esc(s[0])}${it.end != null ? `<small class="sc-e${it.tight ? ' tight' : ''}">→ ${minHM(it.end)}</small>` : ''}</div><div class="sc-bar"></div><div class="sc-i"><div class="sc-h">${esc(L(s[1]))}${guidesForStop(day, i).length ? '<em class="sc-g">Guida</em>' : ''}</div>${optBadge(day.det[i]) ? `<div class="sc-o">${optBadge(day.det[i])}</div>` : ''}${s[2] ? `<div class="sc-s">${esc(L(s[2]))}</div>` : ''}${optsOf(day.det[i]).length ? `<div class="sc-o">${optsBadges(day.det[i])}</div>` : ''}</div><i class="sc-c">›</i>`;
+    row.innerHTML = `<div class="sc-t">${esc(s[0])}${it.end != null ? `<small class="sc-e${it.tight ? ' tight' : ''}">${minHM(it.end)}</small>` : ''}</div><div class="sc-bar"></div><div class="sc-i"><div class="sc-h">${esc(L(s[1]))}${guidesForStop(day, i).length ? '<em class="sc-g">Guida</em>' : ''}</div>${optBadge(day.det[i]) ? `<div class="sc-o">${optBadge(day.det[i])}</div>` : ''}${s[2] ? `<div class="sc-s">${esc(L(s[2]))}</div>` : ''}${optsOf(day.det[i]).length ? `<div class="sc-o">${optsBadges(day.det[i])}</div>` : ''}</div><i class="sc-c">›</i>`;
     row.onclick = () => openSheetNode(L(s[1]), () => stopSheet(day, i));
     timeline.appendChild(row);
   });

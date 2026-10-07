@@ -9,7 +9,7 @@
   const HOTEL = { città: 'city', notti: 'nights', nome: 'name', locale: 'zh', pronuncia: 'py', 'indirizzo-locale': 'addr', indirizzo: 'en', 'indirizzo-app': 'pya',
     tel: 'tel', 'tel-mostrato': 'telShow', metro: 'metro', checkin: 'cin', checkout: 'cout', prenotazione: 'booking', verificato: 'v', avviso: 'warn', fonte: 'src' };
   const STOP = { sintesi: 'sum', locale: 'zh', pronuncia: 'py', 'indirizzo-locale': 'addr', indirizzo: 'pya', come: 'how', orari: 'hours', costi: 'cost',
-    prenotazione: 'book', consigli: 'tips', attenzione: 'warn', tel: 'tel', hotel: 'h', verificato: 'v', guida: 'guide', modificabile: 'editable', luogo: 'luogo', mappa: 'map', varianti: 'opts', opzione: 'opt' };
+    prenotazione: 'book', consigli: 'tips', attenzione: 'warn', tel: 'tel', hotel: 'h', verificato: 'v', guida: 'guide', durata: 'dur', spostamento: 'mv', modificabile: 'editable', luogo: 'luogo', mappa: 'map', varianti: 'opts', opzione: 'opt' };
   const TRANSFER = { partenza: 'dep', note: 'arr', locale: 'zh' };
   const GUIDE = { tag: 'tag', nativo: 'native', testo: 'text', curiosita: 'curiosita', tradizioni: 'tradizioni', oggi: 'oggi', particolarita: 'particolarita', osservare: 'osservare', foto: 'foto', parola: 'parola' };
   const LISTS = new Set(['tips', 'osservare', 'opts']);
