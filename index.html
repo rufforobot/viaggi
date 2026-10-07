@@ -2344,7 +2344,7 @@ function dayPlan(day) {
       const leg = Object.assign({ type: 'leg', xfer: true, to: i, depart: start, arrive: start + li.dur, from: '', title: t.replace(/\s*\(.*?\)/g, '') }, li);
       legAt[i] = leg; items.push(leg); return;
     }
-    if (!alt && st && (exp || st.how) && start != null && !TRANSFER_RE.test(t) && (exp || !NOLEG_RE.test(t)) && prevOk && (!exp || exp.dur >= 5)) {
+    if (!alt && st && (exp || (st.how && prev)) && start != null && !TRANSFER_RE.test(t) && (exp || !NOLEG_RE.test(t)) && prevOk && (!exp || exp.dur >= 5)) {
       const li = exp || legInfo(st.how);
       /* se la tappa precedente dice quanto ci vuole per arrivare qui, vale più della stima */
       if (!exp && prev && day.det && day.det[i - 1] && day.det[i - 1].how) {
