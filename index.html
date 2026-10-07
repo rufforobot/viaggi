@@ -2309,7 +2309,7 @@ let selDay = null;
 const diaryOpen = new Set(), raccOpen = new Set();
 
 /* ====================== SPOSTAMENTI COME VOCI DELL'ITINERARIO ====================== */
-const TRANSFER_RE = /^(volo|treno|verso|arrivo|check-?out|rientro)\b|^(hotel|aeroporto)[^→]*→|^[^→]*\b(est|nord|ovest|west)\b[^→]*→/i;
+const TRANSFER_RE = /^(volo|treno|verso|arrivo|check-?out|rientro)\b|^(hotel|aeroporto)[^→]*→|^[^→]*\b(est|nord|ovest|west)\b[^→]*→|→\s*(hotel|aeroporto|stazione)\b/i;
 const NOLEG_RE = /^(pranzo|cena|colazione|riposo|mattin|sera\b|tempo libero|opzionale)/i;
 const hmMin = t => { const m = String(t).match(/^(\d{1,2})[:.](\d{2})/); return m ? (+m[1]) * 60 + (+m[2]) : null; };
 const minHM = n => { n = ((Math.round(n) % 1440) + 1440) % 1440; return String(Math.floor(n / 60)).padStart(2, '0') + ':' + String(n % 60).padStart(2, '0'); };
@@ -2679,12 +2679,13 @@ const GCACHE = new Map();
 /* guide per tappa: prima per titolo; quelle del giorno rimaste senza tappa vanno alla tappa che le cita nel testo */
 function guideMap(d) {
   if (GCACHE.has(d)) return GCACHE.get(d);
-  const m = d.stops.map((st, i) => uniqG(matchGuides(' ' + stopHay(d, i) + ' ')).filter(x => guideInCity(d, x)));
+  const isTr = i => TRANSFER_RE.test(L(d.stops[i][1])) && !(d.det && d.det[i] && d.det[i].guide);
+  const m = d.stops.map((st, i) => isTr(i) ? [] : uniqG(matchGuides(' ' + stopHay(d, i) + ' ')).filter(x => guideInCity(d, x)));
   const full = i => ' ' + normG(L(d.stops[i][1]) + ' ' + (d.det && d.det[i] ? L(d.det[i].title) : '') + ' ' + L(d.stops[i][2])) + ' ';
   uniqG(guidesForDay(d)).filter(x => guideInCity(d, x)).forEach(x => {
     if (m.some(l => l.some(y => y.stop.title === x.stop.title))) return;
-    let at = d.stops.findIndex((_, i) => matchGuides(full(i)).some(y => y.stop.title === x.stop.title));
-    if (at < 0) { const w = normG(x.stop.title).split(' ').filter(t => t.length > 3); let best = -1; d.stops.forEach((_, i) => { const n = w.filter(t => full(i).includes(' ' + t + ' ')).length; if (n > best) { best = n; at = i; } }); }
+    let at = d.stops.findIndex((_, i) => !isTr(i) && matchGuides(full(i)).some(y => y.stop.title === x.stop.title));
+    if (at < 0) { const w = normG(x.stop.title).split(' ').filter(t => t.length > 3); let best = -1; d.stops.forEach((_, i) => { if (isTr(i)) return; const n = w.filter(t => full(i).includes(' ' + t + ' ')).length; if (n > best) { best = n; at = i; } }); }
     if (at >= 0) m[at].push(x);
   });
   d.det && d.det.forEach((st, i) => { if (st && st.guide) { const x = allStops().find(y => y.stop.title === st.guide); if (x && !m[i].some(y => y.stop.title === x.stop.title)) m[i].unshift(x); } });
