@@ -1472,7 +1472,7 @@ function renderToday() {
     const r = document.createElement('button'); r.type = 'button';
     if (it.type === 'leg') {
       r.className = 'today-row leg' + (k === nextK ? ' next' : '');
-      r.innerHTML = `<span class="tr-time">${minHM(it.depart)}</span><span class="tr-main"><b>${esc(it.label)} · ${it.approx ? '~' : ''}${it.dur} min</b><small>${it.from ? 'da ' + esc(it.from) + ' a ' : 'verso '}${esc(L(d.stops[it.to][1]).replace(/\s*\(.*?\)/g, '').split(':')[0])}</small></span>`;
+      r.innerHTML = `<span class="tr-time">${minHM(it.depart)}</span><span class="tr-main"><b>${esc(it.label)} · ${it.approx ? '~' : ''}${it.dur} min</b><small>${esc(legWhere(d, it))}</small></span>`;
       r.onclick = () => openLeg(d, it);
     } else {
       const i = it.i, st = d.stops[i];
@@ -2328,6 +2328,7 @@ function legInfo(how) {
   const approx = dur == null; if (approx) dur = { metro: 20, taxi: 25, piedi: 10, bici: 15 }[mode];
   return { mode, dur, approx, label: { metro: 'Metro', taxi: 'Taxi', piedi: 'A piedi', bici: 'Bici' }[mode] };
 }
+const XFER_RE = /^(?!volo\b|treno\b).*→/i;
 const PLAN_CACHE = new Map();
 function dayPlan(day) {
   if (PLAN_CACHE.has(day)) return PLAN_CACHE.get(day);
@@ -2338,6 +2339,11 @@ function dayPlan(day) {
     const prevOk = !prev || !TRANSFER_RE.test(L(prev[1]));
     const alt = prev && start != null && hmMin(prev[0]) === start; /* alternativa alla tappa precedente: stesso orario */
     const exp = st && st.mv ? legFromField(st.mv) : null;
+    if (XFER_RE.test(t) && start != null) {
+      const li = exp || { mode: 'taxi', label: 'Taxi', dur: (st && st.dur && numMin(st.dur)) || 30, approx: !(st && st.dur) };
+      const leg = Object.assign({ type: 'leg', xfer: true, to: i, depart: start, arrive: start + li.dur, from: '', title: t.replace(/\s*\(.*?\)/g, '') }, li);
+      legAt[i] = leg; items.push(leg); return;
+    }
     if (!alt && st && (exp || st.how) && start != null && !TRANSFER_RE.test(t) && (exp || !NOLEG_RE.test(t)) && prevOk && (!exp || exp.dur >= 5)) {
       const li = exp || legInfo(st.how);
       /* se la tappa precedente dice quanto ci vuole per arrivare qui, vale più della stima */
@@ -2350,28 +2356,30 @@ function dayPlan(day) {
     }
     items.push({ type: 'stop', i, start, end: null, dur: st && st.dur ? numMin(st.dur) : null });
   });
-  const stops = items.filter(x => x.type === 'stop');
-  stops.forEach((it, k) => {
+  const stops = items.filter(x => x.type === 'stop'), tOfI = x => x.type === 'leg' ? x.depart : x.start;
+  stops.forEach(it => {
     if (it.start == null) return;
-    const nx = stops.slice(k + 1).find(y => y.start == null || y.start > it.start), lg = nx && legAt[nx.i];
-    const limit = nx && nx.start != null ? (lg ? lg.depart : nx.start) : null;
+    const nx = items.slice(items.indexOf(it) + 1).find(y => tOfI(y) == null || tOfI(y) > it.start);
+    const limit = nx && tOfI(nx) != null ? tOfI(nx) : null;
     if (it.dur) { it.end = it.start + it.dur; it.tight = limit != null && it.end > limit; }
     else if (limit != null) { it.end = limit; it.tight = it.end - it.start < 10; }
   });
   const out = { items, legAt, stopAt: Object.fromEntries(stops.map(x => [x.i, x])) };
   PLAN_CACHE.set(day, out); return out;
 }
+const legWhere = (day, it) => it.xfer ? it.title : (it.from ? 'da ' + it.from + ' a ' : 'verso ') + L(day.stops[it.to][1]).replace(/\s*\(.*?\)/g, '').split(':')[0];
+const txt0 = t => t ? `<div>${esc(L(t))}</div>` : '';
 function legSheet(day, leg) {
   const i = leg.to, s = day.stops[i], st = day.det[i], p = placeInfo(day, i), box = document.createElement('div');
   const dest = L(s[1]).replace(/\s*\(.*?\)/g, '');
-  box.innerHTML = `<div class="ss-t">${minHM(leg.depart)}</div><div class="ss-s">${esc(leg.label)} · ${leg.approx ? 'circa ' : ''}${leg.dur} min · arrivo ${minHM(leg.arrive)}</div>${leg.from ? `<div class="ss-s">Da ${esc(leg.from)}</div>` : '<div class="ss-s">Dall\'hotel</div>'}<div class="stop-acts"></div><div class="stop-det"></div>`;
+  box.innerHTML = `<div class="ss-t">${minHM(leg.depart)}</div><div class="ss-s">${esc(leg.label)} · ${leg.approx ? 'circa ' : ''}${leg.dur} min · arrivo ${minHM(leg.arrive)}</div>${leg.xfer ? `<div class="ss-s">${esc(leg.title)}</div>` : leg.from ? `<div class="ss-s">Da ${esc(leg.from)}</div>` : '<div class="ss-s">Dall\'hotel</div>'}<div class="stop-acts"></div><div class="stop-det"></div>`;
   const hasPlace = !!(p.zh || p.addr);
   const g1 = routeRow(stopMapQ(day, st, p), hasPlace ? () => showPlaceCard(stopCardData(day, i)) : null, !mentionsMetro(st.how)); if (g1) box.querySelector('.stop-acts').appendChild(g1);
-  const det = box.querySelector('.stop-det'); det.innerHTML = dsec('route', 'Come arrivare', howHTML(st.how)) + (hasPlace ? `<div class="py" style="margin-top:8px">I caratteri locali sono nel pulsante ${esc(meta.taxi || 'Taxi')}</div>` : '');
-  box.dataset.title = 'Verso ' + dest;
+  const det = box.querySelector('.stop-det'); det.innerHTML = dsec('route', 'Come arrivare', howHTML(st.how)) + (leg.xfer ? dsec('clock', 'Orari', txt0(st.hours)) + dsec('ticket', 'Prenotazione', txt0(st.book)) + (st.warn ? `<div class="warnbox"><b>Attenzione</b> ${esc(L(st.warn))}</div>` : '') + (st.tips && st.tips.length ? dsec('bulb', 'Consigli', `<ul>${st.tips.map(t => `<li>${esc(L(t))}</li>`).join('')}</ul>`) : '') : '') + (hasPlace ? `<div class="py" style="margin-top:8px">I caratteri locali sono nel pulsante ${esc(meta.taxi || 'Taxi')}</div>` : '');
+  box.dataset.title = leg.xfer ? leg.title : 'Verso ' + dest;
   return box;
 }
-const openLeg = (day, leg) => openSheetNode('Verso ' + L(day.stops[leg.to][1]).replace(/\s*\(.*?\)/g, ''), () => legSheet(day, leg));
+const openLeg = (day, leg) => openSheetNode(leg.xfer ? leg.title : 'Verso ' + L(day.stops[leg.to][1]).replace(/\s*\(.*?\)/g, ''), () => legSheet(day, leg));
 function stopSheet(day, i) {
   const s = day.stops[i], st = day.det ? day.det[i] : null, p = st ? placeInfo(day, i) : { zh: '', addr: '' };
   const hasPlace = !!(p.zh || p.addr), box = document.createElement('div');
@@ -2413,7 +2421,7 @@ function renderDay(day, target) {
   { const dm = section.querySelector('[data-daymap]'); if (dayPoints(day).length > 0) initMini(day, dm); else dm.remove(); }
   const timeline = section.querySelector('.timeline');
   dayPlan(day).items.forEach(it => {
-    if (it.type === 'leg') { const lr = document.createElement('button'); lr.type = 'button'; lr.className = 'legc'; lr.innerHTML = `<span class="lg-t">${minHM(it.depart)}</span><span class="lg-i"><b>${esc(it.label)} · ${it.approx ? '~' : ''}${it.dur} min</b><small>${it.from ? 'da ' + esc(it.from) + ' a ' : 'verso '}${esc(L(day.stops[it.to][1]).replace(/\s*\(.*?\)/g, '').split(':')[0])}</small></span><i class="sc-c">›</i>`; lr.onclick = () => openLeg(day, it); timeline.appendChild(lr); return; }
+    if (it.type === 'leg') { const lr = document.createElement('button'); lr.type = 'button'; lr.className = 'legc'; lr.innerHTML = `<span class="lg-t">${minHM(it.depart)}</span><span class="lg-i"><b>${esc(it.label)} · ${it.approx ? '~' : ''}${it.dur} min</b><small>${esc(legWhere(day, it))}</small></span><i class="sc-c">›</i>`; lr.onclick = () => openLeg(day, it); timeline.appendChild(lr); return; }
     const i = it.i, s = day.stops[i];
     const row = document.createElement('button'); row.type = 'button'; row.className = 'stopc';
     row.innerHTML = `<div class="sc-t">${esc(s[0])}${it.end != null ? `<small class="sc-e${it.tight ? ' tight' : ''}">${minHM(it.end)}</small>` : ''}</div><div class="sc-bar"></div><div class="sc-i"><div class="sc-h">${esc(L(s[1]))}${guidesForStop(day, i).length ? '<em class="sc-g">Guida</em>' : ''}</div>${optBadge(day.det[i]) ? `<div class="sc-o">${optBadge(day.det[i])}</div>` : ''}${s[2] ? `<div class="sc-s">${esc(L(s[2]))}</div>` : ''}${optsOf(day.det[i]).length ? `<div class="sc-o">${optsBadges(day.det[i])}</div>` : ''}</div><i class="sc-c">›</i>`;
