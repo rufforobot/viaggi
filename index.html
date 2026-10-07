@@ -2370,6 +2370,7 @@ const allStops = () => companionData.flatMap(c => c.stops.map(s => ({ city: c.na
 const speech = { btn: null, token: 0, utts: [], started: 0 };
 function stopSpeech() {
   speech.token++;
+  if (typeof silentAudio !== 'undefined' && silentAudio) silentAudio.pause();
   if ('speechSynthesis' in window) speechSynthesis.cancel();
   if (speech.btn) { speech.btn.textContent = speech.btn.dataset.label || speech.btn.textContent; speech.btn = null; }
 }
@@ -2379,10 +2380,24 @@ function pickVoice(lang2) {
   return vs.slice().sort((a, b) => q(b) - q(a))[0];
 }
 if ('speechSynthesis' in window) { speechSynthesis.getVoices(); speechSynthesis.onvoiceschanged = () => speechSynthesis.getVoices(); }
+/* iPhone: con l'interruttore silenzioso la sintesi vocale resta muta; un audio silenzioso in loop porta la sessione in "riproduzione" */
+let silentAudio = null;
+function unlockIOSAudio() {
+  try {
+    if (!silentAudio) {
+      const n = 800, buf = new Uint8Array(44 + n * 2), dv = new DataView(buf.buffer), w = (o, t) => [...t].forEach((c, i) => dv.setUint8(o + i, c.charCodeAt(0)));
+      w(0, 'RIFF'); dv.setUint32(4, 36 + n * 2, true); w(8, 'WAVEfmt '); dv.setUint32(16, 16, true); dv.setUint16(20, 1, true); dv.setUint16(22, 1, true);
+      dv.setUint32(24, 8000, true); dv.setUint32(28, 16000, true); dv.setUint16(32, 2, true); dv.setUint16(34, 16, true); w(36, 'data'); dv.setUint32(40, n * 2, true);
+      silentAudio = new Audio(URL.createObjectURL(new Blob([buf], { type: 'audio/wav' }))); silentAudio.loop = true; silentAudio.volume = 0.01;
+    }
+    const pr = silentAudio.play(); if (pr && pr.catch) pr.catch(() => {});
+  } catch (e) {}
+}
 function speak(text, lang, btn, rate) {
   if (!('speechSynthesis' in window)) { toast('Voce non supportata'); return; }
   const same = !!btn && speech.btn === btn;
   stopSpeech();
+  if (!same) unlockIOSAudio();
   if (same) return; // secondo tocco = stop
   const token = speech.token;
   const sentences = text.match(/[^.!?。！？]+[.!?。！？]*\s*/g) || [text];
