@@ -2367,7 +2367,7 @@ const hanziOf = native => (String(native).match(new RegExp('[' + SCRIPT_CLS + ']
 const allStops = () => companionData.flatMap(c => c.stops.map(s => ({ city: c.name, stop: s })));
 
 /* Sintesi vocale a pezzi (le frasi lunghe si interrompono su alcuni telefoni) */
-const speech = { btn: null, token: 0 };
+const speech = { btn: null, token: 0, utts: [], started: 0 };
 function stopSpeech() {
   speech.token++;
   if ('speechSynthesis' in window) speechSynthesis.cancel();
@@ -2391,12 +2391,30 @@ function speak(text, lang, btn, rate) {
   if (cur) parts.push(cur);
   if (btn) { btn.textContent = 'Ferma'; speech.btn = btn; }
   const voice = pickVoice(lang.slice(0, 2).toLowerCase());
-  parts.forEach((p, i) => {
-    const u = new SpeechSynthesisUtterance(p.trim());
-    u.lang = lang; u.rate = rate; if (voice) u.voice = voice;
-    if (i === parts.length - 1) u.onend = u.onerror = () => { if (speech.token === token) stopSpeech(); };
-    speechSynthesis.speak(u);
-  });
+  const run = useVoice => {
+    if (speech.token !== token) return;
+    speech.utts = parts.map((p, i) => {
+      const u = new SpeechSynthesisUtterance(p.trim());
+      u.lang = lang; u.rate = rate; if (useVoice && voice) u.voice = voice;
+      if (i === 0) u.onstart = () => { speech.started = token; };
+      if (i === parts.length - 1) u.onend = () => { if (speech.token === token) stopSpeech(); };
+      u.onerror = ev => {
+        if (speech.token !== token || (ev && (ev.error === 'canceled' || ev.error === 'interrupted'))) return;
+        if (speech.started !== token && useVoice && voice) { speechSynthesis.cancel(); run(false); return; }
+        if (i === parts.length - 1) stopSpeech();
+      };
+      return u;
+    });
+    try { speechSynthesis.resume(); } catch (e) {}
+    speech.utts.forEach(u => speechSynthesis.speak(u));
+    /* se dopo 3 s non e' partito nulla, riprova con la voce di default */
+    setTimeout(() => {
+      if (speech.token !== token || speech.started === token) return;
+      if (useVoice && voice) { speechSynthesis.cancel(); setTimeout(() => run(false), 80); }
+      else { toast('Nessuna voce disponibile sul dispositivo'); stopSpeech(); }
+    }, 3000);
+  };
+  setTimeout(() => run(true), 80); /* cancel() + speak() immediato viene ignorato su alcuni browser */
 }
 
 function todayGuideCity() {

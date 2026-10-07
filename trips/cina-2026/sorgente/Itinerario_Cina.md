@@ -185,8 +185,8 @@ Sera libera per riposare con calma — il giorno dopo (mercato locale, Nanjing R
 | **19:00** | Cena in zona e rientro in hotel | Concessione Francese: molte opzioni |
 
 Opzione sul pomeriggio, alla Concessione Francese (dopo Fuxing Park):
-- *Local* · **Wukang Road, Anfu Road e Fuxing Park** (piano base)
-- *Mainstream* · **Xintiandi**, a pochi minuti a piedi da Fuxing Park: elegante e fotogenico, ma pensato per il turismo e con prezzi alti
+- *Local* · **Wukang Road, Anfu Road e Fuxing Park** (piano base). Come arrivare: metro linee 10/11 fino a Jiao Tong University, uscita 7, poi a piedi verso Wukang Mansion
+- *Mainstream* · **Xintiandi**, 10 min a piedi a est di Fuxing Park: elegante e fotogenico, ma pensato per il turismo e con prezzi alti. Come arrivare: metro linee 10 o 13 fino a Xintiandi, oppure a piedi da Fuxing Park (da verificare l'uscita)
 
 ⚠️ **Lunedì lo Yu Garden è chiuso** (l'abbiamo spostato al Giorno 3, domenica). La mattina è quindi per la vita locale: **passeggiata libera in un mercato di quartiere** vicino a Xintiandi/Concessione Francese (senza orari fissi: banchi di verdura, pesce vivo nelle vasche, la contrattazione quotidiana; andateci presto, verso le 8:00, perché il momento migliore dei mercati di quartiere è la prima mattina). Poi un passaggio veloce su **Nanjing Road** pedonale (30-45 minuti).
 
@@ -288,10 +288,10 @@ sistemazione, prima passeggiata a **Hongyadong** illuminata (il complesso a grad
 |---|---|---|
 | **09:00** | Liziba: la metro che attraversa il palazzo (linea 2) | Il treno che attraversa un palazzo residenziale |
 | **10:00** | Tempio di Luohan | 500 statue di arhat, tutte diverse · 45–60 min |
-| **12:00** | Pranzo in zona | Scegli una delle due: Jiefangbei o Nanbin Road |
+| **12:00** | Pranzo in zona | Scegli una delle due: *Mainstream* Jiefangbei, centro pedonale a piedi dall'hotel (o metro Linjiangmen, 5–10 min a piedi); *Local* Nanbin Road, lungofiume sulla sponda sud, DiDi da Jiefangbei ~15 min. Da verificare |
 | **13:30** | *Local* · Shibati e Xiahuali, quartieri storici | Scalinate storiche sul fiume; Xiahuali è sull'altra sponda, presso il ponte Dongshuimen · alternativa a Ciqikou |
 | **13:30** | *Mainstream* · Ciqikou, la città antica sul fiume | Vicoli, street food e botteghe, 3–4 ore · esci entro le 16:30 · alternativa a Shibati |
-| **18:00** | Cena a Chongqing: hotpot a Jiefangbei o barbecue a Nanshan | Scegli una delle due: hotpot o barbecue |
+| **18:00** | Cena a Chongqing: hotpot a Jiefangbei o barbecue a Nanshan | Scegli una delle due: hotpot in zona Jiefangbei (a piedi dall'hotel) o barbecue a Nanshan, Huang Yuming (DiDi ~25–30 min, conta il rientro per la crociera delle 20:30). Da verificare |
 | **20:30** | Crociera serale sui due fiumi e spettacolo di droni | Crociera sui fiumi Yangtze e Jialing con droni · DiDi al molo, ~1 h |
 
 il **tram di Liziba** che attraversa un palazzo residenziale (linea 2, foto imperdibile), **Tempio di Luohan** (500 statue di arhat, tutte diverse).
