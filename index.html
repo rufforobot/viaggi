@@ -881,6 +881,20 @@ button.wp { cursor: pointer; }
 .tx-say::before{content:"";width:20px;height:20px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 10v4h4l7 5V5l-7 5z'/%3E%3Cpath d='M17.5 9a4 4 0 0 1 0 6M20 6.5a8 8 0 0 1 0 11'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 10v4h4l7 5V5l-7 5z'/%3E%3Cpath d='M17.5 9a4 4 0 0 1 0 6M20 6.5a8 8 0 0 1 0 11'/%3E%3C/svg%3E") center/contain no-repeat}
 .taxi-big{display:flex;flex-direction:column;align-items:center}
 .taxi-big>*{max-width:100%}.taxi-big .req,.taxi-big .zh1,.taxi-big .ad1,.taxi-big .py1{align-self:stretch}.taxi-big .req{font-size:30px;line-height:1.3}
+
+/* spostamenti come voci */
+.sc-t{min-width:58px}
+.sc-e{display:block;font-size:11px;font-weight:600;color:var(--muted);margin-top:3px;font-variant-numeric:tabular-nums}
+.sc-e.tight,.tr-e.tight{color:var(--warn-ink)}
+.tr-e{display:block;font-size:11px;font-weight:600;color:var(--muted);margin-top:2px}
+.ss-e{color:var(--muted);font-weight:600;font-size:.7em}
+.legc{display:flex;width:100%;min-width:0;max-width:100%;box-sizing:border-box;border-radius:22px;align-items:center;gap:12px;border:0;background:var(--fill);padding:10px 14px 10px 10px;margin:0 0 10px;color:var(--text);font:inherit;text-align:left}
+.legc:active{transform:scale(.98)}
+.lg-t{min-width:46px;text-align:right;font-size:14px;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
+.lg-i{flex:1;min-width:0}.lg-i b{display:block;font-size:14px;font-weight:700}.lg-i small{display:block;font-size:12px;color:var(--muted);margin-top:1px;}
+.today-row.leg{padding:8px 0}.today-row.leg .tr-time{color:var(--muted)}.today-row.leg .tr-main b{font-size:.9rem;font-weight:700}
+.today-row.leg.next .tr-time{color:var(--accent-ink)}
+.sg-full{margin-top:10px}
 </style>
 </head>
 <body>
@@ -1435,13 +1449,22 @@ function renderToday() {
   const d = trip.days[tripDayIndex()];
   const hm = new Date().toLocaleTimeString('en-GB', { timeZone: meta.tz, hour: '2-digit', minute: '2-digit' });
   const nowMin = (+hm.slice(0, 2)) * 60 + (+hm.slice(3, 5));
-  const nextIdx = started ? d.stops.findIndex(st => { const m = String(st[0]).match(/^(\d{1,2})[:.](\d{2})/); return m ? (+m[1]) * 60 + (+m[2]) >= nowMin - 30 : false; }) : 0;
+  const plan = dayPlan(d), tOf = it => it.type === 'leg' ? it.depart : it.start;
+  const nextK = started ? plan.items.findIndex(it => tOf(it) != null && tOf(it) >= nowMin - 30) : 0;
   box.innerHTML = `<div class="companion-meta">${started ? 'Oggi' : 'Primo giorno'} · Giorno ${d.day} · ${esc(d.date)}</div><h3>${esc(d.city)}</h3><p style="margin-bottom:6px;">${esc(d.title)}</p>`;
   const list = document.createElement('div'); list.className = 'today-list';
-  d.stops.forEach((st, i) => {
-    const r = document.createElement('button'); r.type = 'button'; r.className = 'today-row' + (i === nextIdx ? ' next' : '');
-    r.innerHTML = `<span class="tr-time">${esc(st[0])}</span><span class="tr-main"><b>${esc(L(st[1]))}${guidesForStop(d, i).length ? '<em class="sc-g">Guida</em>' : ''}</b><small>${esc(L(st[2]))}</small></span>`;
-    r.onclick = () => openSheetNode(L(st[1]), () => stopSheet(d, i));
+  plan.items.forEach((it, k) => {
+    const r = document.createElement('button'); r.type = 'button';
+    if (it.type === 'leg') {
+      r.className = 'today-row leg' + (k === nextK ? ' next' : '');
+      r.innerHTML = `<span class="tr-time">${minHM(it.depart)}</span><span class="tr-main"><b>${esc(it.label)} · ${it.approx ? '~' : ''}${it.dur} min</b><small>${it.from ? 'da ' + esc(it.from) + ' a ' : 'verso '}${esc(L(d.stops[it.to][1]).replace(/\s*\(.*?\)/g, '').split(':')[0])}</small></span>`;
+      r.onclick = () => openLeg(d, it);
+    } else {
+      const i = it.i, st = d.stops[i];
+      r.className = 'today-row' + (k === nextK ? ' next' : '');
+      r.innerHTML = `<span class="tr-time">${esc(st[0])}${it.end != null ? `<small class="tr-e${it.tight ? ' tight' : ''}">→ ${minHM(it.end)}</small>` : ''}</span><span class="tr-main"><b>${esc(L(st[1]))}${guidesForStop(d, i).length ? '<em class="sc-g">Guida</em>' : ''}</b><small>${esc(L(st[2]))}</small></span>`;
+      r.onclick = () => openSheetNode(L(st[1]), () => stopSheet(d, i));
+    }
     list.appendChild(r);
   });
   box.appendChild(list);
@@ -1464,7 +1487,8 @@ function renderBento() {
   const nowMin = (+hm.slice(0, 2)) * 60 + (+hm.slice(3, 5));
   const ni = started ? d.stops.findIndex(st => { const m = String(st[0]).match(/^(\d{1,2})[:.](\d{2})/); return m ? (+m[1]) * 60 + (+m[2]) >= nowMin - 30 : false; }) : 0;
   const st = d.stops[ni];
-  if (st) tile('hot wide', (started ? 'Prossima tappa' : 'Primo giorno') + ' · ' + st[0], L(st[1]).replace(/\s*\(.*?\)/g, ''), L(st[2]), 'pin', () => { setView('itinerary'); goDay(d.day); }, true);
+  const lg0 = st && dayPlan(d).legAt[ni < 0 ? 0 : ni];
+  if (st) tile('hot wide', (started ? 'Prossima tappa' : 'Primo giorno') + ' · ' + st[0], L(st[1]).replace(/\s*\(.*?\)/g, ''), lg0 ? `Parti alle ${minHM(lg0.depart)} · ${lg0.label} ${lg0.approx ? '~' : ''}${lg0.dur} min` : L(st[2]), 'pin', () => { setView('itinerary'); goDay(d.day); }, true);
   /* meteo di oggi */
   const wd = trip.days.find(x => dayISO(x) === today && wxCityOf(x)) || trip.days.find(x => dayISO(x) > today && wxCityOf(x)) || [...trip.days].reverse().find(x => wxCityOf(x));
   const city = wd && wxCityOf(wd), f = city && wxFor(city, today);
@@ -1985,13 +2009,13 @@ function optsOf(st) {
 }
 function optBadge(st) { const k = String((st && st.opt) || '').toLowerCase(); return OPT_LABEL[k] ? `<span class="obadge ${k}">${OPT_LABEL[k]}</span>` : ''; }
 function optsBadges(st) { return optsOf(st).map(o => `<span class="obadge ${o.k}">${OPT_LABEL[o.k]}</span>`).join(''); }
-function detHTML(day, i) {
+function detHTML(day, i, noRoute) {
   const st = day.det[i], p = placeInfo(day, i);
   const txt = t => t ? `<div>${esc(L(t))}</div>` : '';
   let h = '';
-  if (p.zh || p.addr) h += dsec('pin', 'Dove', `<div class="dn">${esc(L(p.py || st.title))}</div>${p.pya ? `<div>${esc(p.pya)}</div>` : ''}<div class="py">I caratteri locali sono nel pulsante Taxi</div>`);
+  if (!noRoute && (p.zh || p.addr)) h += dsec('pin', 'Dove', `<div class="dn">${esc(L(p.py || st.title))}</div>${p.pya ? `<div>${esc(p.pya)}</div>` : ''}<div class="py">I caratteri locali sono nel pulsante Taxi</div>`);
   { const os = optsOf(st); if (os.length) h += `<div class="dsec dopts"><div class="di">${ICON.route}</div><div><b>Scegli una delle due</b>${os.map(o => `<div class="orow"><span class="obadge ${o.k}">${OPT_LABEL[o.k]}</span><span>${esc(o.t)}</span></div>`).join('')}</div></div>`; }
-  h += dsec('route', 'Come arrivare', howHTML(st.how)) + dsec('clock', 'Orari', txt(st.hours)) + dsec('coin', 'Costi', txt(st.cost)) + dsec('ticket', 'Prenotazione', txt(st.book));
+  h += (noRoute ? '' : dsec('route', 'Come arrivare', howHTML(st.how))) + dsec('clock', 'Orari', txt(st.hours)) + dsec('coin', 'Costi', txt(st.cost)) + dsec('ticket', 'Prenotazione', txt(st.book));
   if (st.warn) h += `<div class="warnbox"><b>Attenzione</b> ${esc(L(st.warn))}</div>`;
   if (st.tips && st.tips.length) h += dsec('bulb', 'Consigli', `<ul>${st.tips.map(t => `<li>${esc(L(t))}</li>`).join('')}</ul>`);
   if (st.v !== 'ok' || p.custom) h += `<div class="vb">${st.v !== 'ok' ? '<span class="vbadge warn">Da verificare prima di partire</span>' : ''}${p.custom ? '<span class="vbadge">Modificato da te</span>' : ''}</div>`;
@@ -2268,30 +2292,83 @@ document.addEventListener('click', e => { const b = e.target.closest && e.target
 
 let selDay = null;
 const diaryOpen = new Set(), raccOpen = new Set();
+
+/* ====================== SPOSTAMENTI COME VOCI DELL'ITINERARIO ====================== */
+const TRANSFER_RE = /^(volo|treno|verso|arrivo|check-?out|rientro)\b|^(hotel|aeroporto)[^→]*→|^[^→]*\b(est|nord|ovest|west)\b[^→]*→/i;
+const NOLEG_RE = /^(pranzo|cena|colazione|riposo|mattin|sera\b|tempo libero|opzionale)/i;
+const hmMin = t => { const m = String(t).match(/^(\d{1,2})[:.](\d{2})/); return m ? (+m[1]) * 60 + (+m[2]) : null; };
+const minHM = n => { n = ((Math.round(n) % 1440) + 1440) % 1440; return String(Math.floor(n / 60)).padStart(2, '0') + ':' + String(n % 60).padStart(2, '0'); };
+function legInfo(how) {
+  const t = String(L(how) || ''), low = t.toLowerCase();
+  const pos = { metro: low.search(/\bmetro\b|metropolitana/), taxi: low.search(/didi|taxi/), piedi: low.search(/a piedi/), bici: low.search(/\bbici/) };
+  const mode = Object.keys(pos).filter(k => pos[k] >= 0).sort((a, b) => pos[a] - pos[b])[0] || 'taxi';
+  let dur = null, m;
+  if ((m = t.match(/(\d+)\s*[–-]\s*(\d+)\s*min/))) dur = +m[2]; else if ((m = t.match(/(\d+)\s*min/))) dur = +m[1]; else if ((m = t.match(/(\d+)\s*h(?:\s*(\d+))?/))) dur = (+m[1]) * 60 + (+m[2] || 0);
+  const approx = dur == null; if (approx) dur = { metro: 20, taxi: 25, piedi: 10, bici: 15 }[mode];
+  return { mode, dur, approx, label: { metro: 'Metro', taxi: 'Taxi', piedi: 'A piedi', bici: 'Bici' }[mode] };
+}
+const PLAN_CACHE = new Map();
+function dayPlan(day) {
+  if (PLAN_CACHE.has(day)) return PLAN_CACHE.get(day);
+  const items = [], legAt = {};
+  day.stops.forEach((s, i) => {
+    const st = day.det && day.det[i], t = L(s[1]), start = hmMin(s[0]);
+    const prev = i > 0 ? day.stops[i - 1] : null;
+    const prevOk = !prev || !TRANSFER_RE.test(L(prev[1]));
+    const alt = prev && start != null && hmMin(prev[0]) === start; /* alternativa alla tappa precedente: stesso orario */
+    if (!alt && st && st.how && start != null && !TRANSFER_RE.test(t) && !NOLEG_RE.test(t) && prevOk) {
+      const li = legInfo(st.how);
+      /* se la tappa precedente dice quanto ci vuole per arrivare qui, vale più della stima */
+      if (prev && day.det && day.det[i - 1] && day.det[i - 1].how) {
+        const key = t.split(/[:(,]/)[0].trim().toLowerCase(), sent = String(L(day.det[i - 1].how)).split(/(?<=[.!?])\s+/).find(x => key.length > 4 && x.toLowerCase().includes(key) && /\d+\s*(?:[–-]\s*\d+\s*)?min/.test(x));
+        if (sent) { const m = sent.match(/(\d+)\s*(?:[–-]\s*(\d+)\s*)?min/); li.dur = +(m[2] || m[1]); li.approx = false; }
+      }
+      const leg = Object.assign({ type: 'leg', to: i, depart: start - li.dur, arrive: start, from: prev ? L(prev[1]).replace(/\s*\(.*?\)/g, '').split(':')[0] : '' }, li);
+      legAt[i] = leg; items.push(leg);
+    }
+    items.push({ type: 'stop', i, start, end: null });
+  });
+  const stops = items.filter(x => x.type === 'stop');
+  stops.forEach((it, k) => {
+    const nx = stops.slice(k + 1).find(y => y.start == null || y.start > it.start); if (!nx || it.start == null || nx.start == null) return;
+    const lg = legAt[nx.i]; it.end = lg ? lg.depart : nx.start;
+    it.tight = it.end - it.start < 10;
+  });
+  const out = { items, legAt, stopAt: Object.fromEntries(stops.map(x => [x.i, x])) };
+  PLAN_CACHE.set(day, out); return out;
+}
+function legSheet(day, leg) {
+  const i = leg.to, s = day.stops[i], st = day.det[i], p = placeInfo(day, i), box = document.createElement('div');
+  const dest = L(s[1]).replace(/\s*\(.*?\)/g, '');
+  box.innerHTML = `<div class="ss-t">${minHM(leg.depart)}</div><div class="ss-s">${esc(leg.label)} · ${leg.approx ? 'circa ' : ''}${leg.dur} min · arrivo ${minHM(leg.arrive)}</div>${leg.from ? `<div class="ss-s">Da ${esc(leg.from)}</div>` : '<div class="ss-s">Dall\'hotel</div>'}<div class="stop-acts"></div><div class="stop-det"></div>`;
+  const hasPlace = !!(p.zh || p.addr);
+  const g1 = routeRow(stopMapQ(day, st, p), hasPlace ? () => showPlaceCard(stopCardData(day, i)) : null, !mentionsMetro(st.how)); if (g1) box.querySelector('.stop-acts').appendChild(g1);
+  const det = box.querySelector('.stop-det'); det.innerHTML = dsec('route', 'Come arrivare', howHTML(st.how)) + (hasPlace ? `<div class="py" style="margin-top:8px">I caratteri locali sono nel pulsante ${esc(meta.taxi || 'Taxi')}</div>` : '');
+  box.dataset.title = 'Verso ' + dest;
+  return box;
+}
+const openLeg = (day, leg) => openSheetNode('Verso ' + L(day.stops[leg.to][1]).replace(/\s*\(.*?\)/g, ''), () => legSheet(day, leg));
 function stopSheet(day, i) {
   const s = day.stops[i], st = day.det ? day.det[i] : null, p = st ? placeInfo(day, i) : { zh: '', addr: '' };
   const hasPlace = !!(p.zh || p.addr), box = document.createElement('div');
-  box.innerHTML = `${p.zh ? `<div class="ss-zh">${esc(p.zh)}</div>${p.py ? `<div class="ss-py">${esc(p.py)}</div>` : ''}` : ''}<div class="ss-t">${esc(s[0])}</div>${s[2] ? `<div class="ss-s">${esc(L(s[2]))}</div>` : ''}<div class="stop-acts"></div>${st ? '<div class="stop-det"></div>' : ''}`;
+  box.innerHTML = `${p.zh ? `<div class="ss-zh">${esc(p.zh)}</div>${p.py ? `<div class="ss-py">${esc(p.py)}</div>` : ''}` : ''}<div class="ss-t">${esc(s[0])}${(dayPlan(day).stopAt[i] || {}).end != null ? `<span class="ss-e"> → ${minHM(dayPlan(day).stopAt[i].end)}</span>` : ''}</div>${s[2] ? `<div class="ss-s">${esc(L(s[2]))}</div>` : ''}<div class="stop-acts"></div>${st ? '<div class="stop-det"></div>' : ''}`;
   { const gl = guidesForStop(day, i), anchor = box.querySelector('.stop-acts');
     gl.forEach(x => {
       const g = document.createElement('div'); g.className = 'sg';
-      let intro = x.stop.text.split('. ')[0] + '.'; if (intro.length > 150) intro = intro.slice(0, 147).replace(/\s+\S*$/, '') + '...';
-      g.innerHTML = `<div class="sg-h"><div class="sg-l">Guida · ${esc(tagLabel(x.stop.tag))}</div></div><div class="sg-p">${esc(intro)}</div><div class="sg-full" hidden>${esc(x.stop.text).split(/\n+/).map(p => '<p>' + p + '</p>').join('')}</div><div class="sg-b"></div>`;
+      g.innerHTML = `<div class="sg-h"><div class="sg-l">Guida · ${esc(tagLabel(x.stop.tag))}</div></div><div class="sg-full">${esc(x.stop.text).split(/\n+/).map(p => '<p>' + p + '</p>').join('')}</div>`;
       const listen = document.createElement('button'); listen.type = 'button'; listen.className = 'sg-listen'; listen.textContent = 'Ascolta'; listen.dataset.label = 'Ascolta';
       listen.addEventListener('click', e => speak(x.stop.text, meta.guideLang || 'it-IT', e.currentTarget, 0.95));
       g.querySelector('.sg-h').appendChild(listen);
-      const rd = document.createElement('button'); rd.type = 'button'; rd.className = 'sg-read'; rd.textContent = 'Leggi'; const full = g.querySelector('.sg-full');
-      rd.addEventListener('click', () => { full.hidden = !full.hidden; g.querySelector('.sg-p').hidden = !full.hidden; rd.textContent = full.hidden ? 'Leggi' : 'Nascondi'; });
-      g.querySelector('.sg-b').appendChild(rd);
       anchor.parentNode.insertBefore(g, anchor);
     }); }
   if (st) {
     const acts = box.querySelector('.stop-acts');
-    const g1 = routeRow(stopMapQ(day, st, p), hasPlace ? () => showPlaceCard(stopCardData(day, i)) : null, !mentionsMetro([st.how, s[2], st.hours].join(' '))); if (g1) acts.appendChild(g1);
+    const hasLeg = !!dayPlan(day).legAt[i];
+    const g1 = hasLeg ? null : routeRow(stopMapQ(day, st, p), hasPlace ? () => showPlaceCard(stopCardData(day, i)) : null, !mentionsMetro([st.how, s[2], st.hours].join(' '))); if (g1) acts.appendChild(g1);
     const r2 = [];
     if (st.tel) r2.push(bLink('Chiama', 'tel:' + st.tel));
     if (r2.length) acts.appendChild(btnGrid(r2));
-    const det = box.querySelector('.stop-det'); det.innerHTML = detHTML(day, i);
+    const det = box.querySelector('.stop-det'); det.innerHTML = detHTML(day, i, hasLeg);
     const tx = det.querySelector('[data-a="taxi"]'); if (tx) tx.onclick = () => showPlaceCard(stopCardData(day, i));
     if (!det.textContent.trim()) det.remove();
   }
@@ -2311,9 +2388,11 @@ function renderDay(day, target) {
   if (hk && section.querySelector('[data-hotel]')) hotelActs(hk, section.querySelector('[data-hotel]'));
   { const dm = section.querySelector('[data-daymap]'); if (dayPoints(day).length > 0) initMini(day, dm); else dm.remove(); }
   const timeline = section.querySelector('.timeline');
-  day.stops.forEach((s, i) => {
+  dayPlan(day).items.forEach(it => {
+    if (it.type === 'leg') { const lr = document.createElement('button'); lr.type = 'button'; lr.className = 'legc'; lr.innerHTML = `<span class="lg-t">${minHM(it.depart)}</span><span class="lg-i"><b>${esc(it.label)} · ${it.approx ? '~' : ''}${it.dur} min</b><small>${it.from ? 'da ' + esc(it.from) + ' a ' : 'verso '}${esc(L(day.stops[it.to][1]).replace(/\s*\(.*?\)/g, '').split(':')[0])}</small></span><i class="sc-c">›</i>`; lr.onclick = () => openLeg(day, it); timeline.appendChild(lr); return; }
+    const i = it.i, s = day.stops[i];
     const row = document.createElement('button'); row.type = 'button'; row.className = 'stopc';
-    row.innerHTML = `<div class="sc-t">${esc(s[0])}</div><div class="sc-bar"></div><div class="sc-i"><div class="sc-h">${esc(L(s[1]))}${guidesForStop(day, i).length ? '<em class="sc-g">Guida</em>' : ''}</div>${optBadge(day.det[i]) ? `<div class="sc-o">${optBadge(day.det[i])}</div>` : ''}${s[2] ? `<div class="sc-s">${esc(L(s[2]))}</div>` : ''}${optsOf(day.det[i]).length ? `<div class="sc-o">${optsBadges(day.det[i])}</div>` : ''}</div><i class="sc-c">›</i>`;
+    row.innerHTML = `<div class="sc-t">${esc(s[0])}${it.end != null ? `<small class="sc-e${it.tight ? ' tight' : ''}">→ ${minHM(it.end)}</small>` : ''}</div><div class="sc-bar"></div><div class="sc-i"><div class="sc-h">${esc(L(s[1]))}${guidesForStop(day, i).length ? '<em class="sc-g">Guida</em>' : ''}</div>${optBadge(day.det[i]) ? `<div class="sc-o">${optBadge(day.det[i])}</div>` : ''}${s[2] ? `<div class="sc-s">${esc(L(s[2]))}</div>` : ''}${optsOf(day.det[i]).length ? `<div class="sc-o">${optsBadges(day.det[i])}</div>` : ''}</div><i class="sc-c">›</i>`;
     row.onclick = () => openSheetNode(L(s[1]), () => stopSheet(day, i));
     timeline.appendChild(row);
   });
