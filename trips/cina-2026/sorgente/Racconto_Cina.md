@@ -1,8 +1,8 @@
 # Cina 2026 — Il racconto, giorno per giorno
 
-Oct 1, 2026 · @Andrea
+Oct 7, 2026 · @Andrea
 
-La versione lunga dell'itinerario: per ogni giorno, un racconto da leggere la sera prima, con la storia dei luoghi, cosa guardare e i consigli pratici. Gli orari e le prenotazioni sono quelli dell'itinerario v13; lo schema veloce resta nella webapp.
+La versione lunga dell'itinerario: per ogni giorno, un racconto da leggere la sera prima, con la storia dei luoghi, cosa guardare e i consigli pratici. Gli orari e le prenotazioni sono quelli dell'itinerario v14; lo schema veloce resta nella webapp.
 
 ## Giorno 1 — Venerdì 16 ottobre: il giorno del volo
 
@@ -10,12 +10,12 @@ La versione lunga dell'itinerario: per ogni giorno, un racconto da leggere la se
 
 **In breve**
 
-- Check-in a Malpensa T1 verso le 07:00-07:15: Etihad ha anticipato il volo, quindi la sveglia è più presta del previsto
+- Check-in a Malpensa T1 verso le 07:00-07:15
 - EY82 Malpensa 10:05 → Abu Dhabi 18:50 (6 h 45), poi scalo di 2 h 25
 - EY866 Abu Dhabi 21:15 → Shanghai Pudong T2, arrivo sabato 17 ottobre alle 10:05 (8 h 50 di volo)
 - Oggi non si visita nulla: l'unico obiettivo è arrivare a Shanghai in buone condizioni, con telefoni e app pronti
 
-Oggi il viaggio non comincia con una tappa ma con una lunga trasferta, e va bene così. Fra il decollo da Malpensa e l'atterraggio a Pudong passano circa diciotto ore, e la parte migliore della giornata è quella che prepararete prima: valigie chiuse, documenti a portata di mano, telefoni in ordine. Il primo volo, EY82, era alle 11:40 ed Etihad lo ha spostato alle 10:05. Per voi significa essere a Malpensa, Terminal 1, verso le 07:00-07:15 per il check-in. Se potete, preparate tutto già giovedì sera e andate a letto presto, anche se il sonno non vorrà saperne: una mattina senza corse, con il passaporto già in tasca, vale più di qualsiasi altra cosa.
+Oggi il viaggio non comincia con una tappa ma con una lunga trasferta, e va bene così. Fra il decollo da Malpensa e l'atterraggio a Pudong passano circa diciotto ore, e la parte migliore della giornata è quella che prepararete prima: valigie chiuse, documenti a portata di mano, telefoni in ordine. Il primo volo, EY82, parte alle 10:05: dovete essere a Malpensa, Terminal 1, verso le 07:00-07:15 per il check-in. Se potete, preparate tutto già giovedì sera e andate a letto presto, anche se il sonno non vorrà saperne: una mattina senza corse, con il passaporto già in tasca, vale più di qualsiasi altra cosa.
 
 Prima di uscire di casa dedicate dieci minuti a un controllo vero, non distratto. Il passaporto deve avere almeno due pagine libere. Le conferme di voli, treni e hotel vanno salvate sul telefono in locale, non solo nella posta, perché in volo e in certi momenti in Cina la connessione può mancare. Lo stesso vale per gli indirizzi in cinese degli hotel, a partire da quello di Shanghai, che vi servirà tra meno di ventiquattr'ore: tenete pronta la scheda da mostrare al tassista. Nel bagaglio a mano ci vanno power bank, adattatore, eventuali farmaci personali e le conferme stampate o salvate. Il power bank non va mai in stiva, e conviene che i Wh siano leggibili sull'etichetta.
 
@@ -121,8 +121,9 @@ Dopo il corso la sera è libera. Fate poco: una passeggiata nel quartiere, una c
 **In breve**
 
 - 08:00 mercato di quartiere nella zona di Xintiandi, metro linea 10 diretta dall'hotel
-- 10:00 Nanjing Road Est pedonale, passaggio veloce di 30-45 minuti, poi pranzo
-- 13:00 Wukang Mansion, Wukang Road, Wuyuan Road, Anfu Road, lilong, Fuxing Park: circa 2,5 km e 4 ore
+- 10:00 Nanjing Road Est pedonale, passaggio veloce di 30-45 minuti
+- 11:15 Tempio del Buddha di Giada, con pranzo vegetariano nel tempio
+- 14:00 Wukang Mansion, Wukang Road, Wuyuan Road, Anfu Road, lilong, Fuxing Park: circa 2,5 km e 3 ore
 - La luce migliore su Wukang Mansion è tra le 16:00 e le 17:30
 - 19:00 cena in zona e rientro in hotel in taxi o DiDi (20-25 minuti)
 
@@ -132,9 +133,11 @@ Si comincia dal **mercato di quartiere**, e qui conviene essere sinceri: non esi
 
 Alle 10:00 spostatevi in metro (sempre la linea 10, poche fermate) a **Nanjing Road Est**, uscite 2 o 7 della stazione East Nanjing Road. Va vista, ma senza illusioni: è un chilometro e mezzo di strada pedonale con vetrine, schermi e luci, pensata per essere attraversata più che vissuta. Il nome non c'entra con la città di Nanjing: viene dal Trattato di Nanchino del 1842, che aprì Shanghai al commercio straniero e di fatto fece nascere questa strada. Per oltre un secolo e mezzo è stata la via dello shopping più famosa della Cina, e qualche vecchio grande magazzino storico resiste ancora tra i marchi globali. Mezz'ora, tre quarti d'ora al massimo, giusto per capire il contrasto con la mattina appena trascorsa.
 
-Qui, però, serve attenzione a una truffa molto nota: giovani gentili, spesso in coppia, vi avvicinano con una scusa, magari per fare due chiacchiere o per chiedervi una foto, e vi invitano a bere un tè o a vedere una galleria d'arte. Alla fine arriva un conto da 2.000-5.000 yuan. La regola è semplice: declinate con un sorriso e continuate a camminare, anche se sembrano simpatici. Poi pranzo con calma: nelle vie laterali trovate molte opzioni, e se volete restare sul sicuro cercate un posto pieno di gente del posto, con il menù illustrato. Shanghai ha una cucina sua, leggermente dolce, con il maiale brasato in salsa di soia (hongshao rou) e i panini di maiale fritti alla piastra (shengjian) tra i piatti più tipici: se li incontrate, è il momento giusto.
+Qui, però, serve attenzione a una truffa molto nota: giovani gentili, spesso in coppia, vi avvicinano con una scusa, magari per fare due chiacchiere o per chiedervi una foto, e vi invitano a bere un tè o a vedere una galleria d'arte. Alla fine arriva un conto da 2.000-5.000 yuan. La regola è semplice: declinate con un sorriso e continuate a camminare, anche se sembrano simpatici. Il pranzo di oggi lo fate al tempio qui sotto; se invece preferite restare in zona, nelle vie laterali trovate molte opzioni, e se volete restare sul sicuro cercate un posto pieno di gente del posto, con il menù illustrato. Shanghai ha una cucina sua, leggermente dolce, con il maiale brasato in salsa di soia (hongshao rou) e i panini di maiale fritti alla piastra (shengjian) tra i piatti più tipici: se li incontrate, è il momento giusto.
 
-Il pomeriggio è il vero cuore della giornata. Alle 13:00 prendete la metro (linee 10 o 11) fino a **Jiao Tong University**, uscita 7, e da lì a piedi fino a **Wukang Mansion**, il palazzo a forma di prua di nave all'incrocio, costruito nel 1924 e oggi uno dei più fotografati di Shanghai. Fu progettato da László Hudec, architetto di origine slovacca e ungherese, che ha lasciato decine di edifici nella città. Questa zona faceva parte della **Concessione Francese**, il pezzo di Shanghai amministrato dalla Francia dalla metà dell'Ottocento fino alla Seconda guerra mondiale, e se ne vedono ancora i segni nei viali, nei nomi delle strade vecchie e nella scala delle case. I platani che ombreggiano tutto il quartiere furono piantati proprio dai francesi quasi un secolo fa, e a fine ottobre cominciano a ingiallire: guardate come la luce filtra tra i rami.
+Alle 11:15 cambiate registro con il **Tempio del Buddha di Giada** (玉佛禅寺), il tempio più famoso di Shanghai, nel distretto di Putuo, a nord-ovest. Ci si arriva in DiDi da Nanjing Road in circa 25-30 minuti, oppure in metro sulla linea 13, fermata Jiangning Road, uscita 3, e cinque minuti a piedi. È un tempio vivo, con monaci e fedeli: il motivo per cui ci si va è il Buddha seduto di giada bianca, alto quasi due metri, nella sala che si paga a parte (¥10) e dove di solito non si fotografa. Un'ora o poco più basta. Poi il pranzo nel ristorante vegetariano del tempio, aperto a tutti e economico, e verso le 13:15 si riparte: con circa 40 minuti di metro siete a Jiao Tong University per le 14:00.
+
+Il pomeriggio è il vero cuore della giornata. Alle 14:00 prendete la metro (linee 10 o 11) fino a **Jiao Tong University**, uscita 7, e da lì a piedi fino a **Wukang Mansion**, il palazzo a forma di prua di nave all'incrocio, costruito nel 1924 e oggi uno dei più fotografati di Shanghai. Fu progettato da László Hudec, architetto di origine slovacca e ungherese, che ha lasciato decine di edifici nella città. Questa zona faceva parte della **Concessione Francese**, il pezzo di Shanghai amministrato dalla Francia dalla metà dell'Ottocento fino alla Seconda guerra mondiale, e se ne vedono ancora i segni nei viali, nei nomi delle strade vecchie e nella scala delle case. I platani che ombreggiano tutto il quartiere furono piantati proprio dai francesi quasi un secolo fa, e a fine ottobre cominciano a ingiallire: guardate come la luce filtra tra i rami.
 
 Poi si cammina. **Wukang Road** è una strada residenziale lunga e tranquilla, con oltre cinquanta edifici storici degli anni venti e trenta, in stili diversi (francese, spagnolo, inglese, Art Déco) mescolati tra loro. Tra le case ce n'è una dove visse a lungo lo scrittore Ba Jin, una delle voci più importanti della letteratura cinese del Novecento: la sua casa è una delle piccole storie nascoste lungo la strada. Non ci sono biglietti d'ingresso, souvenir concentrati o percorsi segnalati: è un quartiere vero che la gente, negli ultimi anni, ha ricominciato a frequentare per il gusto di passeggiarci. Per questo funziona solo se camminate senza meta, lasciandovi distrarre da un portone, da un caffè, da un balcone fiorito. Girando in **Wuyuan Road** trovate i caffè indipendenti, e in **Anfu Road** boutique e moda giovane: se vi viene sete, è il momento di sedervi con un caffè e guardare chi passa, senza guardare l'orologio.
 
@@ -391,6 +394,7 @@ Alle 20:30, per circa un'ora, il **Bian Lian** (川剧 变脸), l'opera del Sich
 - 07:15 DiDi dall'hotel alla Panda Base, ingresso Sud (30-40 minuti, circa ¥35-50)
 - 07:50 apertura: percorso A (2 ore) o B (4,5 ore), con biglietto prenotato e passaporto originale
 - 13:00 Jinli Ancient Street e Tempio Wuhou, ingresso a Jinli gratuito
+- 15:30 Du Fu Thatched Cottage, la casa del poeta (¥50, 2 ore), poi di nuovo Jinli per le lanterne
 - Meglio 17:00-18:00 per le lanterne; i negozi chiudono verso le 22:00
 - Domani il treno per Xi'an è alle 15:02: stasera niente tarde
 
@@ -410,6 +414,8 @@ Nel pomeriggio, alle 13:00, **Jinli** (锦里古街), accanto al Tempio Wuhou: d
 
 Jinli significa "quartiere del broccato" e richiama l'antica industria della seta di Chengdu, un tempo il principale centro cinese di produzione di seta broccata. La strada attuale è una ricostruzione, ma ricalca la pianta di un mercato che esisteva già duemila anni fa nello stesso punto: cambiano gli edifici, non il tracciato. È molto turistica, con prezzi dello street food più alti che altrove, e di lunedì è meno affollata che nei festivi. Assaggiate camminando: **zhang fei beef**, **tre grandi cannoni** (三大炮), pollo *bobo*, noodles di intestino. Se qualcosa non vi convince, saltatelo.
 
+Se avete ancora energia, alle 15:30 c'è una pausa tranquilla: la **Capanna di Du Fu** (杜甫草堂), a circa venti minuti di taxi da Jinli. È la casa-museo del grande poeta Tang, che visse qui in povertà nell'ottavo secolo e scrisse alcuni dei versi più amati della Cina: oggi è un giardino di bambù, laghetti e padiglioni, con una capanna ricostruita al centro. Il biglietto costa ¥50 e serve circa un paio d'ore; la biglietteria chiude verso le 17:00. Poi ordinate un DiDi e tornate a Jinli per le lanterne.
+
 Se il vostro ritmo lo consente, il momento migliore per Jinli è tra le 17:00 e le 18:00, quando si accendono le lanterne rosse e la strada cambia colore: fotografatela allora, più che in pieno giorno. Con il percorso A, tra pranzo e pausa, potete permettervelo senza forzare. Cercate dove finisce l'area turistica e ricomincia il tessuto urbano ordinario intorno, per un'ultima immagine meno costruita della città.
 
 **Consigli**
@@ -426,7 +432,7 @@ Se il vostro ritmo lo consente, il momento migliore per Jinli è tra le 17:00 e 
 
 **In breve**
 
-- Mattina libera a Chengdu, check-out entro le 12:00 (bagagli in deposito alla reception)
+- Mattina libera a Chengdu: proposto il Monastero Wenshu (ingresso gratuito); check-out entro le 12:00 (bagagli in deposito alla reception)
 - 12:30 pranzo in zona hotel
 - 13:15 DiDi per Chengdu Est (25-30 minuti): il treno parte alle 15:02
 - 15:02 treno G324 → Xi'an Nord, arrivo 18:16 (3 h 14)
@@ -435,6 +441,8 @@ Se il vostro ritmo lo consente, il momento migliore per Jinli è tra le 17:00 e 
 Questa è una mattina senza programma, ed è voluto. Dopo due giorni pieni, il treno da Chongqing, la teahouse, i vicoli, i panda all'alba, vi serve un tempo vuoto per fare l'ultimo giro come volete voi: tornare in un posto che vi è piaciuto, camminare senza meta, comprare ciò che avete rimandato, o semplicemente rimettervi seduti. Chengdu è una di quelle città in cui l'idea stessa di "vedere" qualcosa perde senso, perché si sta. Se domani vi manca qualcosa, non sarà un monumento: sarà questo.
 
 Non dovete decidere niente subito. Il check-out è entro le 12:00, ma potete chiedere alla reception di tenervi le valigie e girare leggeri fino a metà pomeriggio: la frase è *Qǐngwèn kěyǐ jìcún xíngli ma?*, "scusi, posso lasciare i bagagli?". Dopo, il vostro itinerario suggerisce due idee vicine: tornare a camminare a **Chunxi Road**, che di mattina feriale è un posto completamente diverso da quello della domenica, con negozi che aprono piano e meno folla, oppure raggiungere il **Monastero di Wenshu**. È un tempio buddista ancora in attività, uno dei più importanti della città, con cortili ombrosi, incenso e una sala da tè all'interno: non è un'attrazione da checklist, ma un posto dove la gente viene davvero a pregare e a sedersi, e per questo si adatta bene allo spirito della mattina. Orari e biglietto non sono nel vostro itinerario: controllate sul posto.
+
+Se volete un'idea precisa, l'itinerario propone il **Monastero Wenshu** (文殊院): ingresso gratuito, un tempio buddista vivo nel centro di Chengdu, con una sala da tè nel chiostro e una mensa vegetariana (buffet ¥38, dalle 11:00). Ci arrivate in metro con la linea 1 fino a Wenshuyuan, uscita K, e 300 metri a piedi. Un'ora e mezza o due bastano, e potete anche pranzare lì prima di tornare in hotel per le valigie. Vi troverete una reliquia di Xuanzang, il monaco che ritroverete a Xi'an.
 
 Se invece volete la scelta più semplice, tornate nel quartiere dell'hotel e fate colazione tardi, poi una passeggiata tra i vicoli intorno a Tianfu Square. Camminando, notate come cambia il ritmo rispetto a Chongqing: meno verticalità, più verde, un cielo spesso coperto. Il Sichuan ha una luce morbida e uniforme per gran parte dell'anno, in cui il sole si vede in media poco, e non è un difetto: è una delle ragioni per cui la città ha l'atmosfera di un posto in cui ci si siede e si lascia passare il tempo. È anche il momento giusto per comprare qualche regalo o prodotto locale, come il pepe del Sichuan o il tè, di cui avete bevuto abbastanza da capire la differenza tra buono e mediocre.
 
@@ -465,8 +473,9 @@ L'hotel sta nel centro storico, a pochi minuti a piedi dalla Porta Est delle mur
 - 08:00 DiDi dall'hotel a Lintong (circa 40 minuti), ingresso intorno alle 08:40
 - 08:40-11:40 Esercito di Terracotta: Fossa 1, poi 2, poi 3, poi il museo dei carri di bronzo
 - 12:00 pranzo in zona, 13:00 rientro in città in DiDi
-- 14:30 Torre della Campana e del Tamburo, 16:00 giro delle Mura
+- 14:30 Torre della Campana e del Tamburo (opzione A) oppure 14:00 Museo di Storia dello Shaanxi (opzione B), poi Mura alle 16:00-16:30
 - 18:30 cena nel Quartiere Musulmano
+- 20:30 sera: Grande Pagoda dell'Oca Selvatica e fontane musicali (21:00)
 
 Questa è la giornata più densa di Xi'an e comincia fuori città, il che vuol dire sveglia presto e colazione senza fretta ma senza attardarsi. Il museo dell'**Esercito di Terracotta** è a Lintong, circa quaranta chilometri a est del centro: un DiDi di quaranta minuti, partendo alle 08:00, vi porta all'ingresso verso le 08:40, prima che arrivino i pullman dei gruppi. Il biglietto è già una piccola missione: la vendita sul canale ufficiale apre sette giorni prima a mezzanotte di Pechino, cioè il 21/10, ma si può comprare anche su Trip.com con settimane di anticipo. Fatelo appena possibile. E ricordate che il biglietto, di fatto, è il **passaporto originale**: senza quello non entrate. Se all'esterno qualcuno in uniforme, o che pare tale, vi dice che è tutto esaurito, ignoratelo e andate alla biglietteria ufficiale.
 
@@ -478,9 +487,13 @@ Pranzo in zona, intorno a mezzogiorno, e rientro in DiDi alle 13:00 circa. Non c
 
 Alle 14:30 siete alla **Torre della Campana e del Tamburo**, nel punto in cui si incrociano gli assi principali della città antica. In epoca imperiale la Torre della Campana scandiva l'alba con i suoi rintocchi e la Torre del Tamburo segnava il tramonto: da qui l'espressione cinese "campana mattutina, tamburo serale", ancora oggi usata per indicare la routine quotidiana. La torre attuale risale al 1384, epoca Ming, ed è interamente in legno; fu poi spostata nella posizione in cui la vedete, quando il centro cittadino si spostò. Arrivate in metro (linee 1 o 2, fermata Zhonglou): un sottopasso la collega alla torre, e il Tamburo è a circa 335 metri a nord-ovest. Il biglietto è di ¥30 per una torre e ¥50 il combinato. Attenzione agli orari: dall'11 ottobre le torri chiudono alle 18:00, quindi con 45-60 minuti siete comodi. Il sottopasso intorno alla Campana è un luogo molto fotografato, e con un po' di fortuna vedrete gruppi di ragazzi in hanfu, l'abito tradizionale tornato di moda.
 
+Se preferite il museo alla torre, è l'**opzione B**: dalle 14:00 il **Museo di Storia dello Shaanxi** (陕西历史博物馆), uno dei più importanti della Cina, con i tesori Tang e gli affreschi delle tombe. L'ingresso è gratuito ma serve una prenotazione sul WeChat del museo, con passaporto, e i posti giornalieri sono limitati. Metro linee 2 o 3 a Xiaozhai, oppure linee 3 o 4 a Dayanta, e dieci minuti a piedi. Servono due ore e mezza: poi le Mura iniziano alle 16:30. La Torre della Campana la vedrete da fuori andando a cena.
+
 Alle 16:00 siete sulle **Mura antiche**. Sono tredici chilometri e settecento metri ininterrotti, costruiti alla fine del Trecento sotto il primo imperatore Ming, spessi fino a diciotto metri alla base, con novantotto bastioni sporgenti. Xi'an, allora Chang'an, era stata per secoli capolinea orientale della Via della Seta e capitale di molte dinastie; la cinta che camminate è arrivata relativamente tardi in una storia molto più lunga. La Porta Est (Changle) è a circa quattro minuti a piedi dall'hotel, mentre la Porta Sud (Yongning) è la più scenografica. Biglietto ¥54, bici ¥45 per tre ore più ¥100 di cauzione; i biglietti si prendono anche con i mini-programmi WeChat ufficiali, scegliendo la porta, oppure sul posto. Il giro in bici dura da una e mezza a due ore: pedalate piano, fermatevi a ogni torre d'angolo. A differenza della Grande Muraglia, queste mura circondano una città vera: da un lato i tetti bassi e le strade strette del centro, dall'altro i grattacieli. Il tramonto di fine ottobre è verso le 18:00, e se partite alle 16:00 chiudete l'anello con la luce radente sulla pietra grigia.
 
 Per la sera, siete già vicini al **Quartiere Musulmano**: metro linea 2, uscita C a Zhonglou, poi a nord dopo il Tamburo. Dalle 18:00 parte il mercato serale. È la casa della comunità Hui, musulmani cinesi che vivono qui dai tempi Tang, quando mercanti arabi e persiani arrivavano lungo la Via della Seta e finivano per stabilirsi. Beiyuanmen, la via principale sotto la Torre del Tamburo, è viva e luminosa ma pensata ormai soprattutto per i turisti: pane al cumino, spiedini di agnello, dolci, folla. Se volete mangiare dove mangiano i residenti, passate a **Xiyangshi e Dapiyuan**, le traverse dietro: stessi piatti, prezzi più bassi, meno inglese sui cartelli. Tra i nomi dell'itinerario, in zona Dapiyuan ci sono Lao Mi Jia e Yizhenlou per il *paomo* (il pane sbriciolato nel brodo di agnello), Shengzhiwang per il *liangpi* (tagliatelle fredde di riso), e De Fa Chang, dal 1936, per i ravioli fatti a mano. Il cibo è halal, quindi niente maiale. Se avete ancora energie, in Huajue Xiang c'è la Grande Moschea, fondata nel 742: dall'esterno somiglia a un tempio buddista, senza cupole né minareti, con le iscrizioni in arabo incise discretamente sulle travi. Controllate sul posto gli orari di visita: anche se non riusciste a entrare, il vicolo vale la passeggiata per l'atmosfera.
+
+Se dopo cena avete ancora gambe, tornate in DiDi alla **Grande Pagoda dell'Oca Selvatica** (大雁塔): 25-30 minuti dal Quartiere Musulmano, o metro linee 3 o 4 a Dayanta, uscite B o C. Di sera la pagoda è illuminata e nella piazza nord partono le fontane musicali, gratuite: nei giorni feriali alle 21:00, ma controllate gli orari sul posto. La pagoda fu costruita nel 652 per custodire i testi buddisti portati dall'India dal monaco Xuanzang. L'interno del tempio e la salita alla pagoda sono solo di giorno, quindi la sera è una vista, non una visita.
 
 Chiudete la serata senza strafare: domani la sveglia è presto e il treno è alle 09:10.
 
@@ -557,12 +570,14 @@ Verso le 13:00 pranzate: decidete in quel momento che pomeriggio fare, in base a
 
 L'**opzione A** parte alle 14:00 con il Tempio dei Lama, metro linea 2 o 5 fino a Yonghegong, uscita C o F, due o tre minuti a piedi. Wudaoying era un accampamento militare Qing ed è diventato il quartiere creativo di Pechino, con caffè indipendenti e studi di design dentro case a corte abitate ancora da famiglie vere. A pochi passi, Guozijian era l'accademia imperiale più prestigiosa, l'unico hutong dedicato interamente all'istruzione, con i portali in pietra (paifang) che segnalavano lo status accademico di chi viveva dietro. Il **Tempio dei Lama**, Yonghegong, fu residenza di un principe Qing prima di diventare nel Settecento il tempio buddista tibetano più importante fuori dal Tibet; l'incenso brucia giorno e notte e molti fedeli percorrono il complesso in senso orario. Apre 09:00-16:30, ultimo ingresso 16:00, ¥25; anche gli stranieri devono riservare una fascia oraria (WeChat, sette giorni prima), oppure potete andare alla biglietteria con il passaporto. Gli orari di Guozijian sono da verificare. Se siete stanchi, Nanluoguxiang in risciò è il giro classico, ma molto turistico. Alle 16:30 spostatevi a **Sanlitun** (Taikoo Li): metro linea 2 a Dongsi Shitiao o linea 10, circa 20-25 minuti. È il volto moderno di Pechino, con vicoli pedonali che si ispirano alla scala degli hutong, e la luce migliore è tra le 16:30 e le 18:30.
 
+Nell'opzione A, dopo il Tempio dei Lama (ultimo ingresso 16:00) a cinque minuti a piedi c'è il **Tempio di Confucio e Guozijian** (孔庙和国子监), alle 15:15: un luogo silenzioso, con le stele dei laureati degli esami imperiali e la sala Dacheng dal tetto giallo. Biglietto ¥30, chiude alle 17:00 (ultimo ingresso 16:30), aperto il venerdì. Poi un caffè a Wudaoying e Sanlitun verso le 17:00.
+
 L'**opzione B** è il **Palazzo d'Estate**, dalle 14:00: DiDi o metro linea 4, 30-45 minuti, con la finestra migliore tra le 15:00 e le 17:00 (14:45-17:30 sull'itinerario). Costi e orari sono da verificare. Il parco è costruito attorno al lago Kunming e alla Collina della Longevità, ed è Patrimonio UNESCO. Il Corridoio Lungo misura 728 metri e ha oltre quattordicimila dipinti, tutti diversi; il Ponte dei Diciassette Archi attraversa l'acqua fino all'isola. Nacque come luogo di svago per la corte, un registro più intimo e paesaggistico. Il prezzo della scelta: rinunciate sia a Wudaoying sia a Sanlitun.
 
 **Consigli**
 
 - Portate il passaporto fisico e le conferme di prenotazione di Tienanmen e della Città Proibita: vengono controllate all'ingresso.
-- Mettete in agenda il 21/10 per la piazza e il 23/10 alle 14:00 italiane per la Città Proibita: sono i due momenti che decidono la giornata.
+- Mettete in agenda il 21/10 per la piazza (provate allora; con 7 giorni di anticipo si apre di sicuro il 23/10) e il 23/10 alle 14:00 italiane per la Città Proibita: sono i due momenti che decidono la giornata.
 - Portate poco: i controlli sono come in aeroporto, e l'asse centrale è lungo. Acqua e uno spuntino prima di entrare.
 - Uscite dalla Porta Shenwu solo quando avete finito: dall'altra parte avete Jingshan e gli hutong, non il punto di partenza.
 - A fine ottobre a Pechino il mattino è fresco e secco: strati leggeri, e occhiali da sole nel pomeriggio.
@@ -650,4 +665,4 @@ L'EY889 decolla alle 19:45 e atterra ad Abu Dhabi all'una di notte. Lo scalo è 
 
 ---
 
-*Fonti: itinerario v13 (01/10/2026) e guida audio del Project. I dati storici sono quelli della guida: se qualcosa non torna sul posto, vince quello che vedete scritto sul luogo. Orari, aperture e prenotazioni vanno sempre ricontrollati pochi giorni prima.*
+*Fonti: itinerario v14 (07/10/2026) e guida audio del Project. I dati storici sono quelli della guida: se qualcosa non torna sul posto, vince quello che vedete scritto sul luogo. Orari, aperture e prenotazioni vanno sempre ricontrollati pochi giorni prima.*
