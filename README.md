@@ -76,4 +76,5 @@ si riconosce da sola per cinese, giapponese, coreano e thai.
 `trips/cina-2026/sorgente/Itinerario_Cina.md` è la fonte; la versione importata è nel front-matter di `cina-2026.md` (`itinerario: vNN`). A ogni reimport vanno **conservati** i campi aggiunti solo nel repo:
 - la sezione `# Racconto` (un `## Giorno N — titolo` per giorno, testo lungo): è il racconto letto in app, da conservare a ogni reimport;
 - le righe `mappa:` degli aeroporti nel Giorno 1;
+- i tempi di ogni tappa: `durata: N min` (quanto fermarsi) e `spostamento: mezzo · N min` (quanto ci vuole per arrivarci; sulle voci «Hotel → …» è il trasferimento stesso). Vivono solo in `cina-2026.md`, che è il contenitore unico dei tempi: un reimport deve riapplicarli;
 - le `news.json` (non fanno parte del sorgente, le aggiorna un'attività programmata).
