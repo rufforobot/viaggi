@@ -71,10 +71,11 @@ si riconosce da sola per cinese, giapponese, coreano e thai.
 - `# Info paese` — schede pratiche (elettricità, mance, orari, pagamenti…); senza questa sezione la scheda sparisce.
 - `# Frasi` — se vuota, la sezione Frasi utili sparisce.
 
-## Reimport dell'itinerario (cina-2026)
+## Fonte unica dell'itinerario (cina-2026)
 
-`trips/cina-2026/sorgente/Itinerario_Cina.md` è la fonte; la versione importata è nel front-matter di `cina-2026.md` (`itinerario: vNN`). A ogni reimport vanno **conservati** i campi aggiunti solo nel repo:
-- la sezione `# Racconto` (un `## Giorno N — titolo` per giorno, testo lungo): è il racconto letto in app, da conservare a ogni reimport;
-- le righe `mappa:` degli aeroporti nel Giorno 1;
-- i tempi di ogni tappa: `durata: N min` (quanto fermarsi) e `spostamento: mezzo · N min` (quanto ci vuole per arrivarci; sulle voci «Hotel → …» è il trasferimento stesso). Vivono solo in `cina-2026.md`, che è il contenitore unico dei tempi: un reimport deve riapplicarli;
-- le `news.json` (non fanno parte del sorgente, le aggiorna un'attività programmata).
+`trips/cina-2026/cina-2026.md` è l'unica fonte: itinerario, tempi, guide, racconto e note di viaggio stanno lì. Non c'è più un master separato né un reimport: ogni modifica si fa direttamente in questo file (la stessa copia è nel Project come `claude/Itinerario_Cina.md`).
+- Ogni tappa è `### HH:MM · Titolo` con i campi sotto; `durata: N min` dice quanto fermarsi e `spostamento: mezzo · N min` quanto ci vuole per arrivarci. Le voci con «→» nel titolo (Hotel → aeroporto…) sono spostamenti e non tappe; voli e treni restano tappe.
+- `# Note di viaggio` raccoglie volo, trasporti, pagamenti, assicurazione, clima, dove mangiare, shopping, riepilogo notti, calendario e costi di prenotazione: non è letto dall'app.
+- Le `news.json` le aggiorna un'attività programmata.
+- La versione è nel front-matter (`itinerario: vNN`): aumentala a ogni modifica sostanziale.
+
