@@ -3060,7 +3060,6 @@ function buildReminders() {
   transfers.forEach(t => {
     const dep = new Date(t.dep).getTime(), fl = /Volo/.test(t.type);
     if (fl) out.push({ id: 'ci-' + t.id, title: 'Check-in online', sub: t.title, at: dep - 86400000, tz: tzOfIso(t.dep) });
-    out.push({ id: 'go-' + t.id, title: fl ? "Parti per l'aeroporto" : 'Parti per la stazione', sub: t.title + ' · ' + fmtLocal(t.dep), at: dep - (fl ? 4 : 1.5) * 3600000, tz: tzOfIso(t.dep) });
   });
   reservations.forEach(r => { if (r.opens && !state.booked[r.id]) out.push({ id: 'op-' + r.id, title: 'Apre la prenotazione', sub: r.title, at: +parseOpens(r.opens), tz: 'Europe/Rome' }); });
   state.imported.forEach(x => { if (x.dep) out.push({ id: 'imp-' + x.id, title: x.title, sub: 'Prenotazione importata', at: new Date(x.dep).getTime() - 3 * 3600000, tz: tzOfIso(x.dep) }); });
