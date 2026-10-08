@@ -1,14 +1,85 @@
 {
- "updated": "2026-10-07T06:00:00+02:00",
+ "updated": "2026-10-08T06:00:00+02:00",
  "items": [
   {
+   "date": "2026-10-08",
+   "city": "Shanghai",
+   "cat": "Festival",
+   "title": "Nanxiang Guochao Festival, ultimo giorno",
+   "text": "Festa di strada a Nanxiang con grande banchetto di xiaolongbao e cibo di strada. Oggi e l'ultimo giorno (dal 30/9).",
+   "place": "Nanxiang, Jiading",
+   "src": "Shanghai Municipal People's Government",
+   "url": "https://english.shanghai.gov.cn/en-MajorConsumerEvents/20260907/b612f30cd33147ac92f6d061da9370ee.html"
+  },
+  {
+   "date": "2026-10-08",
+   "city": "Shanghai",
+   "cat": "Sport",
+   "title": "Rolex Shanghai Masters (ATP 1000)",
+   "text": "Torneo in corso dal 5 al 18 ottobre. Sede fuori dal centro: calcola circa 75 minuti tra metro e navetta; verifica gli orari delle sessioni.",
+   "place": "Qizhong Tennis Center, Minhang",
+   "src": "Shanghai Municipal People's Government",
+   "url": "https://english.shanghai.gov.cn/en-ExpressNewsClips-Videos-WhatsNew/20260806/1f52f77e3ffb468db8b76298f2ebf0a0.html"
+  },
+  {
+   "date": "2026-10-08",
+   "city": "Shanghai",
+   "cat": "Sport",
+   "title": "Valorant Champions 2026, playoff giorno 7",
+   "text": "Playoff a eliminazione doppia (7-18 ottobre). Fino all'11/10 le partite sono a Jing'an, dal 14/10 a Pudong. Verifica biglietti e orari.",
+   "place": "Jing'an, Shanghai",
+   "src": "Shanghai Municipal People's Government",
+   "url": "https://english.shanghai.gov.cn/en-MajorConsumerEvents/20260907/b612f30cd33147ac92f6d061da9370ee.html"
+  },
+  {
+   "date": "2026-10-09",
+   "city": "Shanghai",
+   "cat": "Sport",
+   "title": "Rolex Shanghai Masters (ATP 1000)",
+   "text": "Torneo in corso dal 5 al 18 ottobre. Sede fuori dal centro: calcola circa 75 minuti tra metro e navetta; verifica gli orari delle sessioni.",
+   "place": "Qizhong Tennis Center, Minhang",
+   "src": "Shanghai Municipal People's Government",
+   "url": "https://english.shanghai.gov.cn/en-ExpressNewsClips-Videos-WhatsNew/20260806/1f52f77e3ffb468db8b76298f2ebf0a0.html"
+  },
+  {
+   "date": "2026-10-09",
+   "city": "Shanghai",
+   "cat": "Sport",
+   "title": "Valorant Champions 2026, playoff giorno 8",
+   "text": "Playoff a eliminazione doppia (7-18 ottobre). Fino all'11/10 le partite sono a Jing'an, dal 14/10 a Pudong. Verifica biglietti e orari.",
+   "place": "Jing'an, Shanghai",
+   "src": "Shanghai Municipal People's Government",
+   "url": "https://english.shanghai.gov.cn/en-MajorConsumerEvents/20260907/b612f30cd33147ac92f6d061da9370ee.html"
+  },
+  {
+   "date": "2026-10-10",
+   "city": "Shanghai",
+   "cat": "Sport",
+   "title": "Rolex Shanghai Masters (ATP 1000)",
+   "text": "Torneo in corso dal 5 al 18 ottobre. Sede fuori dal centro: calcola circa 75 minuti tra metro e navetta; verifica gli orari delle sessioni.",
+   "place": "Qizhong Tennis Center, Minhang",
+   "src": "Shanghai Municipal People's Government",
+   "url": "https://english.shanghai.gov.cn/en-ExpressNewsClips-Videos-WhatsNew/20260806/1f52f77e3ffb468db8b76298f2ebf0a0.html"
+  },
+  {
+   "date": "2026-10-10",
+   "city": "Shanghai",
+   "cat": "Sport",
+   "title": "Valorant Champions 2026, playoff giorno 9",
+   "text": "Playoff a eliminazione doppia (7-18 ottobre). Fino all'11/10 le partite sono a Jing'an, dal 14/10 a Pudong. Verifica biglietti e orari.",
+   "place": "Jing'an, Shanghai",
+   "src": "Shanghai Municipal People's Government",
+   "url": "https://english.shanghai.gov.cn/en-MajorConsumerEvents/20260907/b612f30cd33147ac92f6d061da9370ee.html"
+  },
+  {
+   "date": "2026-10-17",
    "city": "Shanghai",
    "cat": "Spettacoli",
-   "title": "China Shanghai International Arts Festival",
-   "text": "25ª edizione, oltre 500 spettacoli in città tra teatro, danza, musica orchestrale e sperimentale, con molta programmazione senza parole o in inglese. Controlla il cartellone del giorno.",
-   "place": "Teatri di tutta la città",
-   "src": "Shanghai Tourism",
-   "url": "https://www.shanghaitourism.org/shanghai-festivals-events-calendar/"
+   "title": "China Shanghai International Arts Festival, concerto inaugurale",
+   "text": "Il festival (25ª edizione) va dal 17/10 al 15/11, con quasi 1.100 appuntamenti. Concerto di apertura al Shanghai Grand Opera House.",
+   "place": "Shanghai Grand Opera House",
+   "src": "Shanghai Municipal People's Government",
+   "url": "https://english.shanghai.gov.cn/en-CulturalPerformances/20260825/004d4a8d8d304611bda9efe7d569ec45.html"
   },
   {
    "date": "2026-10-18",
@@ -19,16 +90,6 @@
    "place": "Qizhong Tennis Center, Minhang",
    "src": "Shanghai Tourism",
    "url": "https://www.shanghaitourism.org/shanghai-festivals-events-calendar/"
-  },
-  {
-   "date": "2026-10-07",
-   "city": "Shanghai",
-   "cat": "Sport",
-   "title": "Valorant Champions 2026, inizio dei playoff",
-   "text": "Dal 7 al 18 ottobre i playoff a eliminazione doppia con otto squadre; semifinali e finale al Mercedes-Benz Arena. Il 5 e 6 ottobre non ci sono partite. Verifica biglietti e orari.",
-   "place": "Jing'an Sports Center, Jing'an",
-   "src": "The Spike",
-   "url": "https://www.thespike.gg/valorant/news/valorant-champions-2026-shanghai-everything-you-need-to-know/8885"
   }
  ]
 }
