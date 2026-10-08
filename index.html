@@ -868,6 +868,7 @@ button.wp { cursor: pointer; }
 .obadge.mainstream { background: #b7791f; }
 .obadge.local { background: #2f855a; }
 .obadge.hotpot, .obadge.barbecue, .obadge.a, .obadge.b { background: #6b7280; }
+.obadge.maltempo { background: #4a6fa5; }
 .sc-o { display: flex; gap: 6px; margin-top: 6px; }
 .dopts .orow { display: flex; gap: 10px; align-items: flex-start; padding: 6px 0; }
 .dopts .orow .obadge { flex: 0 0 92px; margin-top: 3px; text-align: center; }
@@ -2025,7 +2026,7 @@ function howHTML(t) {
   return `<ul class="how-list">${parts.map(x => `<li>${esc(x)}</li>`).join('')}</ul>`;
 }
 /* Doppia opzione: ogni voce è "mainstream: testo" o "local: testo" */
-const OPT_LABEL = { mainstream: 'Mainstream', local: 'Local', hotpot: 'Hotpot', barbecue: 'Barbecue', a: 'Opzione A', b: 'Opzione B' };
+const OPT_LABEL = { mainstream: 'Mainstream', local: 'Local', hotpot: 'Hotpot', barbecue: 'Barbecue', a: 'Opzione A', b: 'Opzione B', maltempo: 'Se piove' };
 function optsOf(st) {
   return ((st && st.opts) || []).map(o => { const m = String(L(o)).match(/^(mainstream|local|hotpot|barbecue)\s*:\s*(.+)$/i); return m ? { k: m[1].toLowerCase(), t: m[2].trim() } : null; }).filter(Boolean);
 }
