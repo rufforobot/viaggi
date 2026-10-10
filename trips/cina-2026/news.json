@@ -1,26 +1,6 @@
 {
- "updated": "2026-10-09T06:00:00+02:00",
+ "updated": "2026-10-10T06:00:00+02:00",
  "items": [
-  {
-   "date": "2026-10-09",
-   "city": "Shanghai",
-   "cat": "Sport",
-   "title": "Rolex Shanghai Masters (ATP 1000)",
-   "text": "Torneo in corso dal 5 al 18 ottobre. Sede fuori dal centro: calcola circa 75 minuti tra metro e navetta; verifica gli orari delle sessioni.",
-   "place": "Qizhong Tennis Center, Minhang",
-   "src": "Shanghai Municipal People's Government",
-   "url": "https://english.shanghai.gov.cn/en-ExpressNewsClips-Videos-WhatsNew/20260806/1f52f77e3ffb468db8b76298f2ebf0a0.html"
-  },
-  {
-   "date": "2026-10-09",
-   "city": "Shanghai",
-   "cat": "Sport",
-   "title": "Valorant Champions 2026, playoff giorno 8",
-   "text": "Playoff a eliminazione doppia (7-18 ottobre). Fino all'11/10 le partite sono a Jing'an, dal 14/10 a Pudong. Verifica biglietti e orari.",
-   "place": "Jing'an, Shanghai",
-   "src": "Shanghai Municipal People's Government",
-   "url": "https://english.shanghai.gov.cn/en-MajorConsumerEvents/20260907/b612f30cd33147ac92f6d061da9370ee.html"
-  },
   {
    "date": "2026-10-10",
    "city": "Shanghai",
@@ -60,6 +40,16 @@
    "place": "Jing'an, Shanghai",
    "src": "Shanghai Municipal People's Government",
    "url": "https://english.shanghai.gov.cn/en-MajorConsumerEvents/20260907/b612f30cd33147ac92f6d061da9370ee.html"
+  },
+  {
+   "date": "2026-10-12",
+   "city": "Shanghai",
+   "cat": "Sport",
+   "title": "Rolex Shanghai Masters (ATP 1000)",
+   "text": "Torneo in corso dal 5 al 18 ottobre. Sede fuori dal centro: calcola circa 75 minuti tra metro e navetta; verifica gli orari delle sessioni.",
+   "place": "Qizhong Tennis Center, Minhang",
+   "src": "Shanghai Municipal People's Government",
+   "url": "https://english.shanghai.gov.cn/en-ExpressNewsClips-Videos-WhatsNew/20260806/1f52f77e3ffb468db8b76298f2ebf0a0.html"
   },
   {
    "date": "2026-10-17",
