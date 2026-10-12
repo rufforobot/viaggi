@@ -224,6 +224,8 @@ main { max-width: 1180px; margin: 0 auto; padding: 20px 18px 120px; }
 
 /* Campi e form */
 .field { width: 100%; border: none; background: var(--fill); color: var(--text); border-radius: 12px; padding: 12px; font-size: 16px; outline: none; min-width: 0; }
+.field[type="datetime-local"], .field[type="date"], .field[type="time"] { -webkit-appearance: none; appearance: none; box-sizing: border-box; display: block; max-width: 100%; min-height: 46px; text-align: left; }
+.field[type="datetime-local"]::-webkit-date-and-time-value { text-align: left; min-width: 0; }
 .row-form { display: grid; gap: 8px; margin-top: 12px; }
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 .note-line { font-size: 13px; color: var(--muted); line-height: 1.5; }
