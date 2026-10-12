@@ -2051,7 +2051,7 @@ function isCheckinDay(day, hk) {
   return !first || first.day === day.day;
 }
 /* ====================== MAPPA DEL GIORNO ====================== */
-const GEO_KEY = (meta.id || 'trip') + '-geo2', ROUTE_KEY = (meta.id || 'trip') + '-route';
+const GEO_KEY = (meta.id || 'trip') + '-geo3', ROUTE_KEY = (meta.id || 'trip') + '-route';
 const readLS = k => { try { return JSON.parse(localStorage.getItem(k)) || {}; } catch { return {}; } };
 const geoCache = readLS(GEO_KEY), routeCache = readLS(ROUTE_KEY);
 const saveLS = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} };
@@ -2073,11 +2073,11 @@ function geocodeOne(q) {
   if (q in geoCache) return Promise.resolve(geoCache[q]);
   const job = geoQueue.then(async () => {
     if (q in geoCache) return geoCache[q];
-    let ll, ok = false;
+    let ll, ok = false, auth = false;
     try {
       const r = await fetch('https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&q=' + encodeURIComponent(q));
       if (!r.ok) throw new Error('nominatim ' + r.status);
-      const j = await r.json(); ll = j && j[0] ? [+j[0].lat, +j[0].lon] : null; ok = true;
+      const j = await r.json(); ll = j && j[0] ? [+j[0].lat, +j[0].lon] : null; ok = true; auth = true;
     } catch {
       try {
         const r = await fetch('https://photon.komoot.io/api/?limit=1&q=' + encodeURIComponent(q));
@@ -2087,7 +2087,8 @@ function geocodeOne(q) {
       } catch { /* nessun servizio raggiungibile */ }
     }
     if (!ok) throw new Error('rete');
-    geoCache[q] = ll; saveLS(GEO_KEY, geoCache);
+    /* un "non trovato" si ricorda solo se viene dal servizio principale: dal ripiego (Photon) è poco affidabile e bloccava le tappe per sempre */
+    if (ll || auth) { geoCache[q] = ll; saveLS(GEO_KEY, geoCache); }
     await sleep(1100);
     return ll;
   });
@@ -2102,7 +2103,8 @@ function dayPoints(day) {
     const p = placeInfo(day, i);
     if (!stopMapQ(day, st, p)) return;
     /* ogni query porta la città: il solo nome cinese (es. 新天地, 人民公园) esiste in molte città e finiva fuori zona */
-    const cands = [st.map, st.map && st.map.replace(/\s*Terminal \w+/i, '').replace(/,\s*[^,]+$/, ''), `${L(st.title)}, ${city}${meta.country}`, p.zh && `${p.zh}, ${city}${meta.country}`, p.addr && `${p.addr}, ${city}${meta.country}`].filter(Boolean);
+    const clean = L(st.title).replace(/\([^)]*\)/g, '').split(/\s*[:·]\s*/)[0].replace(/^.*→\s*/, '').replace(/^Hotel\s*-\s*/i, '').trim();
+    const cands = [st.map, st.map && st.map.replace(/\s*Terminal \w+/i, '').replace(/,\s*[^,]+$/, ''), p.zh && `${p.zh}, ${city}${meta.country}`, p.zh && `${p.zh.replace(/[(（][^)）]*[)）]/g, '').trim()}, ${city}${meta.country}`, p.addr && `${p.addr}, ${city}${meta.country}`, p.py && `${L(p.py)}, ${city}${meta.country}`, clean && `${clean}, ${city}${meta.country}`, `${L(st.title)}, ${city}${meta.country}`].filter(Boolean).filter((x, k, a) => a.indexOf(x) === k);
     out.push({ i, time: s[0], title: L(s[1]), cands });
   });
   return out;
