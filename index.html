@@ -1272,6 +1272,8 @@ function appleMaps(q) {
   return `https://maps.apple.com/?q=${e}`;
 }
 
+const DOW_IT = ['dom.', 'lun.', 'mar.', 'mer.', 'gio.', 'ven.', 'sab.'];
+const dayDate = d => { const [y, m, g] = dayISO(d).split('-').map(Number); return `${DOW_IT[new Date(Date.UTC(y, m - 1, g)).getUTCDay()]} ${d.date}`; };
 function destToday() { return new Date().toLocaleDateString('en-CA', { timeZone: meta.tz }); }
 const dayISO = d => {
   const m = Number(d.date.slice(3, 5)), y0 = Number(trip.start.slice(0, 4)), m0 = Number(trip.start.slice(5, 7));
@@ -1475,7 +1477,7 @@ function renderToday() {
   const nowMin = (+hm.slice(0, 2)) * 60 + (+hm.slice(3, 5));
   const plan = dayPlan(d), tOf = it => it.type === 'leg' ? it.depart : it.start;
   const nextK = started ? plan.items.findIndex(it => tOf(it) != null && tOf(it) >= nowMin - 30) : 0;
-  box.innerHTML = `<div class="companion-meta">${started ? 'Oggi' : 'Primo giorno'} · Giorno ${d.day} · ${esc(d.date)}</div><h3>${esc(d.city)}</h3><p style="margin-bottom:6px;">${esc(d.title)}</p>`;
+  box.innerHTML = `<div class="companion-meta">${started ? 'Oggi' : 'Primo giorno'} · Giorno ${d.day} · ${esc(dayDate(d))}</div><h3>${esc(d.city)}</h3><p style="margin-bottom:6px;">${esc(d.title)}</p>`;
   const list = document.createElement('div'); list.className = 'today-list';
   plan.items.forEach((it, k) => {
     const r = document.createElement('button'); r.type = 'button';
@@ -2433,7 +2435,7 @@ function stopSheet(day, i) {
 function renderDay(day, target) {
   const hk = hotelKeyForDay(day);
   const section = document.createElement('article'); section.className = 'day-card'; section.id = `day-${day.day}`;
-  section.innerHTML = `<div class="day-head"><div class="day-title"><h4>Giorno ${day.day} · ${esc(day.city)}</h4><p>${esc(day.date)} · ${esc(day.title)}</p></div><div class="wx-line" data-wxday="${day.day}"></div></div>
+  section.innerHTML = `<div class="day-head"><div class="day-title"><h4>Giorno ${day.day} · ${esc(day.city)}</h4><p>${esc(dayDate(day))} · ${esc(day.title)}</p></div><div class="wx-line" data-wxday="${day.day}"></div></div>
     ${day.alert ? `<div class="alert"><b>Attenzione</b> ${esc(day.alert)}</div>` : ''}
     <div class="timeline"></div>
     ${hk && isCheckinDay(day, hk) ? `<div class="hotel-box" data-hotel>${hotelBoxHTML(hk, false)}</div>` : ''}
@@ -2485,7 +2487,7 @@ function renderItinerary() {
   const wrap = $('fullItinerary'); wrap.innerHTML = '';
   if (selDay == null || !trip.days.some(d => d.day === selDay)) selDay = trip.days[tripDayIndex()].day;
   const chips = document.createElement('div'); chips.className = 'dchips'; chips.id = 'dayChips';
-  trip.days.forEach(d => { const b = document.createElement('button'); b.type = 'button'; b.className = d.day === selDay ? 'on' : ''; b.innerHTML = `<small>Giorno ${d.day}</small><b>${esc(d.city.split('→').pop().trim())}</b><em>${esc(d.date)}</em>`; b.onclick = () => goDay(d.day, false); chips.appendChild(b); });
+  trip.days.forEach(d => { const b = document.createElement('button'); b.type = 'button'; b.className = d.day === selDay ? 'on' : ''; b.innerHTML = `<small>Giorno ${d.day}</small><b>${esc(d.city.split('→').pop().trim())}</b><em>${esc(dayDate(d))}</em>`; b.onclick = () => goDay(d.day, false); chips.appendChild(b); });
   wrap.appendChild(chips);
   renderDay(trip.days.find(d => d.day === selDay), wrap);
   if (typeof renderDayWeather === 'function') renderDayWeather();
