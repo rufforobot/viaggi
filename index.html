@@ -2119,12 +2119,14 @@ const dayJobs = {};
 let hereCache = null;
 function getHere() {
   if (hereCache && Date.now() - hereCache.t < 300000) return Promise.resolve(hereCache.ll);
-  return new Promise(res => {
+  /* la posizione si chiede solo se il permesso è già concesso: niente richiesta a ogni apertura della mappa */
+  const allowed = (navigator.permissions && navigator.permissions.query) ? navigator.permissions.query({ name: 'geolocation' }).then(r => r.state === 'granted').catch(() => false) : Promise.resolve(false);
+  return allowed.then(ok => ok ? new Promise(res => {
     if (!navigator.geolocation) return res(null);
     const to = setTimeout(() => res(null), 5000);
     try { navigator.geolocation.getCurrentPosition(p => { clearTimeout(to); hereCache = { t: Date.now(), ll: [p.coords.latitude, p.coords.longitude] }; res(hereCache.ll); }, () => { clearTimeout(to); res(null); }, { timeout: 4500, maximumAge: 120000 }); }
     catch { clearTimeout(to); res(null); }
-  });
+  }) : null);
 }
 const MAP_STYLES = {
   chiara: { name: 'Chiara', vec: 'https://tiles.openfreemap.org/styles/positron', mini: 'minimal' },
@@ -3040,7 +3042,7 @@ function setupOffline() {
     let reloaded = false;
     navigator.serviceWorker.addEventListener('controllerchange', () => { if (reloaded) return; reloaded = true; location.reload(); });
   }
-  navigator.serviceWorker.register('sw.js').then(reg => { try { reg.update(); } catch {} }).catch(() => { el.textContent = 'Non attiva: registrazione non riuscita.'; });
+  navigator.serviceWorker.register('sw.js', { updateViaCache: 'none' }).then(reg => { try { reg.update(); } catch {} }).catch(() => { el.textContent = 'Non attiva: registrazione non riuscita.'; });
   navigator.serviceWorker.ready.then(() => { el.textContent = 'Attiva: l\'app si apre anche senza rete (dopo il primo caricamento online).'; });
   if (navigator.storage && navigator.storage.persist) navigator.storage.persist();
 }
