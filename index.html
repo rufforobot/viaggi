@@ -2479,7 +2479,8 @@ function alignDayChips() {
   c.scrollLeft = on.offsetLeft - first.offsetLeft;
 }
 function goDay(n, scroll = true) {
-  selDay = n; renderItinerary();
+  selDay = n; try { sessionStorage.setItem('cina-day', String(n)); } catch {}
+  renderItinerary();
   alignDayChips();
   if (scroll) window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -3291,6 +3292,7 @@ function setView(view) {
   document.querySelectorAll(`.bottom-nav [data-view="${nav}"]`).forEach(b => b.classList.add('active'));
   document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
   $(view).classList.add('active');
+  try { sessionStorage.setItem('cina-view', view); } catch {}
   if (view === 'itinerary') { alignDayChips(); requestAnimationFrame(alignDayChips); setTimeout(alignDayChips, 250); }
   if (view === 'itinerary') requestAnimationFrame(alignDayChips);
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -3409,6 +3411,12 @@ $('convLabel').textContent = `${meta.currency.name} (${meta.currency.symbol})`;
 setupConverter(); setupExpenseForm(); setupBackup(); refreshRate();
 renderCities(); renderUtilHome(); renderItinerary(); renderGuideControls(); renderCompanion(); renderTodayGuides(); loadNews(); renderTransfers(); renderWallet(); renderCodes();
 initExtras();
+/* dopo "tira per aggiornare" (ricarica) si resta dove si era: scheda e giorno scelti */
+try {
+  const sd = Number(sessionStorage.getItem('cina-day')); if (sd && trip.days.some(d => d.day === sd)) { selDay = sd; renderItinerary(); }
+  const sv = sessionStorage.getItem('cina-view'); if (sv && sv !== 'dashboard' && $(sv)) setView(sv);
+  window.scrollTo(0, 0);
+} catch {}
 renderExpenses(); renderBookingAlerts(); renderToday();
 renderChecklist(); renderPhrases(''); renderWeather(); renderBackupInfo(); updateRateUI(); updateMetrics();
 setupOffline();
