@@ -1,27 +1,7 @@
 {
- "updated": "2026-10-14T05:58:00+02:00",
+ "updated": "2026-10-15T05:55:00+02:00",
  "items": [
   {
-   "date": "2026-10-14",
-   "city": "Shanghai",
-   "cat": "Sport",
-   "title": "Rolex Shanghai Masters (ATP 1000)",
-   "text": "Torneo in corso dal 5 al 18 ottobre. Sede fuori dal centro: calcola circa 75 minuti tra metro e navetta; verifica gli orari delle sessioni.",
-   "place": "Qizhong Tennis Center, Minhang",
-   "src": "Shanghai Municipal People's Government",
-   "url": "https://english.shanghai.gov.cn/en-ExpressNewsClips-Videos-WhatsNew/20260806/1f52f77e3ffb468db8b76298f2ebf0a0.html"
-  },
-  {
-   "date": "2026-10-14",
-   "city": "Shanghai",
-   "cat": "Sport",
-   "title": "Valorant Champions 2026, playoff",
-   "text": "Playoff a eliminazione doppia (7-18 ottobre). Dal 14/10 le partite si spostano a Pudong. Verifica biglietti e orari.",
-   "place": "Pudong, Shanghai",
-   "src": "Shanghai Municipal People's Government",
-   "url": "https://english.shanghai.gov.cn/en-MajorConsumerEvents/20260907/b612f30cd33147ac92f6d061da9370ee.html"
-  },
-  {
    "date": "2026-10-15",
    "city": "Shanghai",
    "cat": "Sport",
@@ -40,6 +20,16 @@
    "place": "Pudong, Shanghai",
    "src": "Shanghai Municipal People's Government",
    "url": "https://english.shanghai.gov.cn/en-MajorConsumerEvents/20260907/b612f30cd33147ac92f6d061da9370ee.html"
+  },
+  {
+   "city": "Shanghai",
+   "cat": "Sport",
+   "title": "UCI Track World Championships",
+   "text": "Mondiali di ciclismo su pista dal 14 al 18 ottobre. Sede a Chongming, fuori dal centro: calcola tempo extra e verifica orari e biglietti.",
+   "place": "Shanghai Velodrome, Chongming",
+   "src": "Shanghai Municipal People's Government",
+   "url": "https://english.shanghai.gov.cn/en-SportsEvents/20260803/b2691b36a6254738ab4656d757b899f4.html",
+   "date": "2026-10-15"
   },
   {
    "date": "2026-10-16",
@@ -62,6 +52,16 @@
    "url": "https://www.thespike.gg/valorant/news/valorant-champions-2026-shanghai-everything-you-need-to-know/8885"
   },
   {
+   "city": "Shanghai",
+   "cat": "Sport",
+   "title": "UCI Track World Championships",
+   "text": "Mondiali di ciclismo su pista dal 14 al 18 ottobre. Sede a Chongming, fuori dal centro: calcola tempo extra e verifica orari e biglietti.",
+   "place": "Shanghai Velodrome, Chongming",
+   "src": "Shanghai Municipal People's Government",
+   "url": "https://english.shanghai.gov.cn/en-SportsEvents/20260803/b2691b36a6254738ab4656d757b899f4.html",
+   "date": "2026-10-16"
+  },
+  {
    "date": "2026-10-17",
    "city": "Shanghai",
    "cat": "Spettacoli",
@@ -72,6 +72,36 @@
    "url": "https://english.shanghai.gov.cn/en-CulturalPerformances/20260825/004d4a8d8d304611bda9efe7d569ec45.html"
   },
   {
+   "date": "2026-10-17",
+   "city": "Shanghai",
+   "cat": "Sport",
+   "title": "Rolex Shanghai Masters (ATP 1000)",
+   "text": "Torneo in corso dal 5 al 18 ottobre. Sede fuori dal centro: calcola circa 75 minuti tra metro e navetta; verifica gli orari delle sessioni.",
+   "place": "Qizhong Tennis Center, Minhang",
+   "src": "Shanghai Municipal People's Government",
+   "url": "https://english.shanghai.gov.cn/en-ExpressNewsClips-Videos-WhatsNew/20260806/1f52f77e3ffb468db8b76298f2ebf0a0.html"
+  },
+  {
+   "date": "2026-10-17",
+   "city": "Shanghai",
+   "cat": "Sport",
+   "title": "Valorant Champions 2026, playoff",
+   "text": "Playoff in corso dal 7 al 18 ottobre; le fasi iniziali sono al Jing'an Sports Center, semifinali e finale al Mercedes-Benz Arena (Pudong). Verifica sede, biglietti e orari del giorno sul calendario ufficiale.",
+   "place": "Jing'an Sports Center / Mercedes-Benz Arena",
+   "src": "TheSpike.gg",
+   "url": "https://www.thespike.gg/valorant/news/valorant-champions-2026-shanghai-everything-you-need-to-know/8885"
+  },
+  {
+   "city": "Shanghai",
+   "cat": "Sport",
+   "title": "UCI Track World Championships",
+   "text": "Mondiali di ciclismo su pista dal 14 al 18 ottobre. Sede a Chongming, fuori dal centro: calcola tempo extra e verifica orari e biglietti.",
+   "place": "Shanghai Velodrome, Chongming",
+   "src": "Shanghai Municipal People's Government",
+   "url": "https://english.shanghai.gov.cn/en-SportsEvents/20260803/b2691b36a6254738ab4656d757b899f4.html",
+   "date": "2026-10-17"
+  },
+  {
    "date": "2026-10-18",
    "city": "Shanghai",
    "cat": "Sport",
@@ -80,6 +110,16 @@
    "place": "Qizhong Tennis Center, Minhang",
    "src": "Shanghai Tourism",
    "url": "https://www.shanghaitourism.org/shanghai-festivals-events-calendar/"
+  },
+  {
+   "city": "Shanghai",
+   "cat": "Sport",
+   "title": "UCI Track World Championships",
+   "text": "Mondiali di ciclismo su pista dal 14 al 18 ottobre. Sede a Chongming, fuori dal centro: calcola tempo extra e verifica orari e biglietti.",
+   "place": "Shanghai Velodrome, Chongming",
+   "src": "Shanghai Municipal People's Government",
+   "url": "https://english.shanghai.gov.cn/en-SportsEvents/20260803/b2691b36a6254738ab4656d757b899f4.html",
+   "date": "2026-10-18"
   }
  ]
 }
