@@ -1,36 +1,6 @@
 {
- "updated": "2026-10-15T05:55:00+02:00",
+ "updated": "2026-10-16T05:59:00+02:00",
  "items": [
-  {
-   "date": "2026-10-15",
-   "city": "Shanghai",
-   "cat": "Sport",
-   "title": "Rolex Shanghai Masters (ATP 1000)",
-   "text": "Torneo in corso dal 5 al 18 ottobre. Sede fuori dal centro: calcola circa 75 minuti tra metro e navetta; verifica gli orari delle sessioni.",
-   "place": "Qizhong Tennis Center, Minhang",
-   "src": "Shanghai Municipal People's Government",
-   "url": "https://english.shanghai.gov.cn/en-ExpressNewsClips-Videos-WhatsNew/20260806/1f52f77e3ffb468db8b76298f2ebf0a0.html"
-  },
-  {
-   "date": "2026-10-15",
-   "city": "Shanghai",
-   "cat": "Sport",
-   "title": "Valorant Champions 2026, playoff",
-   "text": "Playoff a eliminazione doppia (7-18 ottobre). Dal 14/10 le partite si spostano a Pudong. Verifica biglietti e orari.",
-   "place": "Pudong, Shanghai",
-   "src": "Shanghai Municipal People's Government",
-   "url": "https://english.shanghai.gov.cn/en-MajorConsumerEvents/20260907/b612f30cd33147ac92f6d061da9370ee.html"
-  },
-  {
-   "city": "Shanghai",
-   "cat": "Sport",
-   "title": "UCI Track World Championships",
-   "text": "Mondiali di ciclismo su pista dal 14 al 18 ottobre. Sede a Chongming, fuori dal centro: calcola tempo extra e verifica orari e biglietti.",
-   "place": "Shanghai Velodrome, Chongming",
-   "src": "Shanghai Municipal People's Government",
-   "url": "https://english.shanghai.gov.cn/en-SportsEvents/20260803/b2691b36a6254738ab4656d757b899f4.html",
-   "date": "2026-10-15"
-  },
   {
    "date": "2026-10-16",
    "city": "Shanghai",
@@ -66,10 +36,11 @@
    "city": "Shanghai",
    "cat": "Spettacoli",
    "title": "China Shanghai International Arts Festival, concerto inaugurale",
-   "text": "Il festival (25ª edizione) va dal 17/10 al 15/11, con quasi 1.100 appuntamenti. Concerto di apertura al Shanghai Grand Opera House.",
+   "text": "Il festival (25ª edizione) va dal 17/10 al 15/11. Concerto di apertura 'Shanghai Grand Opera House e i suoi amici' alle 19:30.",
    "place": "Shanghai Grand Opera House",
-   "src": "Shanghai Municipal People's Government",
-   "url": "https://english.shanghai.gov.cn/en-CulturalPerformances/20260825/004d4a8d8d304611bda9efe7d569ec45.html"
+   "src": "Operabase",
+   "url": "https://www.operabase.com/productions/opening-concert-of-shanghai-grand-opera-house-shanghai-grand-opera-house-and-friends-702984/17-october-2026/en",
+   "time": "19:30"
   },
   {
    "date": "2026-10-17",
@@ -120,6 +91,16 @@
    "src": "Shanghai Municipal People's Government",
    "url": "https://english.shanghai.gov.cn/en-SportsEvents/20260803/b2691b36a6254738ab4656d757b899f4.html",
    "date": "2026-10-18"
+  },
+  {
+   "date": "2026-10-18",
+   "city": "Shanghai",
+   "cat": "Festival",
+   "title": "International Audio-Visual Arts Gala",
+   "text": "Serata conclusiva del carnevale audiovisivo (24/9-18/10) nel distretto di Jing'an. Orario e sede non indicati: verifica prima di andare.",
+   "place": "Jing'an",
+   "src": "Shanghai Municipal People's Government",
+   "url": "https://english.shanghai.gov.cn/en-FestivalsCelebrations/20260908/107c9248db6d42fea411e41632a4f642.html"
   }
  ]
 }
