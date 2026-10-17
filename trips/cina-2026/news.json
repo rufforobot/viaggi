@@ -1,36 +1,6 @@
 {
- "updated": "2026-10-16T05:59:00+02:00",
+ "updated": "2026-10-17T06:10:00+02:00",
  "items": [
-  {
-   "date": "2026-10-16",
-   "city": "Shanghai",
-   "cat": "Sport",
-   "title": "Rolex Shanghai Masters (ATP 1000)",
-   "text": "Torneo in corso dal 5 al 18 ottobre. Sede fuori dal centro: calcola circa 75 minuti tra metro e navetta; verifica gli orari delle sessioni.",
-   "place": "Qizhong Tennis Center, Minhang",
-   "src": "Shanghai Municipal People's Government",
-   "url": "https://english.shanghai.gov.cn/en-ExpressNewsClips-Videos-WhatsNew/20260806/1f52f77e3ffb468db8b76298f2ebf0a0.html"
-  },
-  {
-   "date": "2026-10-16",
-   "city": "Shanghai",
-   "cat": "Sport",
-   "title": "Valorant Champions 2026, playoff",
-   "text": "Playoff in corso dal 7 al 18 ottobre; le fasi iniziali sono al Jing'an Sports Center, semifinali e finale al Mercedes-Benz Arena (Pudong). Verifica sede, biglietti e orari del giorno sul calendario ufficiale.",
-   "place": "Jing'an Sports Center / Mercedes-Benz Arena",
-   "src": "TheSpike.gg",
-   "url": "https://www.thespike.gg/valorant/news/valorant-champions-2026-shanghai-everything-you-need-to-know/8885"
-  },
-  {
-   "city": "Shanghai",
-   "cat": "Sport",
-   "title": "UCI Track World Championships",
-   "text": "Mondiali di ciclismo su pista dal 14 al 18 ottobre. Sede a Chongming, fuori dal centro: calcola tempo extra e verifica orari e biglietti.",
-   "place": "Shanghai Velodrome, Chongming",
-   "src": "Shanghai Municipal People's Government",
-   "url": "https://english.shanghai.gov.cn/en-SportsEvents/20260803/b2691b36a6254738ab4656d757b899f4.html",
-   "date": "2026-10-16"
-  },
   {
    "date": "2026-10-17",
    "city": "Shanghai",
@@ -101,6 +71,16 @@
    "place": "Jing'an",
    "src": "Shanghai Municipal People's Government",
    "url": "https://english.shanghai.gov.cn/en-FestivalsCelebrations/20260908/107c9248db6d42fea411e41632a4f642.html"
+  },
+  {
+   "date": "2026-10-19",
+   "city": "Shanghai",
+   "cat": "Festival",
+   "title": "Shanghai International Arts Festival in corso",
+   "text": "La 25a edizione dura dal 17 ottobre al 15 novembre, con opera, concerti e spettacoli al Shanghai Grand Opera House e in spazi pubblici; controlla il programma del giorno.",
+   "place": "Shanghai Grand Opera House e altre sedi",
+   "src": "Shanghai Municipal People's Government",
+   "url": "https://english.shanghai.gov.cn/en-CulturalPerformances/20260825/004d4a8d8d304611bda9efe7d569ec45.html"
   }
  ]
 }
