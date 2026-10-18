@@ -453,7 +453,15 @@ header { background: light-dark(rgba(242,242,247,.75), rgba(0,0,0,.7)); backdrop
 .clocks { background: #000; color: #fff; border-radius: 999px; padding: 6px 14px; gap: 8px; font-size: .85rem; font-weight: 600; flex-wrap: nowrap; box-shadow: 0 4px 12px rgba(0,0,0,.15); }
 #clockItaly { color: #A1A1A6; font-weight: 400; }
 #clockChina, #clockItaly { white-space: nowrap; flex: 0 0 auto; }
-.header-actions { flex: 0 0 auto; flex-wrap: nowrap; }
+.header-actions { flex: 0 0 auto; flex-wrap: nowrap; flex-direction: column; align-items: flex-end; gap: 6px; }
+.hdr-wx { border: 0; font: inherit; color: var(--text); background: var(--fill); border-radius: 999px; padding: 5px 11px; display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; white-space: nowrap; }
+.hdr-wx .wxs { flex: 0 0 auto; }
+.hdr-wx small { font-size: 12px; font-weight: 500; color: var(--muted); }
+.fx-tile { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-items: end; }
+.fx-tile .fx-head { grid-column: 1 / -1; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.fx-tile label { display: block; font-size: 12px; color: var(--muted); font-weight: 600; margin-bottom: 4px; }
+.fx-tile input { width: 100%; border: none; background: var(--fill); color: var(--text); border-radius: 14px; padding: 12px; font-size: 22px; font-weight: 700; text-align: center; outline: none; min-width: 0; }
+#todayHotelTile .bt { width: 100%; margin: 0 0 16px; }
 .brand { flex: 1 1 auto; min-width: 0; }
 .brand small { font-size: 13px; line-height: 1.3; }
 main { padding: 16px 16px 140px; }
@@ -938,6 +946,7 @@ button.wp { cursor: pointer; }
         <span id="clockChina">--:--</span>
         <span id="clockItaly">🇮🇹 --:--</span>
       </div>
+      <button type="button" class="hdr-wx" id="hdrWx" hidden></button>
     </div>
   </div>
 </header>
@@ -946,9 +955,11 @@ button.wp { cursor: pointer; }
   <!-- DASHBOARD -->
   <section id="dashboard" class="view active">
     <div class="bento-grid" id="bentoTop"></div>
+    <section class="card fx-tile" id="fxTile" style="margin-bottom:16px;"></section>
     <section class="card" id="todayWeather" hidden style="display:none"></section>
 
     <section class="card" id="nowCard"></section>
+    <div id="todayHotelTile"></div>
 
     <div id="todayGuides"></div>
 
@@ -1515,17 +1526,38 @@ function renderBento() {
   const st = d.stops[ni];
   const lg0 = st && dayPlan(d).legAt[ni < 0 ? 0 : ni];
   if (st) tile('hot wide', (started ? 'Prossima tappa' : 'Primo giorno') + ' · ' + st[0], L(st[1]).replace(/\s*\(.*?\)/g, ''), lg0 ? `Parti alle ${minHM(lg0.depart)} · ${legHead(lg0)}` : L(st[2]), 'pin', () => { setView('itinerary'); goDay(d.day); }, true);
-  /* meteo di oggi */
+  renderHdrWx(today);
+  /* cambio: due campi sempre pronti (¥ ↔ €), creati una volta sola così non si cancella quello che scrivi */
+  const sym = meta.currency && meta.currency.symbol, fxBox = $('fxTile');
+  if (fxBox) {
+    if (sym && sym !== '€') {
+      if (!fxBox.dataset.ready) {
+        fxBox.dataset.ready = 1;
+        fxBox.innerHTML = `<div class="fx-head" id="fxHead"></div><div><label for="fxY">${esc(sym)} ${esc(meta.currency.name || '')}</label><input id="fxY" type="text" inputmode="decimal" placeholder="0"></div><div><label for="fxE">Euro (€)</label><input id="fxE" type="text" inputmode="decimal" placeholder="0"></div>`;
+        $('fxY').addEventListener('input', ev => { const v = parseNum(ev.target.value); $('fxE').value = Number.isFinite(v) ? (v / rate()).toFixed(2) : ''; });
+        $('fxE').addEventListener('input', ev => { const v = parseNum(ev.target.value); $('fxY').value = Number.isFinite(v) ? (v * rate()).toFixed(2) : ''; });
+      }
+      $('fxHead').textContent = `Cambio · 1 € = ${rate().toFixed(2).replace('.', ',')} ${sym}`;
+    } else fxBox.style.display = 'none';
+  }
+  /* alloggio: sotto il programma di oggi */
+  const hb = $('todayHotelTile'); if (hb) {
+    hb.innerHTML = '';
+    const hk = hotelKeyForDay(d);
+    if (hk) { const h = hotelInfo(hk); const t = document.createElement('button'); t.type = 'button'; t.className = 'bt night wide'; t.innerHTML = `<span class="bi"><svg viewBox="0 0 24 24">${BIC.hotel}</svg></span><div><div class="bl">${esc(isCheckinDay(d, hk) ? 'Check-in oggi' : 'Alloggio')}</div><div class="bv s">${esc(h.name.replace(/ \(.*$/, '').replace(/ = .*$/, ''))}</div><div class="bs">${esc([h.cin && 'Check-in ' + h.cin, h.nights].filter(Boolean).join(' · '))}</div></div>`; t.onclick = () => showPlaceCard(hotelCardData(hk)); hb.appendChild(t); }
+  }
+}
+/* meteo del giorno nella barra in alto */
+function renderHdrWx(today) {
+  const el = $('hdrWx'); if (!el) return;
   const wd = trip.days.find(x => dayISO(x) === today && wxCityOf(x)) || trip.days.find(x => dayISO(x) > today && wxCityOf(x)) || [...trip.days].reverse().find(x => wxCityOf(x));
   const city = wd && wxCityOf(wd), f = city && wxFor(city, today);
-  if (city) {
-    const cur = f && f.kind === 'fc' && f.w.current;
-    tile('', city, f ? Math.round(cur ? cur.temperature_2m : f.max) + '°' : '--', f ? WX_IT(cur ? cur.weather_code : f.code) + ' · max ' + Math.round(f.max) + '°' : 'Tocca per aggiornare', 'cloud', () => goTool('weather'));
-  }
-  const sym = meta.currency && meta.currency.symbol;
-  if (sym && sym !== '€') tile('', 'Cambio', '100 ' + sym, '≈ ' + (100 / rate()).toFixed(2).replace('.', ',') + ' €', 'cash', () => goTool('cambio'), true);
-  const hk = hotelKeyForDay(d);
-  if (hk) { const h = hotelInfo(hk); tile('night wide', isCheckinDay(d, hk) ? 'Check-in oggi' : 'Alloggio', h.name.replace(/ \(.*$/, '').replace(/ = .*$/, ''), [h.cin && 'Check-in ' + h.cin, h.nights].filter(Boolean).join(' · '), 'hotel', () => showPlaceCard(hotelCardData(hk)), true); }
+  if (!f) { el.hidden = true; return; }
+  const cur = f.kind === 'fc' && f.w && f.w.current, code = cur ? cur.weather_code : f.code, t = Math.round(cur ? cur.temperature_2m : f.max);
+  const pop = f.kind === 'fc' ? f.pop : null;
+  el.hidden = false;
+  el.innerHTML = `${wxSvg(code, 18)}<span>${t}°</span><small>${esc(WX_IT(code))} · ${Math.round(f.min)}–${Math.round(f.max)}°${pop != null ? ' · ' + DROP + Math.round(pop) + '%' : ''}</small>`;
+  el.onclick = () => goTool('weather');
 }
 function renderNextTransfer() { renderToday(); }
 
