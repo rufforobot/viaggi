@@ -1,46 +1,6 @@
 {
- "updated": "2026-10-18T06:00:00+02:00",
+ "updated": "2026-10-19T06:00:00+02:00",
  "items": [
-  {
-   "date": "2026-10-18",
-   "city": "Shanghai",
-   "cat": "Sport",
-   "title": "Rolex Shanghai Masters, ultimo giorno",
-   "text": "Il torneo ATP Masters 1000 si chiude oggi. Sede lontana dal centro: calcola circa 75 minuti da People's Square tra metro e navetta.",
-   "place": "Qizhong Tennis Center, Minhang",
-   "src": "Shanghai Tourism",
-   "url": "https://www.shanghaitourism.org/shanghai-festivals-events-calendar/"
-  },
-  {
-   "city": "Shanghai",
-   "cat": "Sport",
-   "title": "UCI Track World Championships",
-   "text": "Mondiali di ciclismo su pista dal 14 al 18 ottobre. Sede a Chongming, fuori dal centro: calcola tempo extra e verifica orari e biglietti.",
-   "place": "Shanghai Velodrome, Chongming",
-   "src": "Shanghai Municipal People's Government",
-   "url": "https://english.shanghai.gov.cn/en-SportsEvents/20260803/b2691b36a6254738ab4656d757b899f4.html",
-   "date": "2026-10-18"
-  },
-  {
-   "date": "2026-10-18",
-   "city": "Shanghai",
-   "cat": "Festival",
-   "title": "International Audio-Visual Arts Gala",
-   "text": "Serata conclusiva del carnevale audiovisivo (24/9-18/10) nel distretto di Jing'an. Orario e sede non indicati: verifica prima di andare.",
-   "place": "Jing'an",
-   "src": "Shanghai Municipal People's Government",
-   "url": "https://english.shanghai.gov.cn/en-FestivalsCelebrations/20260908/107c9248db6d42fea411e41632a4f642.html"
-  },
-  {
-   "date": "2026-10-18",
-   "city": "Shanghai",
-   "cat": "Da sapere",
-   "title": "Weekend Riverside Life Season al North Bund",
-   "text": "Dal 12/9 al 1/11 bar sul lungofiume e musica dal vivo al North Bund: adatto per una passeggiata serale della domenica. Orari non indicati.",
-   "place": "North Bund",
-   "src": "Shanghai Municipal People's Government",
-   "url": "https://english.shanghai.gov.cn/en-MajorConsumerEvents/20260907/b612f30cd33147ac92f6d061da9370ee.html"
-  },
   {
    "date": "2026-10-19",
    "city": "Shanghai",
@@ -48,16 +8,6 @@
    "title": "Shanghai International Arts Festival in corso",
    "text": "La 25a edizione dura dal 17 ottobre al 15 novembre, con opera, concerti e spettacoli al Shanghai Grand Opera House e in spazi pubblici; controlla il programma del giorno.",
    "place": "Shanghai Grand Opera House e altre sedi",
-   "src": "Shanghai Municipal People's Government",
-   "url": "https://english.shanghai.gov.cn/en-CulturalPerformances/20260825/004d4a8d8d304611bda9efe7d569ec45.html"
-  },
-  {
-   "date": "2026-10-19",
-   "city": "Shanghai",
-   "cat": "Spettacoli",
-   "title": "Dance Reflections by Van Cleef & Arpels",
-   "text": "Rassegna di 15 produzioni di danza contemporanea nell'ambito del festival, dal 14/10 all'8/11. Sedi e orari variano per spettacolo: verifica il programma.",
-   "place": "Varie sedi",
    "src": "Shanghai Municipal People's Government",
    "url": "https://english.shanghai.gov.cn/en-CulturalPerformances/20260825/004d4a8d8d304611bda9efe7d569ec45.html"
   },
@@ -70,6 +20,15 @@
    "place": "Shanghai Grand Opera House e altre sedi",
    "src": "Shanghai Municipal People's Government",
    "url": "https://english.shanghai.gov.cn/en-CulturalPerformances/20260825/004d4a8d8d304611bda9efe7d569ec45.html"
+  },
+  {
+   "city": "Zhangjiajie",
+   "cat": "Da sapere",
+   "title": "Ingresso solo con prenotazione nominale",
+   "text": "Per Wulingyuan e Tianmen serve prenotare in anticipo (in bassa stagione bastano 1-3 giorni) con il mini programma WeChat ufficiale \"Zhangjiajie Yijiyou\"; all'ingresso si controllano passaporto e volto.",
+   "place": "Wulingyuan e Tianmen Shan",
+   "src": "Sina Travel",
+   "url": "https://travel.sina.cn/2026-10-12/detail-iniuxmtm5383513.d.html"
   }
  ]
 }
