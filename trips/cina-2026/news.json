@@ -1,16 +1,6 @@
 {
- "updated": "2026-10-19T06:00:00+02:00",
+ "updated": "2026-10-20T06:00:00+02:00",
  "items": [
-  {
-   "date": "2026-10-19",
-   "city": "Shanghai",
-   "cat": "Festival",
-   "title": "Shanghai International Arts Festival in corso",
-   "text": "La 25a edizione dura dal 17 ottobre al 15 novembre, con opera, concerti e spettacoli al Shanghai Grand Opera House e in spazi pubblici; controlla il programma del giorno.",
-   "place": "Shanghai Grand Opera House e altre sedi",
-   "src": "Shanghai Municipal People's Government",
-   "url": "https://english.shanghai.gov.cn/en-CulturalPerformances/20260825/004d4a8d8d304611bda9efe7d569ec45.html"
-  },
   {
    "date": "2026-10-20",
    "city": "Shanghai",
@@ -22,6 +12,16 @@
    "url": "https://english.shanghai.gov.cn/en-CulturalPerformances/20260825/004d4a8d8d304611bda9efe7d569ec45.html"
   },
   {
+   "date": "2026-10-20",
+   "city": "Shanghai",
+   "cat": "Spettacoli",
+   "title": "The Phantom of the Opera, 40o anniversario",
+   "text": "Il musical è in scena allo Shanghai Grand Theatre dal 29 settembre al 27 dicembre; orari e biglietti vanno verificati sulla pagina dell'evento.",
+   "place": "Shanghai Grand Theatre",
+   "src": "Trip.com Events",
+   "url": "https://us.trip.com/events/9072765-2026-shanghai-arts-collection/"
+  },
+  {
    "city": "Zhangjiajie",
    "cat": "Da sapere",
    "title": "Ingresso solo con prenotazione nominale",
@@ -29,6 +29,15 @@
    "place": "Wulingyuan e Tianmen Shan",
    "src": "Sina Travel",
    "url": "https://travel.sina.cn/2026-10-12/detail-iniuxmtm5383513.d.html"
+  },
+  {
+   "city": "Zhangjiajie",
+   "cat": "Avvisi",
+   "title": "Tianmen Shan: funivia principale chiusa dal 13 ottobre",
+   "text": "Secondo un'agenzia locale resta aperta solo la linea C (funivia a doppia fune Tianmen Cave, 288 yuan); non è una comunicazione ufficiale, verifica l'accesso con il parco prima di andare.",
+   "place": "Tianmen Shan",
+   "src": "Xinxin Lüyou (agenzia locale)",
+   "url": "https://lxs.cncn.com/88717/n1366546"
   }
  ]
 }
