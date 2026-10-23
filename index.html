@@ -954,6 +954,20 @@ button.wp { cursor: pointer; }
 #dashboard .today-row { padding: 9px 0; }
 header { background: var(--bg) !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
 .hdr-wx .hw-c, .hdr-wx .hw-d { color: var(--text); opacity: .72; }
+
+/* Per città e giorno */
+#cdCats { margin-bottom: 12px; }
+.cd-total { display: flex; justify-content: space-between; align-items: baseline; padding: 2px 4px 0; font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.cd-total b { font-size: 20px; letter-spacing: -.02em; color: var(--text); }
+.cd-city { background: var(--fill); border-radius: 16px; padding: 0 14px 4px; margin-top: 14px; }
+.cd-head { display: flex; justify-content: space-between; align-items: baseline; padding: 12px 0 10px; font-size: 17px; font-weight: 800; letter-spacing: -.02em; }
+.cd-head b { font-variant-numeric: tabular-nums; }
+.cd-row { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 10px; text-align: left; background: none; border: 0; border-top: .5px solid var(--border); font: inherit; color: var(--text); padding: 10px 0; }
+.cd-t { display: flex; flex-direction: column; min-width: 0; }
+.cd-t b { font-size: 14px; font-weight: 600; }
+.cd-t small { font-size: 12px; color: var(--muted); }
+.cd-a { font-size: 15px; font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.cd-a i { font-style: normal; color: var(--muted); margin-left: 6px; font-weight: 600; }
 </style>
 </head>
 <body>
@@ -1984,18 +1998,20 @@ function renderCityDay(every) {
   const cityOf = x => x.city || cityOfDay(x.day);
   const order = trip.cities.map(c => c.name), cities = [...new Set(list.map(cityOf))].sort((a, b) => { const ia = order.indexOf(a), ib = order.indexOf(b); return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib); });
   box.innerHTML = '';
-  const sec = (label, tot, strong) => { const h = document.createElement('div'); h.className = 'bd-sec'; if (strong) { h.style.color = 'var(--text)'; h.style.fontSize = '14px'; } h.innerHTML = `${esc(label)} <span style="float:right;">${fmtEur(tot)}</span>`; box.appendChild(h); };
-  const row = (title, sub, items) => { const r = document.createElement('button'); r.type = 'button'; r.className = 'bd-item'; r.style.cssText = 'width:100%;text-align:left;background:none;border-left:0;border-right:0;border-bottom:0;font:inherit;color:var(--text);'; r.innerHTML = `<div class="bd-it-main"><b>${esc(title)}</b><span>${esc(sub)}</span></div><div class="bd-it-amt"><b>${fmtEur(sumEuro(items))} ›</b></div>`; r.onclick = () => costPopup(title + (cdCat === 'all' ? '' : ' · ' + cdCat), items); box.appendChild(r); };
-  sec('Totale' + (cdCat === 'all' ? '' : ' · ' + cdCat), sumEuro(list));
+  const tot = document.createElement('div'); tot.className = 'cd-total';
+  tot.innerHTML = `<span>Totale${cdCat === 'all' ? '' : ' · ' + esc(cdCat)}</span><b>${fmtEur(sumEuro(list))}</b>`; box.appendChild(tot);
+  const mkRow = (host, title, sub, items) => { const r = document.createElement('button'); r.type = 'button'; r.className = 'cd-row'; r.innerHTML = `<span class="cd-t"><b>${esc(title)}</b><small>${esc(sub)}</small></span><span class="cd-a">${fmtEur(sumEuro(items))}<i>›</i></span>`; r.onclick = () => costPopup(title + (cdCat === 'all' ? '' : ' · ' + cdCat), items); host.appendChild(r); };
   cities.forEach(c => {
     const mine = list.filter(x => cityOf(x) === c), fixedC = mine.filter(x => x.fixed), spentC = mine.filter(x => !x.fixed);
-    sec(c, sumEuro(mine), true);
-    if (fixedC.length) row('Prenotato · ' + c, fixedC.length + (fixedC.length === 1 ? ' voce' : ' voci'), fixedC);
+    const blk = document.createElement('div'); blk.className = 'cd-city';
+    blk.innerHTML = `<div class="cd-head"><span>${esc(c)}</span><b>${fmtEur(sumEuro(mine))}</b></div>`;
+    if (fixedC.length) mkRow(blk, 'Prenotato', fixedC.length + (fixedC.length === 1 ? ' voce' : ' voci'), fixedC);
     const byDay = new Map(); spentC.forEach(x => { if (!byDay.has(x.day)) byDay.set(x.day, []); byDay.get(x.day).push(x); });
     [...byDay.keys()].sort((a, b) => a - b).forEach(dn => {
       const it = byDay.get(dn), dd = trip.days.find(d => d.day === dn);
-      row(`Giorno ${dn}${dd ? ' · ' + dayDate(dd) : ''}`, it.length + (it.length === 1 ? ' voce' : ' voci'), it);
+      mkRow(blk, `Giorno ${dn}${dd ? ' · ' + dayDate(dd) : ''}`, it.length + (it.length === 1 ? ' voce' : ' voci'), it);
     });
+    box.appendChild(blk);
   });
 }
 function expenseSheet() {
