@@ -1069,7 +1069,7 @@ header { background: var(--bg) !important; backdrop-filter: none !important; -we
   <button class="btn primary bd-add" id="addExpenseBtn" type="button">Aggiungi spesa</button>
   <div class="bento-grid" id="bdTiles"></div>
   <div class="card bd-card"><div class="bd-row"><h3 class="bd-h">Ripartizione</h3><div class="seg two bd-seg" id="bdSeg"><button type="button" data-v="cat" class="on">Categoria</button><button type="button" data-v="city">Città</button></div></div><div id="breakdown"></div></div>
-  <div class="card bd-card"><div class="bd-row"><h3 class="bd-h">Per città e giorno</h3></div><div class="bd-chips" id="cdCats"></div><div id="cityDay"></div></div>
+  <div class="card bd-card"><div class="bd-row"><h3 class="bd-h">Per città e giorno</h3></div><select class="field" id="cdCats" aria-label="Voce di spesa"></select><div id="cityDay"></div></div>
   <div class="card bd-card"><div class="bd-row"><h3 class="bd-h">Elenco spese</h3><div class="bd-btns"><button class="btn small" id="expCsv" type="button">Esporta CSV</button><button class="btn small" id="expToggle" type="button">Mostra</button></div></div><div class="expense-list" id="expenseList" hidden></div></div>
 </div>
     </section>
@@ -1968,29 +1968,35 @@ function renderExpenses() {
 }
 
 let cdCat = 'all';
-/* spesa per città, divisa per giorno, filtrabile per categoria */
+/* spesa per città, divisa per giorno (solo giorno e totale; le voci si aprono in un popup), filtrabile per voce di spesa */
+function costPopup(title, items) {
+  const rows = items.map(x => `<div class="bd-item"><div class="bd-it-main"><b>${esc(x.desc)}</b><span>${esc(catOfExp(x))}${x.fixed ? ' · prenotato' : ''}</span></div><div class="bd-it-amt"><b>${fmtEur(toEuro(x))}</b>${x.currency !== '€' ? `<span>${Number(x.amount).toFixed(2).replace('.', ',')} ${esc(x.currency)}</span>` : ''}</div></div>`).join('');
+  openModal(title, `<div>${rows}<div class="bd-item" style="border-top:1.5px solid var(--text);"><div class="bd-it-main"><b>Totale</b></div><div class="bd-it-amt"><b>${fmtEur(sumEuro(items))}</b></div></div></div>`);
+}
 function renderCityDay(every) {
-  const chips = $('cdCats'), box = $('cityDay'); if (!chips || !box) return;
+  const sel = $('cdCats'), box = $('cityDay'); if (!sel || !box) return;
   const cats = [...new Set(every.map(catOfExp))];
   if (cdCat !== 'all' && !cats.includes(cdCat)) cdCat = 'all';
-  chips.innerHTML = ['all', ...cats].map(c => `<button type="button" data-c="${esc(c)}" class="${c === cdCat ? 'on' : ''}">${c === 'all' ? 'Tutte' : esc(c)}</button>`).join('');
-  chips.onclick = e => { const b = e.target.closest('button'); if (!b) return; cdCat = b.dataset.c; renderCityDay(every); };
+  sel.innerHTML = ['all', ...cats].map(c => `<option value="${esc(c)}"${c === cdCat ? ' selected' : ''}>${c === 'all' ? 'Tutte le voci di spesa' : esc(c)}</option>`).join('');
+  sel.onchange = () => { cdCat = sel.value; renderCityDay(every); };
   const list = every.filter(x => cdCat === 'all' || catOfExp(x) === cdCat);
-  if (!list.length) { box.innerHTML = '<p class="note-line">Ancora nessuna spesa' + (cdCat === 'all' ? '' : ' in questa categoria') + '.</p>'; return; }
+  if (!list.length) { box.innerHTML = '<p class="note-line">Ancora nessuna spesa' + (cdCat === 'all' ? '' : ' in questa voce') + '.</p>'; return; }
   const cityOf = x => x.city || cityOfDay(x.day);
   const order = trip.cities.map(c => c.name), cities = [...new Set(list.map(cityOf))].sort((a, b) => { const ia = order.indexOf(a), ib = order.indexOf(b); return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib); });
-  let h = `<div class="bd-sec" style="padding-top:10px;">Totale${cdCat === 'all' ? '' : ' · ' + esc(cdCat)} <span style="float:right;">${fmtEur(sumEuro(list))}</span></div>`;
+  box.innerHTML = '';
+  const sec = (label, tot, strong) => { const h = document.createElement('div'); h.className = 'bd-sec'; if (strong) { h.style.color = 'var(--text)'; h.style.fontSize = '14px'; } h.innerHTML = `${esc(label)} <span style="float:right;">${fmtEur(tot)}</span>`; box.appendChild(h); };
+  const row = (title, sub, items) => { const r = document.createElement('button'); r.type = 'button'; r.className = 'bd-item'; r.style.cssText = 'width:100%;text-align:left;background:none;border-left:0;border-right:0;border-bottom:0;font:inherit;color:var(--text);'; r.innerHTML = `<div class="bd-it-main"><b>${esc(title)}</b><span>${esc(sub)}</span></div><div class="bd-it-amt"><b>${fmtEur(sumEuro(items))} ›</b></div>`; r.onclick = () => costPopup(title + (cdCat === 'all' ? '' : ' · ' + cdCat), items); box.appendChild(r); };
+  sec('Totale' + (cdCat === 'all' ? '' : ' · ' + cdCat), sumEuro(list));
   cities.forEach(c => {
     const mine = list.filter(x => cityOf(x) === c), fixedC = mine.filter(x => x.fixed), spentC = mine.filter(x => !x.fixed);
-    h += `<div class="bd-sec" style="color:var(--text);font-size:14px;">${esc(c)} <span style="float:right;">${fmtEur(sumEuro(mine))}</span></div>`;
-    fixedC.forEach(x => { h += `<div class="bd-item"><div class="bd-it-main"><b>${esc(x.desc)}</b><span>Prenotato · ${esc(x.catLabel)}</span></div><div class="bd-it-amt"><b>${fmtEur(toEuro(x))}</b></div></div>`; });
+    sec(c, sumEuro(mine), true);
+    if (fixedC.length) row('Prenotato · ' + c, fixedC.length + (fixedC.length === 1 ? ' voce' : ' voci'), fixedC);
     const byDay = new Map(); spentC.forEach(x => { if (!byDay.has(x.day)) byDay.set(x.day, []); byDay.get(x.day).push(x); });
     [...byDay.keys()].sort((a, b) => a - b).forEach(dn => {
       const it = byDay.get(dn), dd = trip.days.find(d => d.day === dn);
-      h += `<div class="bd-item"><div class="bd-it-main"><b>Giorno ${esc(dn)}${dd ? ' · ' + esc(dayDate(dd)) : ''}</b><span>${it.map(x => esc(x.desc) + ' ' + fmtEur(toEuro(x))).join(' · ')}</span></div><div class="bd-it-amt"><b>${fmtEur(sumEuro(it))}</b></div></div>`;
+      row(`Giorno ${dn}${dd ? ' · ' + dayDate(dd) : ''}`, it.length + (it.length === 1 ? ' voce' : ' voci'), it);
     });
   });
-  box.innerHTML = h;
 }
 function expenseSheet() {
   const box = document.createElement('div'); box.className = 'bd-form';
