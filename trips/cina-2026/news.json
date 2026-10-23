@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-21T06:00:00+02:00",
+ "updated": "2026-10-23T06:00:00+02:00",
  "items": [
   {
    "city": "Zhangjiajie",
@@ -18,6 +18,27 @@
    "place": "Tianmen Shan",
    "src": "Xinxin Lüyou (agenzia locale)",
    "url": "https://lxs.cncn.com/88717/n1366546"
+  },
+  {
+   "date": "2026-10-24",
+   "city": "Chongqing",
+   "cat": "Spettacoli",
+   "title": "Spettacolo di droni sul fiume",
+   "text": "Show serale di droni sul fiume, dalle 20:30 alle 20:50 circa. Punti di vista indicati: zona Chaotianmen/Raffles City (Line 6, Grand Theater) o Danzishi (Loop Line); puo essere annullato con poco preavviso.",
+   "place": "Lungofiume Yangtze, Chaotianmen / Danzishi",
+   "time": "20:30-20:50",
+   "src": "Hop China / Chongqing Guide",
+   "url": "https://hop-community.com/chongqing-drone-show-schedule/"
+  },
+  {
+   "date": "2026-10-24",
+   "city": "Chongqing",
+   "cat": "Mostre",
+   "title": "Longgupo: mostra di archeologia (ingresso gratuito)",
+   "text": "Mostra sui reperti di Longgupo al Museo delle Tre Gole, aperta dal 20/10/2026 al 3/1/2027, ingresso gratuito. Orari non indicati: controlla prima di andare.",
+   "place": "Three Gorges Museum",
+   "src": "Chongqing Guide",
+   "url": "https://chongqing.guide/en/whats-on/"
   }
  ]
 }
