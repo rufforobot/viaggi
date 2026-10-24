@@ -1,24 +1,6 @@
 {
- "updated": "2026-10-23T06:00:00+02:00",
+ "updated": "2026-10-24T05:55:00+02:00",
  "items": [
-  {
-   "city": "Zhangjiajie",
-   "cat": "Da sapere",
-   "title": "Ingresso solo con prenotazione nominale",
-   "text": "Per Wulingyuan e Tianmen serve prenotare in anticipo (in bassa stagione bastano 1-3 giorni) con il mini programma WeChat ufficiale \"Zhangjiajie Yijiyou\"; all'ingresso si controllano passaporto e volto.",
-   "place": "Wulingyuan e Tianmen Shan",
-   "src": "Sina Travel",
-   "url": "https://travel.sina.cn/2026-10-12/detail-iniuxmtm5383513.d.html"
-  },
-  {
-   "city": "Zhangjiajie",
-   "cat": "Avvisi",
-   "title": "Tianmen Shan: funivia principale chiusa dal 13 ottobre",
-   "text": "Secondo un'agenzia locale resta aperta solo la linea C (funivia a doppia fune Tianmen Cave, 288 yuan); non è una comunicazione ufficiale, verifica l'accesso con il parco prima di andare.",
-   "place": "Tianmen Shan",
-   "src": "Xinxin Lüyou (agenzia locale)",
-   "url": "https://lxs.cncn.com/88717/n1366546"
-  },
   {
    "date": "2026-10-24",
    "city": "Chongqing",
@@ -39,6 +21,38 @@
    "place": "Three Gorges Museum",
    "src": "Chongqing Guide",
    "url": "https://chongqing.guide/en/whats-on/"
+  },
+  {
+   "date": "2026-10-26",
+   "city": "Chengdu",
+   "cat": "Da sapere",
+   "title": "Panda Base: prenotazione nominale obbligatoria",
+   "text": "Ingresso solo con prenotazione online a nome del visitatore (passaporto), fino a 7 giorni prima; entrata mattina 7:30-12:00, pomeriggio 12:00-17:00, chiusura 18:00. Senza numero cinese si puo prenotare su Trip.com; rimborso gratuito fino alle 17:00 del giorno di visita.",
+   "place": "Chengdu Research Base of Giant Panda Breeding",
+   "time": "7:30-17:00",
+   "src": "Sito ufficiale Panda Base",
+   "url": "https://panda.org.cn/en/service/ticket"
+  },
+  {
+   "date": "2026-10-26",
+   "city": "Chengdu",
+   "cat": "Avvisi",
+   "title": "Museo di Chengdu chiuso il lunedi",
+   "text": "Il Museo di Chengdu e chiuso il lunedi (salvo festivi): se lo volete vedere, andate domenica 25 (9:00-17:00, ultimo ingresso 16:30) oppure venerdi/sabato fino alle 20:30.",
+   "place": "Museo di Chengdu",
+   "src": "Sito del Museo di Chengdu",
+   "url": "https://www.cdmuseum.com/"
+  },
+  {
+   "date": "2026-10-25",
+   "city": "Chengdu",
+   "cat": "Da sapere",
+   "title": "Museo di Chengdu aperto oggi fino alle 17:00",
+   "text": "Domenica il museo apre 9:00-17:00, ultimo ingresso 16:30; domani, lunedi, e chiuso.",
+   "place": "Museo di Chengdu",
+   "time": "9:00-17:00",
+   "src": "Sito del Museo di Chengdu",
+   "url": "https://www.cdmuseum.com/"
   }
  ]
 }
