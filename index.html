@@ -968,6 +968,7 @@ button.wp { cursor: pointer; }
 .fx-row label { font-size: 15px; font-weight: 700; color: var(--muted); }
 .fx-row .fx-eq { color: var(--muted); font-weight: 600; }
 .fx-row input { flex: 1 1 0; min-width: 0; font-family: inherit; height: 38px; border: none; background: var(--fill); color: var(--text); border-radius: 12px; padding: 0 10px; font-size: 17px; font-weight: 700; text-align: center; outline: none; }
+.fx-row input::placeholder { font-size: 13px; font-weight: 400; opacity: 1; color: var(--muted); }
 .fx-cap { margin-top: 6px; font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; }
 #dashboard .today-row { padding: 9px 0; }
 header { background: var(--bg) !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
@@ -1595,11 +1596,10 @@ function renderBento() {
     if (sym && sym !== '€') {
       if (!fxBox.dataset.ready) {
         fxBox.dataset.ready = 1;
-        fxBox.innerHTML = `<div class="fx-row"><label for="fxY">${esc(sym)}</label><input id="fxY" type="text" inputmode="decimal" placeholder="Yuan"><span class="fx-eq">=</span><label for="fxE">€</label><input id="fxE" type="text" inputmode="decimal" placeholder="Euro"></div><div class="fx-cap" id="fxHead"></div>`;
+        fxBox.innerHTML = `<div class="fx-row"><label for="fxY">${esc(sym)}</label><input id="fxY" type="text" inputmode="decimal" placeholder="Yuan"><span class="fx-eq">=</span><label for="fxE">€</label><input id="fxE" type="text" inputmode="decimal" placeholder="Euro"></div>`;
         $('fxY').addEventListener('input', ev => { const v = parseNum(ev.target.value); $('fxE').value = Number.isFinite(v) ? (v / rate()).toFixed(2) : ''; });
         $('fxE').addEventListener('input', ev => { const v = parseNum(ev.target.value); $('fxY').value = Number.isFinite(v) ? (v * rate()).toFixed(2) : ''; });
       }
-      $('fxHead').textContent = `Cambio · 1 € = ${rate().toFixed(2).replace('.', ',')} ${sym}`;
     } else fxBox.style.display = 'none';
   }
   /* alloggio: sotto il programma di oggi */
