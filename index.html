@@ -161,6 +161,13 @@ main { max-width: 1180px; margin: 0 auto; padding: 20px 18px 120px; }
 .view.active { display: flex; flex-direction: column; gap: 10px; }
 .view.active > * { margin-top: 0 !important; margin-bottom: 0 !important; }
 .view.active > :empty { display: none; }
+/* Orari centrati e identici in Oggi e Tappe, celle grigie e bianche */
+.sc-t, .lg-t { width: 58px; min-width: 58px; flex: none; text-align: center; align-items: center; justify-content: center; }
+.lg-t { display: flex; font-size: 15px; }
+.lg-t + .lg-i { margin-left: 16px; }
+.stopc.next, .legc.next { box-shadow: inset 0 0 0 1.5px var(--accent); }
+.today-list > .stopc, .today-list > .legc { margin: 0 0 10px; }
+.today-list > :last-child { margin-bottom: 0; }
 #dashboard > div > :first-child { margin-top: 0 !important; }
 #dashboard > div > :last-child { margin-bottom: 0 !important; }
 #fullItinerary, #wWidgets, #utilHome, #companionList { display: flex; flex-direction: column; gap: 10px; }
@@ -1544,14 +1551,15 @@ function renderToday() {
   const list = document.createElement('div'); list.className = 'today-list';
   plan.items.forEach((it, k) => {
     const r = document.createElement('button'); r.type = 'button';
+    const nx = k === nextK ? ' next' : '';
     if (it.type === 'leg') {
-      r.className = 'today-row leg' + (k === nextK ? ' next' : '');
-      r.innerHTML = `<span class="tr-time">${minHM(it.depart)}</span><span class="tr-main"><b>${esc(legHead(it))}</b><small>${esc(legWhere(d, it))}</small></span>`;
+      r.className = 'legc' + nx;
+      r.innerHTML = `<span class="lg-t">${minHM(it.depart)}</span><span class="lg-i"><b>${esc(legHead(it))}</b><small>${esc(legWhere(d, it))}</small></span><i class="sc-c">›</i>`;
       r.onclick = () => openLeg(d, it);
     } else {
       const i = it.i, st = d.stops[i];
-      r.className = 'today-row' + (k === nextK ? ' next' : '');
-      r.innerHTML = `<span class="tr-time">${esc(st[0])}${it.end != null ? `<small class="tr-e${it.tight ? ' tight' : ''}">${minHM(it.end)}</small>` : ''}</span><span class="tr-main"><b>${esc(L(st[1]))}${guidesForStop(d, i).length ? '<em class="sc-g">Guida</em>' : ''}</b><small>${esc(L(st[2]))}</small></span>`;
+      r.className = 'stopc' + nx;
+      r.innerHTML = `<div class="sc-t">${esc(st[0])}${it.end != null ? `<small class="sc-e${it.tight ? ' tight' : ''}">${minHM(it.end)}</small>` : ''}</div><div class="sc-bar"></div><div class="sc-i"><div class="sc-h">${esc(L(st[1]))}${guidesForStop(d, i).length ? '<em class="sc-g">Guida</em>' : ''}</div>${st[2] ? `<div class="sc-s">${esc(L(st[2]))}</div>` : ''}</div><i class="sc-c">›</i>`;
       r.onclick = () => openSheetNode(L(st[1]), () => stopSheet(d, i));
     }
     list.appendChild(r);
