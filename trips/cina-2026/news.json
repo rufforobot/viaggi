@@ -1,27 +1,6 @@
 {
- "updated": "2026-10-24T05:55:00+02:00",
+ "updated": "2026-10-25T06:05:00+01:00",
  "items": [
-  {
-   "date": "2026-10-24",
-   "city": "Chongqing",
-   "cat": "Spettacoli",
-   "title": "Spettacolo di droni sul fiume",
-   "text": "Show serale di droni sul fiume, dalle 20:30 alle 20:50 circa. Punti di vista indicati: zona Chaotianmen/Raffles City (Line 6, Grand Theater) o Danzishi (Loop Line); puo essere annullato con poco preavviso.",
-   "place": "Lungofiume Yangtze, Chaotianmen / Danzishi",
-   "time": "20:30-20:50",
-   "src": "Hop China / Chongqing Guide",
-   "url": "https://hop-community.com/chongqing-drone-show-schedule/"
-  },
-  {
-   "date": "2026-10-24",
-   "city": "Chongqing",
-   "cat": "Mostre",
-   "title": "Longgupo: mostra di archeologia (ingresso gratuito)",
-   "text": "Mostra sui reperti di Longgupo al Museo delle Tre Gole, aperta dal 20/10/2026 al 3/1/2027, ingresso gratuito. Orari non indicati: controlla prima di andare.",
-   "place": "Three Gorges Museum",
-   "src": "Chongqing Guide",
-   "url": "https://chongqing.guide/en/whats-on/"
-  },
   {
    "date": "2026-10-26",
    "city": "Chengdu",
@@ -53,6 +32,15 @@
    "time": "9:00-17:00",
    "src": "Sito del Museo di Chengdu",
    "url": "https://www.cdmuseum.com/"
+  },
+  {
+   "city": "Xi'an",
+   "cat": "Da sapere",
+   "title": "Esercito di Terracotta: biglietto con passaporto",
+   "text": "Prenotazione online obbligatoria con nome e passaporto fisico (non valgono copie o foto): i biglietti escono 7 giorni prima a mezzanotte, ora di Pechino. Prezzo 120 RMB fino al 30/11; scegliete la fascia oraria in anticipo.",
+   "place": "Museo dell'Esercito di Terracotta",
+   "src": "Wander in China",
+   "url": "https://wanderinchina.com/destinations/xian/terracotta-warriors/tickets/"
   }
  ]
 }
