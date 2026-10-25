@@ -162,10 +162,11 @@ main { max-width: 1180px; margin: 0 auto; padding: 20px 18px 120px; }
 .view.active > * { margin-top: 0 !important; margin-bottom: 0 !important; }
 .view.active > :empty { display: none; }
 /* Orari centrati e identici in Oggi e Tappe, celle grigie e bianche */
-.sc-t, .lg-t { width: 58px; min-width: 58px; flex: none; text-align: center; align-items: center; justify-content: center; }
+.stopc .sc-t, .legc .lg-t { width: 58px; min-width: 58px; max-width: 58px; flex: none; text-align: center !important; align-items: center !important; justify-content: center; }
+.stopc .sc-t .sc-e { text-align: center; }
+.legc { border: 0.5px solid transparent !important; }
 .lg-t { display: flex; font-size: 15px; }
 .lg-t + .lg-i { margin-left: 16px; }
-.stopc.next, .legc.next { box-shadow: inset 0 0 0 1.5px var(--accent); }
 .today-list > .stopc, .today-list > .legc { margin: 0 0 10px; }
 .today-list > :last-child { margin-bottom: 0; }
 #dashboard > div > :first-child { margin-top: 0 !important; }
