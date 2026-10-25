@@ -468,7 +468,7 @@ main { padding: 16px 16px 140px; }
 .live-line, .metric, .wx-slot, .wx-tile, .clocks-x { background: var(--bg); }
 
 /* nav fluttuante */
-.bottom-nav { grid-template-columns: repeat(4, 1fr); left: 16px; right: 16px; bottom: calc(env(safe-area-inset-bottom, 0px) + 16px); max-width: 520px; margin: 0 auto; padding: 12px 8px; border-radius: 32px; background: light-dark(rgba(255,255,255,.85), rgba(28,28,30,.85)); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); box-shadow: 0 10px 40px rgba(0,0,0,.1); border: 1px solid light-dark(rgba(255,255,255,.4), rgba(255,255,255,.08)); }
+.bottom-nav { grid-template-columns: repeat(4, 1fr); left: 16px; right: 16px; bottom: calc((env(safe-area-inset-bottom, 0px) + 16px) / 2); max-width: 520px; margin: 0 auto; padding: 12px 8px; border-radius: 32px; background: light-dark(rgba(255,255,255,.85), rgba(28,28,30,.85)); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); box-shadow: 0 10px 40px rgba(0,0,0,.1); border: 1px solid light-dark(rgba(255,255,255,.4), rgba(255,255,255,.08)); }
 .bottom-nav button { font-size: .7rem; }
 .bottom-nav button.active { color: var(--accent); }
 .bottom-nav button.active svg { transform: scale(1.1); }
