@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-25T06:05:00+01:00",
+ "updated": "2026-10-26T05:50:00+01:00",
  "items": [
   {
    "date": "2026-10-26",
@@ -19,17 +19,6 @@
    "title": "Museo di Chengdu chiuso il lunedi",
    "text": "Il Museo di Chengdu e chiuso il lunedi (salvo festivi): se lo volete vedere, andate domenica 25 (9:00-17:00, ultimo ingresso 16:30) oppure venerdi/sabato fino alle 20:30.",
    "place": "Museo di Chengdu",
-   "src": "Sito del Museo di Chengdu",
-   "url": "https://www.cdmuseum.com/"
-  },
-  {
-   "date": "2026-10-25",
-   "city": "Chengdu",
-   "cat": "Da sapere",
-   "title": "Museo di Chengdu aperto oggi fino alle 17:00",
-   "text": "Domenica il museo apre 9:00-17:00, ultimo ingresso 16:30; domani, lunedi, e chiuso.",
-   "place": "Museo di Chengdu",
-   "time": "9:00-17:00",
    "src": "Sito del Museo di Chengdu",
    "url": "https://www.cdmuseum.com/"
   },
