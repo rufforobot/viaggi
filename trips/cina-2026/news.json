@@ -1,27 +1,6 @@
 {
- "updated": "2026-10-26T05:50:00+01:00",
+ "updated": "2026-10-27T05:55:00+01:00",
  "items": [
-  {
-   "date": "2026-10-26",
-   "city": "Chengdu",
-   "cat": "Da sapere",
-   "title": "Panda Base: prenotazione nominale obbligatoria",
-   "text": "Ingresso solo con prenotazione online a nome del visitatore (passaporto), fino a 7 giorni prima; entrata mattina 7:30-12:00, pomeriggio 12:00-17:00, chiusura 18:00. Senza numero cinese si puo prenotare su Trip.com; rimborso gratuito fino alle 17:00 del giorno di visita.",
-   "place": "Chengdu Research Base of Giant Panda Breeding",
-   "time": "7:30-17:00",
-   "src": "Sito ufficiale Panda Base",
-   "url": "https://panda.org.cn/en/service/ticket"
-  },
-  {
-   "date": "2026-10-26",
-   "city": "Chengdu",
-   "cat": "Avvisi",
-   "title": "Museo di Chengdu chiuso il lunedi",
-   "text": "Il Museo di Chengdu e chiuso il lunedi (salvo festivi): se lo volete vedere, andate domenica 25 (9:00-17:00, ultimo ingresso 16:30) oppure venerdi/sabato fino alle 20:30.",
-   "place": "Museo di Chengdu",
-   "src": "Sito del Museo di Chengdu",
-   "url": "https://www.cdmuseum.com/"
-  },
   {
    "city": "Xi'an",
    "cat": "Da sapere",
@@ -30,6 +9,16 @@
    "place": "Museo dell'Esercito di Terracotta",
    "src": "Wander in China",
    "url": "https://wanderinchina.com/destinations/xian/terracotta-warriors/tickets/"
+  },
+  {
+   "date": "2026-10-29",
+   "city": "Pechino",
+   "cat": "Mostre",
+   "title": "Picasso x Dali: dialogo centenario",
+   "text": "Mostra d'arte digitale immersiva a Wangfujing, aperta fino al 30/11/2026. Biglietti acquistabili online sulla pagina eventi di Trip.com.",
+   "place": "Yiyun Digital Art Center, Wangfujing",
+   "src": "Trip.com",
+   "url": "https://www.trip.com/events/9247156-2026-beijing-exhibitions-collection/"
   }
  ]
 }
