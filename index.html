@@ -2591,14 +2591,16 @@ const AIS = {
 };
 const aiPref = () => { try { const v = localStorage.getItem(AI_KEY); return AIS[v] ? v : ''; } catch { return ''; } };
 function aiPrompt(c) {
-  const lines = [
-    `Sono in viaggio in Cina con la mia compagna (2 adulti italiani, primo viaggio qui). ${c.when ? 'Sarò lì ' + c.when + '. ' : ''}Mi preparo alla visita di «${c.title}»${c.city ? ' a ' + c.city : ''}${c.zh ? ' (in cinese: ' + c.zh + ')' : ''}${c.addr ? ', indirizzo: ' + c.addr : ''}.`,
-    c.note ? `Quello che so già: ${c.note}` : '',
-    'Scrivimi una guida approfondita e pratica, in italiano, con titoli chiari:',
-    '1) storia e significato del luogo; 2) cosa guardare davvero e in che ordine (percorso interno consigliato); 3) curiosità e dettagli che le guide ignorano; 4) etichetta locale, errori da evitare e trappole per turisti; 5) logistica: orari, biglietti, tempi di visita, folla, momento migliore; 6) cosa vedere o mangiare subito intorno.',
-    'Alla fine resta disponibile: ti farò domande per approfondire.'
-  ].filter(Boolean);
-  return lines.join('\n');
+  const alt = [c.zh, c.py].filter(Boolean).join(' · ');
+  const name = c.title + (alt ? ' (' + alt + ')' : '') + (c.city ? ', ' + c.city : '');
+  return `Agisci come una guida turistica di altissimo livello, esperta in storia, ingegneria, geologia e aneddoti locali. Scrivimi una guida enciclopedica ma avvincente su ${name}.
+Per garantirmi un'esperienza totale mentre osservo questo luogo, struttura la risposta toccando obbligatoriamente questi punti:
+- Origini e Genesi: Se è opera dell'uomo, chi l'ha progettata, perché, e quali ostacoli ha dovuto superare? Se è naturale, quali forze geologiche l'hanno forgiata nel corso dei millenni?
+- Anatomia, Ingegneria e Numeri: Dimensioni, materiali esatti, peso. Spiegami l'ingegneria strutturale (come fa a stare in piedi o perché è inclinato?) o le stratificazioni geologiche in gioco.
+- Segreti e Dettagli Nascosti: Raccontami ciò che il 90% dei turisti ignora. Ci sono stanze segrete, firme nascoste, illusioni ottiche, errori di progettazione clamorosi o falsi miti da sfatare?
+- Scienza e Sopravvivenza: Come ha resistito al tempo, alle guerre o all'erosione? Quali sono le minacce attuali (cedimenti, agenti atmosferici, turismo) e quali tecnologie vengono usate oggi per preservarlo?
+- L'Occhio dell'Esperto: Suggeriscimi un dettaglio minuscolo e specifico da cercare con gli occhi proprio ora, o l'angolazione migliore per comprenderne la grandezza.
+Non fornirmi un semplice riassunto turistico: entra nei dettagli tecnici e storici, restituendo un'analisi esaustiva e profonda.`;
 }
 function askAI(ctx, key) {
   const ai = AIS[key], prompt = aiPrompt(ctx);
@@ -2644,7 +2646,7 @@ function stopSheet(day, i) {
       anchor.parentNode.insertBefore(g, anchor);
     }); }
   if (st && !XFER_RE.test(L(s[1])) && (hasPlace || guidesForStop(day, i).length)) {
-    const ctx = () => ({ title: L(s[1]).replace(/\s*\(.*?\)/g, ''), city: String(day.city).split('→').pop().trim(), zh: p.zh, addr: p.addr, when: dayDate(day) + ' alle ' + s[0], note: [L(s[2]), (guidesForStop(day, i)[0] || { stop: {} }).stop.text].filter(Boolean).join(' — ').replace(/^(.{0,420})[\s\S]*$/, (m, h) => h.length < m.length ? h.replace(/\s+\S*$/, '') + '…' : m) });
+    const ctx = () => ({ title: L(s[1]).replace(/\s*\(.*?\)/g, ''), city: String(day.city).split('→').pop().trim(), zh: p.zh, py: p.py })
     box.querySelector('.stop-acts').after(aiBox(ctx));
   }
   if (st) {
@@ -2915,7 +2917,7 @@ function openStop(list, i) {
     });
     if (g1) host.parentNode.insertBefore(g1, host);
     host.parentNode.insertBefore(btnGrid([listen, fav]), host); host.remove(); }
-  { const ctx = () => ({ title: stop.title, city, zh: hanzi, addr: '', when: '', note: String(stop.text || '').replace(/^([\s\S]{0,420})[\s\S]*$/, (m, h) => h.length < m.length ? h.replace(/\s+\S*$/, '') + '…' : m) });
+  { const ctx = () => ({ title: stop.title, city, zh: hanzi, py: L(stop.native).replace(/[\u3400-\u9fff（）()·]/g, ' ').replace(/\s+/g, ' ').trim() });
     const gg = box.querySelector('.grid-2'); if (gg) gg.before(aiBox(ctx)); }
   box.querySelector('.m-prev').addEventListener('click', () => openStop(list, i - 1));
   box.querySelector('.m-next').addEventListener('click', () => openStop(list, i + 1));
