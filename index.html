@@ -2604,9 +2604,11 @@ function askAI(ctx, key) {
   const ai = AIS[key], prompt = aiPrompt(ctx);
   if (ai.url) { window.open(ai.url(prompt), '_blank', 'noopener'); toast('Apro ' + ai.name + '… in Cina serve la VPN'); }
   else {
-    window.open(ai.home, '_blank', 'noopener');
-    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(prompt).then(() => toast('Prompt copiato: incollalo in Gemini'), () => toast('Copia non riuscita'));
-    else toast('Copia non supportata qui');
+    /* Gemini non accetta un testo nel link: lo mostro qui, modificabile, con Copia e Apri */
+    openModal('Prompt per ' + ai.name, `<div><p class="note-line" style="margin:0 0 8px;">Modifica il testo come vuoi, poi copialo e incollalo in ${esc(ai.name)}.</p><textarea id="aiTxt" class="field" style="width:100%;min-height:300px;font-size:15px;line-height:1.45;resize:vertical;"></textarea><div class="grid-2" style="margin-top:10px;"><button class="btn primary" id="aiCopy" type="button">Copia</button><button class="btn" id="aiOpen" type="button">Apri ${esc(ai.name)}</button></div></div>`);
+    const ta = $('aiTxt'); ta.value = prompt;
+    $('aiCopy').onclick = () => { ta.select(); const t = ta.value; if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(() => toast('Copiato'), () => { try { document.execCommand('copy'); toast('Copiato'); } catch { toast('Tieni premuto sul testo per copiarlo'); } }); else { try { document.execCommand('copy'); toast('Copiato'); } catch { toast('Tieni premuto sul testo per copiarlo'); } } };
+    $('aiOpen').onclick = () => window.open(ai.home, '_blank', 'noopener');
   }
 }
 /* pulsante: usa l'IA scelta; la prima volta (o con "Cambia") si sceglie tra Claude, ChatGPT e Gemini */
