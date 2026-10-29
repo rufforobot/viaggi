@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-28T06:10:00+01:00",
+ "updated": "2026-10-29T06:05:00+01:00",
  "items": [
   {
    "city": "Xi'an",
@@ -19,16 +19,6 @@
    "place": "Yiyun Digital Art Center, Wangfujing",
    "src": "Trip.com",
    "url": "https://www.trip.com/events/9247156-2026-beijing-exhibitions-collection/"
-  },
-  {
-   "date": "2026-10-28",
-   "city": "Xi'an",
-   "cat": "Mostre",
-   "title": "Dunhuang: un regno di mille colori",
-   "text": "Mostra su Dunhuang, aperta fino al 31/12/2026. Orari e biglietti da verificare sul posto o su Trip.com.",
-   "place": "Shaanxi Provincial Museum of Fine Arts",
-   "src": "Trip.com",
-   "url": "https://ca.trip.com/events/14348798-2026-xi-an-collection/"
   },
   {
    "city": "Xi'an",
@@ -95,6 +85,66 @@
    "cat": "Mostre",
    "title": "Picasso x Dali: dialogo centenario",
    "text": "Mostra d'arte digitale immersiva a Wangfujing, aperta fino al 30/11/2026. Biglietti online su Trip.com.",
+   "place": "Yiyun Digital Art Center, Wangfujing",
+   "src": "Trip.com",
+   "url": "https://www.trip.com/events/9247156-2026-beijing-exhibitions-collection/"
+  },
+  {
+   "date": "2026-10-29",
+   "city": "Pechino",
+   "cat": "Mostre",
+   "title": "Mostra sulla Lunga Marcia al Museo Nazionale",
+   "text": "Mostra di opere d'arte sulla Lunga Marcia (90 anni), aperta fino a dicembre. Il museo è su Piazza Tiananmen: serve prenotazione con passaporto.",
+   "place": "Museo Nazionale della Cina",
+   "src": "Visit Beijing (programma ottobre)",
+   "url": "https://www.visitbeijing.com.cn/article/4TTN7um2mxl"
+  },
+  {
+   "date": "2026-10-30",
+   "city": "Pechino",
+   "cat": "Mostre",
+   "title": "Fokine: dipinti scelti, Museo d'Arte della Cina",
+   "text": "Mostra di pittura di Nikolai Fechin, aperta dal 29/09/2026 al 14/02/2027. Orari e biglietti da verificare in loco.",
+   "place": "Museo d'Arte della Cina (NAMOC)",
+   "src": "Visit Beijing (programma ottobre)",
+   "url": "https://www.visitbeijing.com.cn/article/4TTN7um2mxl"
+  },
+  {
+   "date": "2026-10-31",
+   "city": "Pechino",
+   "cat": "Spettacoli",
+   "title": "Concerto Phoenix Legend allo Stadio Nazionale",
+   "text": "Seconda serata del concerto \"Ji Xiang Ru Yi\" al Nido d'Uccello (30-31/10). Orario non indicato: controllare il biglietto.",
+   "place": "Stadio Nazionale (Nido d'Uccello)",
+   "src": "Visit Beijing (programma ottobre)",
+   "url": "https://www.visitbeijing.com.cn/article/4TTN7um2mxl"
+  },
+  {
+   "date": "2026-10-31",
+   "city": "Pechino",
+   "cat": "Spettacoli",
+   "title": "Musical in francese \"La Dame aux camelias\"",
+   "text": "Repliche il 30 e 31/10 al Poly Theatre. Orario non indicato.",
+   "place": "Beijing Poly Theatre",
+   "src": "Visit Beijing (programma ottobre)",
+   "url": "https://www.visitbeijing.com.cn/article/4TTN7um2mxl"
+  },
+  {
+   "date": "2026-10-31",
+   "city": "Pechino",
+   "cat": "Spettacoli",
+   "title": "Pièce \"Art\" al Teatro della Capitale",
+   "text": "Spettacolo teatrale in cinese, 30-31/10. Orario non indicato.",
+   "place": "Capital Theatre (Shoudu Juchang)",
+   "src": "Visit Beijing (programma ottobre)",
+   "url": "https://www.visitbeijing.com.cn/article/4TTN7um2mxl"
+  },
+  {
+   "date": "2026-10-31",
+   "city": "Pechino",
+   "cat": "Mostre",
+   "title": "Picasso x Dali: dialogo centenario",
+   "text": "Mostra digitale immersiva a Wangfujing, aperta fino al 30/11/2026.",
    "place": "Yiyun Digital Art Center, Wangfujing",
    "src": "Trip.com",
    "url": "https://www.trip.com/events/9247156-2026-beijing-exhibitions-collection/"
