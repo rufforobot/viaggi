@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-29T06:05:00+01:00",
+ "updated": "2026-10-30T06:10:00+01:00",
  "items": [
   {
    "city": "Xi'an",
@@ -11,16 +11,6 @@
    "url": "https://wanderinchina.com/destinations/xian/terracotta-warriors/tickets/"
   },
   {
-   "date": "2026-10-29",
-   "city": "Pechino",
-   "cat": "Mostre",
-   "title": "Picasso x Dali: dialogo centenario",
-   "text": "Mostra d'arte digitale immersiva a Wangfujing, aperta fino al 30/11/2026. Biglietti acquistabili online sulla pagina eventi di Trip.com.",
-   "place": "Yiyun Digital Art Center, Wangfujing",
-   "src": "Trip.com",
-   "url": "https://www.trip.com/events/9247156-2026-beijing-exhibitions-collection/"
-  },
-  {
    "city": "Xi'an",
    "cat": "Da sapere",
    "title": "Museo di Storia dello Shaanxi: prenotazione",
@@ -28,36 +18,6 @@
    "place": "Shaanxi History Museum, Xiaozhai East Road 91",
    "src": "Sohu (avviso del museo, 20/09/2026)",
    "url": "https://www.sohu.com/a/1078719268_556618"
-  },
-  {
-   "date": "2026-10-29",
-   "city": "Pechino",
-   "cat": "Sport",
-   "title": "Intel Extreme Masters Beijing (esports)",
-   "text": "Torneo internazionale di esports dal 28/10 al 9/11. Orari e biglietti non pubblicati nella fonte.",
-   "place": "Wukesong Arena, Wukesong M Space",
-   "src": "Beijing Municipal Government",
-   "url": "https://english.beijing.gov.cn/whatson/events/exhibition/202609/t20260904_4850817.html"
-  },
-  {
-   "date": "2026-10-29",
-   "city": "Pechino",
-   "cat": "Spettacoli",
-   "title": "Musical \"Feng Sheng\" (Il vento)",
-   "text": "Musical in cinese della Beijing Opera and Dance Drama Theatre, repliche dal 27/10 all'1/11. Orario non indicato: controllare il teatro.",
-   "place": "Beijing Tianqiao Performing Arts Center",
-   "src": "Visit Beijing",
-   "url": "https://www.visitbeijing.com.cn/article/4TlTohh8kd5"
-  },
-  {
-   "date": "2026-10-29",
-   "city": "Pechino",
-   "cat": "Spettacoli",
-   "title": "Monologo \"La novella degli scacchi\"",
-   "text": "Spettacolo in cinese del Gulou West Theatre, dal 29/10 all'1/11. Orario non indicato.",
-   "place": "Teatro Nazionale (NCPA)",
-   "src": "Visit Beijing",
-   "url": "https://www.visitbeijing.com.cn/article/4TlTohh8kd5"
   },
   {
    "date": "2026-10-30",
@@ -90,16 +50,6 @@
    "url": "https://www.trip.com/events/9247156-2026-beijing-exhibitions-collection/"
   },
   {
-   "date": "2026-10-29",
-   "city": "Pechino",
-   "cat": "Mostre",
-   "title": "Mostra sulla Lunga Marcia al Museo Nazionale",
-   "text": "Mostra di opere d'arte sulla Lunga Marcia (90 anni), aperta fino a dicembre. Il museo è su Piazza Tiananmen: serve prenotazione con passaporto.",
-   "place": "Museo Nazionale della Cina",
-   "src": "Visit Beijing (programma ottobre)",
-   "url": "https://www.visitbeijing.com.cn/article/4TTN7um2mxl"
-  },
-  {
    "date": "2026-10-30",
    "city": "Pechino",
    "cat": "Mostre",
@@ -114,7 +64,7 @@
    "city": "Pechino",
    "cat": "Spettacoli",
    "title": "Concerto Phoenix Legend allo Stadio Nazionale",
-   "text": "Seconda serata del concerto \"Ji Xiang Ru Yi\" al Nido d'Uccello (30-31/10). Orario non indicato: controllare il biglietto.",
+   "text": "Serata del concerto \"Ji Xiang Ru Yi\" al Nido d'Uccello (30/10-1/11). Orario non indicato: controllare il biglietto.",
    "place": "Stadio Nazionale (Nido d'Uccello)",
    "src": "Visit Beijing (programma ottobre)",
    "url": "https://www.visitbeijing.com.cn/article/4TTN7um2mxl"
@@ -124,7 +74,7 @@
    "city": "Pechino",
    "cat": "Spettacoli",
    "title": "Musical in francese \"La Dame aux camelias\"",
-   "text": "Repliche il 30 e 31/10 al Poly Theatre. Orario non indicato.",
+   "text": "Repliche dal 30/10 all'1/11 al Poly Theatre. Orario non indicato.",
    "place": "Beijing Poly Theatre",
    "src": "Visit Beijing (programma ottobre)",
    "url": "https://www.visitbeijing.com.cn/article/4TTN7um2mxl"
@@ -134,13 +84,83 @@
    "city": "Pechino",
    "cat": "Spettacoli",
    "title": "Pièce \"Art\" al Teatro della Capitale",
-   "text": "Spettacolo teatrale in cinese, 30-31/10. Orario non indicato.",
+   "text": "Spettacolo teatrale in cinese, 30/10-1/11. Orario non indicato.",
    "place": "Capital Theatre (Shoudu Juchang)",
    "src": "Visit Beijing (programma ottobre)",
    "url": "https://www.visitbeijing.com.cn/article/4TTN7um2mxl"
   },
   {
    "date": "2026-10-31",
+   "city": "Pechino",
+   "cat": "Mostre",
+   "title": "Picasso x Dali: dialogo centenario",
+   "text": "Mostra digitale immersiva a Wangfujing, aperta fino al 30/11/2026.",
+   "place": "Yiyun Digital Art Center, Wangfujing",
+   "src": "Trip.com",
+   "url": "https://www.trip.com/events/9247156-2026-beijing-exhibitions-collection/"
+  },
+  {
+   "date": "2026-10-30",
+   "city": "Pechino",
+   "cat": "Spettacoli",
+   "title": "Opera di marionette \"Huoyan Shan\" (Montagna di Fuoco)",
+   "text": "Spettacolo di marionette a fili dal Viaggio in Occidente, 30-31/10. Orario non indicato.",
+   "place": "Teatro Nazionale di Pechino per l'Opera Cinese",
+   "src": "Visit Beijing",
+   "url": "https://www.visitbeijing.com.cn/article/4TlTohh8kd5"
+  },
+  {
+   "date": "2026-10-31",
+   "city": "Pechino",
+   "cat": "Spettacoli",
+   "title": "Concerto jazz di Wang Yiheng",
+   "text": "Concerto \"New Jazz Farmer\" il 31/10. Orario e biglietti non indicati.",
+   "place": "Palazzo dello Sport di Pechino",
+   "src": "Visit Beijing",
+   "url": "https://www.visitbeijing.com.cn/article/4TlTohh8kd5"
+  },
+  {
+   "date": "2026-11-01",
+   "city": "Pechino",
+   "cat": "Spettacoli",
+   "title": "Concerto Phoenix Legend allo Stadio Nazionale",
+   "text": "Ultima serata del concerto \"Ji Xiang Ru Yi\" al Nido d'Uccello (30/10-1/11). Orario non indicato.",
+   "place": "Stadio Nazionale (Nido d'Uccello)",
+   "src": "Visit Beijing",
+   "url": "https://www.visitbeijing.com.cn/article/4TlTohh8kd5"
+  },
+  {
+   "date": "2026-11-01",
+   "city": "Pechino",
+   "cat": "Spettacoli",
+   "title": "Concerto Brahms della Sinfonica di Pechino",
+   "text": "Concerto per il 130° anniversario della morte di Brahms, 1/11. Orario non indicato.",
+   "place": "Teatro Nazionale (NCPA)",
+   "src": "Visit Beijing",
+   "url": "https://www.visitbeijing.com.cn/article/4TlTohh8kd5"
+  },
+  {
+   "date": "2026-11-01",
+   "city": "Pechino",
+   "cat": "Spettacoli",
+   "title": "Musical in francese \"La Dame aux camelias\"",
+   "text": "Ultima replica (30/10-1/11). Orario non indicato.",
+   "place": "Poly Theatre, Pechino",
+   "src": "Visit Beijing",
+   "url": "https://www.visitbeijing.com.cn/article/4TlTohh8kd5"
+  },
+  {
+   "date": "2026-11-01",
+   "city": "Pechino",
+   "cat": "Spettacoli",
+   "title": "Pièce \"Art\" al Teatro della Capitale",
+   "text": "Ultima replica (30/10-1/11) in cinese. Orario non indicato.",
+   "place": "Capital Theatre (Shoudu Juchang)",
+   "src": "Visit Beijing",
+   "url": "https://www.visitbeijing.com.cn/article/4TlTohh8kd5"
+  },
+  {
+   "date": "2026-11-01",
    "city": "Pechino",
    "cat": "Mostre",
    "title": "Picasso x Dali: dialogo centenario",
