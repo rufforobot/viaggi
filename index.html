@@ -1414,6 +1414,24 @@ const cityOfDay = n => {
   return d ? d.city.split('→')[0].trim() : 'In viaggio';
 };
 
+/* Città di una spesa in base all'ora: nei giorni con cambio città (treno/volo) si passa alla destinazione dalla partenza del mezzo */
+const cityNames = () => trip.cities.map(c => c.name);
+function dayTransfer(day) {
+  const idx = trip.days.indexOf(day), parts = String(day.city).split('→').map(x => x.trim());
+  const st = day.stops.find(s => /^(volo|treno)\b[^→]*→/i.test(L(s[1])));
+  const m = st && String(st[0]).match(/^(\d{1,2})[:.](\d{2})/); if (!m) return null;
+  const prev = idx > 0 ? String(trip.days[idx - 1].city).split('→').pop().trim() : '';
+  const from = parts.length > 1 ? parts[0] : prev, to = parts[parts.length - 1];
+  if (!from || !to || from === to) return null;
+  return { from, to, dep: (+m[1]) * 60 + (+m[2]) };
+}
+function cityAt(day, nowMin) {
+  const t = dayTransfer(day), names = cityNames();
+  if (!t) { const c = cityOfDay(day.day); return c; }
+  const c = nowMin >= t.dep ? t.to : t.from;
+  return names.includes(c) ? c : (nowMin >= t.dep ? 'In viaggio' : c);
+}
+const nowMinDest = () => { const hm = new Date().toLocaleTimeString('en-GB', { timeZone: meta.tz, hour: '2-digit', minute: '2-digit' }); return (+hm.slice(0, 2)) * 60 + (+hm.slice(3, 5)); };
 function updateCountdown() {
   const start = new Date(meta.start), end = new Date(meta.end);
   const now = new Date();
@@ -1994,7 +2012,19 @@ function bookedCosts() {
   return out;
 }
 const catOfExp = x => x.catLabel || catName(x.cat);
+/* una tantum: le spese già registrate dopo la partenza del treno/volo nei giorni con cambio città passano alla città di arrivo */
+function migrateExpenseCities() {
+  if (state.cityMig) return; state.cityMig = 1; let ch = 0;
+  (state.expenses || []).forEach(x => {
+    const d = trip.days.find(y => y.day === x.day), t = d && dayTransfer(d); if (!t || x.city !== t.from || !cityNames().includes(t.to)) return;
+    const when = new Date(Number(x.id)); if (!(Number(x.id) > 1e12)) return;
+    const iso = when.toLocaleDateString('en-CA', { timeZone: meta.tz }), hm = when.toLocaleTimeString('en-GB', { timeZone: meta.tz, hour: '2-digit', minute: '2-digit' });
+    if (iso === dayISO(d) && (+hm.slice(0, 2)) * 60 + (+hm.slice(3, 5)) >= t.dep) { x.city = t.to; ch++; }
+  });
+  saveState(); return ch;
+}
 function renderExpenses() {
+  migrateExpenseCities();
   const wrap = $('expenseList'); wrap.innerHTML = '';
   wrap.hidden = !bdListOpen; $('expToggle').setAttribute('aria-label', bdListOpen ? 'Nascondi elenco spese' : 'Mostra elenco spese'); $('expToggle').textContent = bdListOpen ? '▴' : '▾';
   const currentDay = trip.days[tripDayIndex()].day;
@@ -2087,7 +2117,7 @@ function expenseSheet() {
     <button class="btn primary" id="bdSave" type="button">Aggiungi spesa</button>`;
   const upd = () => { const v = parseNum($('bdAmt').value); $('bdConv').textContent = Number.isFinite(v) && v > 0 ? '≈ ' + fmtEur(cur === '€' ? v : v / rate()) : ''; };
   setTimeout(() => {
-    $('bdCity').value = cityOfDay(trip.days[tripDayIndex()].day);
+    { const v = cityAt(trip.days[tripDayIndex()], nowMinDest()); if ([...$('bdCity').options].some(o => o.value === v)) $('bdCity').value = v; }
     $('bdAmt').addEventListener('input', upd);
     if ($('bdCur')) $('bdCur').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; cur = b.dataset.c; $('bdCur').querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b)); upd(); });
     $('bdCats').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; cat = b.dataset.k; $('bdCats').querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b)); });
